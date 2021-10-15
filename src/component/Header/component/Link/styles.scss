@@ -1,0 +1,19 @@
+.menulist{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative;
+    right: 50px;
+    margin-top: 50px;
+  
+    & > li{
+        margin-top: 30px;
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .menulist > .active{
+        background-color: green;
+        width: 100%;
+        right: 0;
+    }
+}
