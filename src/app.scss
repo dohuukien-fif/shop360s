@@ -17,13 +17,14 @@ html{
 body{
   font-family: $font-family;
   font-weight: 400;
-  line-height: 1.5px;
- margin-bottom: 3rem;
+
+z-index: -1;
   @include mobile{
     margin-bottom: 1.5rem;
+    overflow: hidden;
   }
   @include tablet{
-
+    overflow: hidden;
   }
 }
 a{

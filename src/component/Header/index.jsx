@@ -8,7 +8,7 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import ProductLink from './component/Link';
 const Header = (props) => {
-  const [torget, settorget] = useState(true);
+  const [torget, settorget] = useState(false);
   const handleClickToget = () => {
     settorget((x) => !x);
   };
@@ -28,9 +28,14 @@ const Header = (props) => {
         <div className="header-right">
           <AccountCircleIcon />
           <AddShoppingCartIcon />
-          <DehazeIcon onClick={handleClickToget} />
+          {torget ? (
+            <CloseIcon onClick={() => settorget(false)} />
+          ) : (
+            <DehazeIcon className="header-right_icon" onClick={handleClickToget} />
+          )}
         </div>
       </div>
+
       <ProductLink torget={torget} />
     </div>
   );

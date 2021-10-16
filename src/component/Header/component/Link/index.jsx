@@ -5,12 +5,14 @@ NakLink.propTypes = {};
 
 function NakLink({ torget }) {
   return (
-    <ul className={torget ? 'menulist active' : 'menulist'}>
-      <li>kien dep trai</li>
-      <li>kien dep trai</li>
-      <li>kien dep trai</li>
-      <li>kien dep trai</li>
-      <li>kien dep trai</li>
+    <ul className={torget ? 'menulist active ' : 'menulist'}>
+      <h3>Menu</h3>
+      <li>Giới thiệu</li>
+      <li>Áo</li>
+      <li>Quần</li>
+      <li>Giày</li>
+      <li>mũ</li>
+      <li>Sneaker</li>
     </ul>
   );
 }
