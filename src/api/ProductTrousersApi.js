@@ -1,6 +1,6 @@
 import axiosClient from './axiosClient';
 
-const trousersApi = {
+const TrousersApi = {
   getAll(params) {
     const url = '/quan';
     return axiosClient.get(url, { params });
@@ -22,4 +22,4 @@ const trousersApi = {
     return axiosClient.get(url);
   },
 };
-export default trousersApi;
+export default TrousersApi;

@@ -7,6 +7,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import ProductLink from './component/Link';
+import { Link } from 'react-router-dom';
 const Header = (props) => {
   const [torget, settorget] = useState(false);
   const handleClickToget = () => {
@@ -16,10 +17,12 @@ const Header = (props) => {
     <div>
       <div className="header">
         <div className="header-left">
-          <img
-            src="https://360boutique.vn/wp-content/uploads/2021/10/LOGO-360-DUNG-TAM-THOI-MAU-DEN-05.png"
-            alt=""
-          />
+          <Link to="/product">
+            <img
+              src="https://360boutique.vn/wp-content/uploads/2021/10/LOGO-360-DUNG-TAM-THOI-MAU-DEN-05.png"
+              alt=""
+            />
+          </Link>
         </div>
         <div className="header-mid">
           <input type="text" placeholder="Tìm kiến sản phẩm..." />

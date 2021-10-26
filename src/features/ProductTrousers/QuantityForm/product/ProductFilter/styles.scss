@@ -1,0 +1,29 @@
+@use "./../../../../../sass/" as *;
+.filter-prices{
+transform: translateY(18px);
+display: flex;
+justify-content: center;
+align-items: center;
+& > button{
+    height: 40px;
+    padding: 1rem;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+}
+.selectPrice{
+   @include tablet{
+    width: 220px;
+ 
+   }
+}
+// .filter-category{
+//     @include tablet{
+//     margin-bottom: 3rem;
+//    }
+// }
+// .textInput{
+//     height: 30px;
+// }

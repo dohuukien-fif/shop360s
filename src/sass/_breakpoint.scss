@@ -5,6 +5,11 @@
         @content;
     }
 }
+@mixin tablets {
+    @media only screen and (min-width:$tablets-width) {
+        @content;
+    }
+}
 @mixin tablet {
     @media only screen and (min-width:$tablet-width) {
         @content;

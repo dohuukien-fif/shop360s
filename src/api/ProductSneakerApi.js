@@ -2,23 +2,23 @@ import axiosClient from './axiosClient';
 
 const SneakerApi = {
   getAll(params) {
-    const url = '/giày';
+    const url = '/sneaker';
     return axiosClient.get(url, { params });
   },
   get(id) {
-    const url = `/giày/${id}`;
+    const url = `/sneaker/${id}`;
     return axiosClient.get(url);
   },
   add(data) {
-    const url = `/giày`;
+    const url = `/sneaker`;
     return axiosClient.post(url, data);
   },
   update(data) {
-    const url = `/giày/${data}`;
+    const url = `/sneaker/${data}`;
     return axiosClient.get(url, data);
   },
   detele(id) {
-    const url = `/giày/${id}`;
+    const url = `/sneaker/${id}`;
     return axiosClient.get(url);
   },
 };

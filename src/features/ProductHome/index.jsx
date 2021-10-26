@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import { Route, Switch, useRouteMatch, useLocation } from 'react-router-dom';
+
 import Product from './page/product';
-import DetailProduct from './page/Description';
+import Description from './page/Description';
+
+import ProductQuan from './page/ProductQuan';
 
 ProductFeature.propTypes = {};
 
@@ -13,8 +16,10 @@ function ProductFeature(props) {
   return (
     <div>
       <Switch>
-        <Route path={match.path} exact component={Product} />
-        <Route path={`${match.path}/:productId`} component={DetailProduct} />
+        <Route path={match.url} exact component={Product} />
+
+        {/* <Route path={`${match.path}/count`} component={ProductQuan} /> */}
+        <Route path={`${match.url}/:productId`} component={Description} />
       </Switch>
     </div>
   );

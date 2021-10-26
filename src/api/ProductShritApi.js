@@ -1,6 +1,6 @@
 import axiosClient from './axiosClient';
 
-const shritApi = {
+const ShirtApi = {
   getAll(params) {
     const url = '/shrit';
     return axiosClient.get(url, { params });
@@ -22,4 +22,4 @@ const shritApi = {
     return axiosClient.get(url);
   },
 };
-export default shritApi;
+export default ShirtApi;

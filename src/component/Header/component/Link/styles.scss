@@ -6,6 +6,9 @@
     position: absolute;
     left: -100%;
     z-index: 1;
+  // @include tablet{
+  //   margin-bottom: 100px;
+  // }
    
     // &.actives{
     //     display: none;
@@ -40,7 +43,7 @@
     }
   
     &.active{
-      background-color: green;
+      background-color: rgb(229, 226, 226);
 position: fixed;
       top: 0;
       height: 100%;
@@ -52,11 +55,23 @@ position: fixed;
    
 
     & > li{
-margin-top: 30px;
-          font-size: 18px;
-        font-weight: 600;
+// margin-top: 30px;
+
+          font-size: 15px;
+          display: inline;
+          color: rgb(57, 57, 57);
+        font-weight: 500;
         margin-right: 50px;
         z-index: 1;
+      
+        // background-color: red;
+        @include mobile{
+          padding: 1rem;
+        }
+        // @include tablet{
+        //   margin-top: 15px;
+        //   margin-bottom: 20px;
+        // }
         
     }
   

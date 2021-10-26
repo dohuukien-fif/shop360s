@@ -19,7 +19,6 @@ function slidesProduct(props) {
   };
   return (
     <div>
-  
       <Slider {...settings}>
         <div className="slides-image">
           <img src="https://360boutique.vn/wp-content/uploads/2021/10/WEB.jpg" alt="" />
@@ -27,6 +26,10 @@ function slidesProduct(props) {
         <div className="slides-image">
           <img src="https://360boutique.vn/wp-content/uploads/2021/10/WEB-LEN.jpg" alt="" />
         </div>
+        <div className="slides-image">
+          <img src=" https://360boutique.vn/wp-content/uploads/2021/10/COVER-WEB.jpg" alt="" />
+        </div>
+
         {/* <div className="slides-image">
           <img
             src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cHJvZHVjdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
