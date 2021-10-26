@@ -9,7 +9,7 @@ function Product({ product }) {
   const { name, id, Araray, originalPrice, promotionpencent, price } = product;
   const history = useHistory();
   const handleClick = () => {
-    history.push(`Mu/${product.id}`);
+    history.push(`Giay/${product.id}`);
   };
 
   return (

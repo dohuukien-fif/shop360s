@@ -15,11 +15,11 @@ import ChosingDiffrentProduct from '../component/slides/ChosingDiffrentProduct';
 import Seleken from './../component/ProductSelekent/seleken';
 function Description() {
   const {
-    params: { muId },
+    params: { giayId },
     url,
   } = useRouteMatch();
 
-  const { product, Loading } = useDetailProduct(muId);
+  const { product, Loading } = useDetailProduct(giayId);
   console.log(product);
   const title =
     product.categoryName === undefined ? ' ' : `${product.categoryName} / ${product.name}`;
