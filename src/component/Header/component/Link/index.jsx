@@ -2,30 +2,158 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import { Link } from 'react-router-dom';
+import { AiOutlineRight } from 'react-icons/ai';
 NakLink.propTypes = {};
 
-function NakLink({ torget }) {
+function NakLink({ torget, scrow }) {
   return (
-    <ul className={torget ? 'menulist actves active ' : 'menulist'}>
-      <h3>Menu</h3>
-      <li>Giới thiệu</li>
+    <ul
+      className={
+        (scrow && `menulist ${torget ? 'activeMenu active' : 'activeMenu'}`) ||
+        (torget ? ' menulist activeMenu  active ' : '  menulist')
+      }
+    >
+      <h3>Danh sách sản phẩm</h3>
+
       <li>
-        <Link to="/Ao">Áo</Link>
+        <span>Áo</span>
+        <ul className="dropdown">
+          <li style={{ fontSize: '18px', fontWeight: '600' }}>
+            {' '}
+            <Link to="/Ao">ÁO</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Ao/ao-adidas">Áo Adidas</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Ao/ao-burberry">Áo Burberry</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Ao/ao-calvin">Áo Calvin</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Ao/ao-dior">Áo dior</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Ao/ao-dolce">Áo dolce</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Ao/ao-kenzo">Áo Kenzo</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Ao/ao-lacoste">Áo Lacoste</Link>
+          </li>
+        </ul>
       </li>
       <li>
-        <Link to="/Quan">Quần</Link>
+        <span>Quần</span>
+        <ul className="dropdown">
+          <li style={{ fontSize: '18px', fontWeight: '600' }}>
+            {' '}
+            <Link to="/Quan">QUẦN</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Quan/quan-jeans">Quần Jeans</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Quan/quan-au">Quần Âu</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Quan/vay-nu">Váy Nữ</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Quan/quan-short">Quần Short</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Quan/quan-kaki">Quần Kaki</Link>
+          </li>
+        </ul>
       </li>
       <li>
         {' '}
-        <Link to="/Kinh">Kính</Link>
+        <span>Kính</span>
+        <ul className="dropdown">
+          <li style={{ fontSize: '18px', fontWeight: '600' }}>
+            {' '}
+            <Link to="/Kinh">KÍNH</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Kinh/kinh-balenciaga">Kính Balenciaga</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Kinh/kinh-channel">Kính Channel</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Kinh/kinh-dior">Kính Diol</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Kinh/kinh-dolce">Kính Dolce</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Kinh/kinh-fendi">Kính Fendi</Link>
+          </li>
+        </ul>
       </li>
       <li>
         {' '}
-        <Link to="/Mu">mũ</Link>
+        <span>Mũ</span>
+        <ul className="dropdown">
+          <li style={{ fontSize: '18px', fontWeight: '600' }}>
+            {' '}
+            <Link to="/Mu">MŨ</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Mu/mu-adidas">Mũ Adidas</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Mu/mu-burberry">Mũ Burberry</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Mu/mu-gucci">Mũ Gucci</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Mu/mu-dolce">Mũ Dolce</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Mu/mu-lacoste">Mũ Lacoste</Link>
+          </li>
+        </ul>
       </li>
       <li>
-        <Link to="/Giay">Sneaker</Link>
+        <span>Sneaker</span>
+        <ul className="dropdown">
+          <li style={{ fontSize: '18px', fontWeight: '600' }}>
+            {' '}
+            <Link to="/Giay">GIÀY</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Giay/giay-adidas">Giày Adidas</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Giay/giay-burberry">Giày Burberry</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Giay/giay-gucci">Giày Gucci</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Giay/giay-dolce">Giày Dolce</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Giay/giay-converse">Giày Converse</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Giay/giay-dior">Giày Dior</Link>
+          </li>
+          <li className="dropdown_item">
+            <Link to="/Giay/giay-lacoste">Giày Lacoste</Link>
+          </li>
+        </ul>
       </li>
+      <li>Tin tức</li>
+      {/* <li>Giới thiệu </li> */}
+      {/* <li>
+        <Link to="/Cart">cart</Link>
+      </li> */}
     </ul>
   );
 }

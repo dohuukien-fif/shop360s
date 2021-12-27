@@ -20,12 +20,14 @@ function ProductInfo({ product, onChange }) {
     promotionpencent,
     description,
   } = product;
-  const onChangeQuantity = (newvalue) => {
-    console.log(newvalue);
+  const onChangeQuantity = (newvalue, value) => {
+    if (onChange) {
+      onChange(newvalue, value);
+    }
   };
-  const handleSize = (newvalue) => {
-    console.log('sex', newvalue);
-  };
+  // const handleSize = (newvalue) => {
+  //   console.log('sex', newvalue);
+  // };
   // const curentInput = useRef();
   // useEffect(() => {
   //   new Array(curentInput.current).forEach((item, index) => {
@@ -53,22 +55,23 @@ function ProductInfo({ product, onChange }) {
           </div>
         )}
       </div>
-      <div className="info-size">
+      {/* <div className="info-size">
         <h2>Cỡ</h2>
 
         {Size.map((item, index) => (
           <Sizes item={item} onChange={handleSize} />
         ))}
-      </div>
+      </div> */}
 
       <div className="info-quantity">
-        <QuantityForm onSubmits={onChangeQuantity} />
+        <QuantityForm item={Size} onSubmits={onChangeQuantity} />
       </div>
       <div className="info-information">
         <h2>THÔNG TIN</h2>
         <ul>
           {information.map((item, index) => (
-            <Description des={item} />
+            <li key={index}>{item}</li>
+            // <Description index={index} des={item} />
           ))}
         </ul>
       </div>

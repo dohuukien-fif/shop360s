@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Product from './../product/index';
-import trousersApi from './../../../../../api/ProductTrousersApi';
+
 import './styles.scss';
 ProductList.propTypes = {
   products: PropTypes.array,
@@ -9,7 +9,7 @@ ProductList.propTypes = {
 
 function ProductList({ products }) {
   return (
-    <div className="main_trousersList">
+    <div className="product_list">
       {products.map((items, index) => (
         <Product key={items.id} product={items} />
       ))}

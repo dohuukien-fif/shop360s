@@ -34,11 +34,16 @@ function ProductInfo({ product, onChange }) {
     size,
     evaluate,
   } = product;
+  // const onChangeQuantity = (newvalue) => {
+  //   console.log(newvalue);
+  // };
+  // const handleSize = (newvalue) => {
+  //   console.log('sex', newvalue);
+  // };
   const onChangeQuantity = (newvalue) => {
-    console.log(newvalue);
-  };
-  const handleSize = (newvalue) => {
-    console.log('sex', newvalue);
+    if (onChange) {
+      onChange(newvalue);
+    }
   };
   return (
     <div className="info_glass">
@@ -113,7 +118,7 @@ function ProductInfo({ product, onChange }) {
         <h2>THÔNG TIN</h2>
         <ul>
           {information.map((item, index) => (
-            <Description des={item} />
+            <li key={index}>{item}</li>
           ))}
         </ul>
       </div>

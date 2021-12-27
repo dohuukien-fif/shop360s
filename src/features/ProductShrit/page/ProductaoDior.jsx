@@ -7,12 +7,13 @@ import ProductDior from './../component/product/productList/ProducDior/index';
 import './stylesQuanJeans.scss';
 import ProductFilter from './../component/product/ProductFilter/FilterAodior/index';
 import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
-
+import { BiChevronsUp } from 'react-icons/bi';
 ProductQuanJeans.propTypes = {};
 
 function ProductQuanJeans(props) {
   const [Product, setProduct] = useState([]);
   const [Loading, setLoading] = useState(true);
+  const [scrowTop, setscrowTop] = useState(false);
   const [filters, setfilters] = useState({
     _page: 1,
     _limit: 12,
@@ -49,6 +50,25 @@ function ProductQuanJeans(props) {
       ...newfilter,
     }));
   };
+  //scroll
+  useEffect(() => {
+    const chanscrowus = () => {
+      if (window.scrollY >= 500) {
+        setscrowTop(true);
+        // scrollT.current.classList.add('show');
+      } else {
+        setscrowTop(false);
+      }
+    };
+    window.addEventListener('scroll', chanscrowus);
+    return () => {
+      window.removeEventListener('scroll', chanscrowus);
+    };
+  }, [scrowTop]);
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
   return (
     <div className="product_trouser">
       <div className="product_trouser_title-trouser">
@@ -57,23 +77,30 @@ function ProductQuanJeans(props) {
           <Link to="/">Trang chủ</Link> / <Link to="/Ao">Áo</Link> / Áo Dior
         </span>
       </div>
-      <h2>ÁO DIOR</h2>
+
       <div className="content_trouser">
         <div className="content_trouser_left-trousersJeans">
+          <h2>ÁO DIOR</h2>
           <ProductFilter onChanges={setFilters} filter={filters} />
         </div>
         <div className="content_trouser_right-trouser">
           {/* <ProductQuanJean products={Product} /> */}
-          {Loading ? <Seleken length={12} /> : <ProductDior products={Product} />}
+          {Loading ? <Seleken length={pagination._limit} /> : <ProductDior products={Product} />}
           <Pagination
             className="paginations"
-            color="primary"
+            variant="outlined"
+            shape="rounded"
             count={Math.ceil(pagination._totalRows / pagination._limit)}
             page={pagination._page}
             onChange={getPagination}
           ></Pagination>
         </div>
       </div>
+      {scrowTop && (
+        <div className="scroll_top" onClick={topFunction}>
+          <BiChevronsUp style={{ fontSize: '50px' }} />
+        </div>
+      )}
     </div>
   );
 }

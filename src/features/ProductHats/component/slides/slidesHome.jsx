@@ -33,7 +33,6 @@ function SlidesHome(props) {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
-          dots: true,
         },
       },
       {

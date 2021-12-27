@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Product from './../../product/ProductFendi/index';
 
@@ -8,7 +8,7 @@ ProductList.propTypes = {
 
 function ProductList({ products }) {
   return (
-    <div className="main_trousersList">
+    <div className="trousersList">
       {products.map((items, index) => (
         <Product key={items.id} product={items} />
       ))}

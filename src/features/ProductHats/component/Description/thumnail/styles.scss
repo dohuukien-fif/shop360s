@@ -1,77 +1,77 @@
-@use  "./../../../../../sass/" as *;
-.thumnail_glass{
+// @use  "./../../../../../sass/" as *;
+// .thumnail_glass{
   
    
-   .thumnai_glass-image{
-        width:100%;
-       margin: auto;
-       object-fit: cover;
-        & > img{
-            width: 100%;
-            height: auto;
-       margin: auto;
-            @include tablet {
-                // box-shadow: $box-shadow;
-                width: 100%;
-                margin: auto;
-                height: 500px;
-                object-fit: cover;
-                display: flex;
-                flex-shrink: 0;
-                margin-bottom: 13px;
-            }
-        }
+//    .thumnai_glass-image{
+//         width:100%;
+//        margin: auto;
+//        object-fit: cover;
+//         & > img{
+//             width: 100%;
+//             height: auto;
+//        margin: auto;
+//             @include tablet {
+//                 // box-shadow: $box-shadow;
+//                 width: 100%;
+//                 margin: auto;
+//                 height: 500px;
+//                 object-fit: cover;
+//                 display: flex;
+//                 flex-shrink: 0;
+//                 margin-bottom: 13px;
+//             }
+//         }
       
-    }
-   .thumnai_glass-images {
-        width: 100%;
-        display: flex;
-     justify-content: center;
-     cursor: pointer;
-     object-fit: cover;
-      & > img{
-        object-fit: cover;
-          margin-bottom: 10px;
-          width: 50px;
-          height: 76px;
-          @include tablet{
-            width: 100px;
-            height: 100px;
-          }
-      }
+//     }
+//    .thumnai_glass-images {
+//         width: 100%;
+//         display: flex;
+//      justify-content: center;
+//      cursor: pointer;
+//      object-fit: cover;
+//       & > img{
+//         object-fit: cover;
+//           margin-bottom: 10px;
+//           width: 50px;
+//           height: 76px;
+//           @include tablet{
+//             width: 100px;
+//             height: 100px;
+//           }
+//       }
      
   
-    // @include tablet{
+//     // @include tablet{
      
-    // }
-}
-}
-.selce_glass-img{
-    display:flex;
-    justify-content: start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    width: calc(93% - 10px);
-    margin-left: -10px;
-margin-bottom: 2rem;
-@include tablet {
-    display:flex;
-    justify-content: center;
-    flex-wrap:unset;
+//     // }
+// }
+// }
+// .selce_glass-img{
+//     display:flex;
+//     justify-content: start;
+//     align-items: flex-start;
+//     flex-wrap: wrap;
+//     width: calc(93% - 10px);
+//     margin-left: -10px;
+// margin-bottom: 2rem;
+// @include tablet {
+//     display:flex;
+//     justify-content: center;
+//     flex-wrap:unset;
 
-}
-    & > div  {
-        width: calc(25% - 10px);
-        margin-left: 10px;
-        margin-bottom: 1rem;
-        @include tablet {
-            width: calc(12% - 25px);
-        margin-left: 25px;
+// }
+//     & > div  {
+//         width: calc(25% - 10px);
+//         margin-left: 10px;
+//         margin-bottom: 1rem;
+//         @include tablet {
+//             width: calc(12% - 25px);
+//         margin-left: 25px;
         
 
-        }
-    }
+//         }
+//     }
  
- }
+//  }
 
 

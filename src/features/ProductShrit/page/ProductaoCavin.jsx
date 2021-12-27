@@ -57,17 +57,19 @@ function ProductQuanJeans(props) {
           <Link to="/">Trang chủ</Link> / <Link to="/Ao">Áo</Link> / Áo Cavin Klein
         </span>
       </div>
-      <h2>ÁO CAVIN KLEIN</h2>
+
       <div className="content_trouser">
         <div className="content_trouser_left-trousersJeans">
+          <h2>ÁO CAVIN KLEIN</h2>
           <ProductFilter onChanges={setFilters} filter={filters} />
         </div>
         <div className="content_trouser_right-trouser">
           {/* <ProductQuanJean products={Product} /> */}
-          {Loading ? <Seleken length={12} /> : <ProductCavin products={Product} />}
+          {Loading ? <Seleken length={pagination._limit} /> : <ProductCavin products={Product} />}
           <Pagination
             className="paginations"
-            color="primary"
+            variant="outlined"
+            shape="rounded"
             count={Math.ceil(pagination._totalRows / pagination._limit)}
             page={pagination._page}
             onChange={getPagination}

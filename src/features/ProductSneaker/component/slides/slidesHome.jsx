@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import Slider from 'react-slick';
-import HatApi from './../../../../api/ProductHatApi';
+import SneakerApi from './../../../../api/ProductSneakerApi';
 import { useHistory } from 'react-router';
 import { formatPrice } from './../../../../utils';
 SlidesHome.propTypes = {};
@@ -50,7 +50,7 @@ function SlidesHome(props) {
   useEffect(() => {
     const fetchApiRandom = async () => {
       try {
-        const res = await HatApi.getAll();
+        const res = await SneakerApi.getAll();
         setImages(res);
         console.log(res);
       } catch (error) {}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 
 import Slider from 'react-slick';
 import ProductApi from './../../../../api/productapi';
@@ -63,7 +62,7 @@ function SlidesHome(props) {
   return (
     <Slider {...settings}>
       {Imagess.slice(Math.floor(Math.random() * Imagess.length)).map((item, index) => (
-        <div className="sidess" onClick={() => handleClick(item.id)}>
+        <div key={index} className="sidess" onClick={() => handleClick(item.id)}>
           {new Array(item.Araray)
             .filter((e) => e)
             .map((items, index) => (

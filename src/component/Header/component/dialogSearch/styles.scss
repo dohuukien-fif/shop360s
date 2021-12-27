@@ -1,0 +1,69 @@
+@use './../../../../sass/index.scss' as *;
+.header_Search2 {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 7777;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms linear;
+
+  .Search2_container {
+    position: absolute;
+    background: white;
+    right: -50%;
+    top: 0;
+    bottom: 0;
+    width: 75%;
+
+    transition: all 500ms linear;
+    @include mobile {
+      width: 60%;
+    }
+    @include tablets {
+      width: 45%;
+    }
+    @include tablet {
+      width: 30%;
+    }
+    .Search2_block {
+      padding: 7rem;
+      & > form {
+        display: flex;
+        & > input {
+          width: 100%;
+          height: 50px;
+          border: none;
+          background: #f5f5f5;
+        }
+        & > button {
+          border: none;
+          background: #f5f5f5;
+          padding-right: 20px;
+          cursor: pointer;
+          & > svg {
+            font-size: 20px;
+            color: #807a7a;
+          }
+        }
+      }
+    }
+    .Search2_title {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 5rem;
+    }
+  }
+}
+.activeSearch {
+  opacity: 1;
+  visibility: visible;
+}
+.activeSearchModal {
+  right: 0 !important;
+}

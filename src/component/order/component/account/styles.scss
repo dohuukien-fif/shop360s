@@ -1,0 +1,39 @@
+@use "./../../../../sass/" as *;
+.accounts{
+   width: 90%;
+   margin: auto;
+   display: flex;
+ 
+   align-items: center;
+   padding-bottom: 2rem;
+   border-bottom: 3px solid red;
+   
+   &_image{
+      width: 25%;
+    position: relative;
+      & > img{
+         border-radius: 50%;
+      }
+      .accounts_icon{
+position: absolute;
+right: 0;
+bottom: 0;
+      }
+   }
+   &_users{
+margin-left: 40px;
+font-size: 15px;
+.accounts_name{
+   font-size: 20px;
+   font-weight: 600;
+   @include mobile{
+      font-size: 40px;
+      margin-bottom: 1.5rem;
+   }
+
+}
+.accounts_email{
+   font-size: 20px;
+}
+   }
+}

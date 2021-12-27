@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PropTypes, { object } from 'prop-types';
 import './styles.scss';
 import SetImage from './setImage';
+
 ProductImage.propTypes = {
   //   product: PropTypes.array,
 };
@@ -45,7 +46,7 @@ function ProductImage({ products }) {
         {/* <h1>{images[0]}</h1> */}
       </div>
       <div className="thumnai_glass-images">
-        <SetImage Imagess={Araray} onChange={handoChange} />
+        <SetImage ids={id} Imagess={Araray} onChange={handoChange} />
         {/* {new Array(Araray).map((item, index) => (
           <>
             

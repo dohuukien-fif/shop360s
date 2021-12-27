@@ -29,7 +29,7 @@ function Product({ product }) {
           {promotionpencent > 0 && (
             <div className="content_trousers-bottom-discount">
               <span>{formatPrice(originalPrice)}</span>
-              <span>{` - ${promotionpencent}%`}</span>
+              {/* <span>{` - ${promotionpencent}%`}</span> */}
             </div>
           )}
         </div>

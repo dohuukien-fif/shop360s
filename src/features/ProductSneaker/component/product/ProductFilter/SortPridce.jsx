@@ -19,7 +19,7 @@ function SortPrice({ onChanges }) {
   };
   return (
     <Box>
-      <FormControl className="selectPrice">
+      <FormControl className="selectPrices">
         <NativeSelect
           sx={{ fontSize: '13px' }}
           // defaultValue={30}

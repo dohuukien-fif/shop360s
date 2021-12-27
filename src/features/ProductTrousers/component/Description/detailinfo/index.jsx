@@ -21,11 +21,10 @@ function ProductInfo({ product, onChange }) {
     description,
     instruct,
   } = product;
-  const onChangeQuantity = (newvalue) => {
-    console.log(newvalue);
-  };
-  const handleSize = (newvalue) => {
-    console.log('sex', newvalue);
+  const onChangeQuantity = (newvalue, value) => {
+    if (onChange) {
+      onChange(newvalue, value);
+    }
   };
   return (
     <div className="info">
@@ -41,21 +40,21 @@ function ProductInfo({ product, onChange }) {
           </div>
         )}
       </div>
-      <div className="info-size">
+      {/* <div className="info-size">
         <h2>Cỡ</h2>
         {Size.map((item, index) => (
           <Sizes item={item} onChange={handleSize} />
         ))}
-      </div>
+      </div> */}
 
       <div className="info-quantity">
-        <QuantityForm onSubmits={onChangeQuantity} />
+        <QuantityForm item={Size} onSubmits={onChangeQuantity} />
       </div>
       <div className="info-information">
         <h2>THÔNG TIN</h2>
         <ul>
           {information.map((item, index) => (
-            <Description des={item} />
+            <li key={index}>{item}</li>
           ))}
         </ul>
       </div>

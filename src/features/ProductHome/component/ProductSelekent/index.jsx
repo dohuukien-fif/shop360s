@@ -7,17 +7,17 @@ selekeList.propTypes = {
   length: PropTypes.number,
 };
 selekeList.defaultProps = {
-  length: 6,
+  length: 2,
 };
 function selekeList({ length }) {
   return (
     <Box>
-      <Grid container spacing={0}>
+      <Grid container spacing={{ xs: 12, md: 6 }} columns={{ xs: 12, sm: 6, md: 6 }}>
         {Array.from(new Array(length)).map((x, index) => (
-          <Grid key={index} item xs={12} sm={6} md={3} lg={3}>
-            <Box padding={1}>
-              <Skeleton width={400} />
-              <Skeleton variant="rectangular" width={400} height={400} />
+          <Grid key={index} item xs={12} sm={6} md={6} lg={6}>
+            <Box padding={2}>
+              <Skeleton fullWidth />
+              <Skeleton variant="rectangular" fullWidth height={400} />
             </Box>
           </Grid>
         ))}

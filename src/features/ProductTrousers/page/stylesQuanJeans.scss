@@ -1,81 +1,107 @@
-@use "./../../../sass/" as *;
-.product_trouser{
-  &_title-trouser{
-        width: 100%;
-         display: inline-block;
-         padding: 1rem;
-         font-size: 13px;
-        background-color: whitesmoke;
-        & > span{
-       
-        }
+@use './../../../sass/' as *;
+.product_trouser {
+  min-height: 50vh;
+  .non_search {
+    font-size: 20px;
+    font-weight: 600;
+  }
+  &_title-trouser {
+    width: 100%;
+    display: inline-block;
+    padding: 0.8rem;
+    font-size: 13px;
+    background-color: whitesmoke;
+    & > span {
     }
-    @include tablet{
-        width: 79%;
-        margin: auto;
-    }
-    & > h2{
-        text-align: center;
-        padding: 3rem 0 1rem 0;
-   
+  }
+  @include tablet {
+    width: 79%;
+    margin: auto;
+  }
+
+  .content_trouser {
+    // @include tablet{
+    //    width: 80%;
+    //     display: flex;
+    // }
+
+    &_left-trousersJeans {
+      height: 80px;
+      margin: 3rem auto;
+      width: 95%;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      & > h2 {
+        //         text-align: center;
+        //         padding: 3rem 0 3rem 0;
+
         font-size: 25px;
-   margin: auto;
-    }
-    .content_trouser{
+        @include tablets {
+          flex: 6;
+        }
+        //    margin: auto;
+      }
+      @include tablets {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        // transform: translateX(-50px);
+      }
+
+      @include tablet {
+        flex: 1;
+        margin-bottom: 3rem;
+      }
+      .content_left-trousersJeans {
+        width: 100%;
+
+        @include tablets {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex: 1;
+        }
         // @include tablet{
-        //    width: 80%;
         //     display: flex;
+        //     flex-direction: column-reverse;
         // }
-      
-        &_left-trousersJeans{
-            height: 80px;
-            margin-bottom: 3rem;
-          @include mobile{
-            transform: translateX(-50px);
+        &-right {
+          width: 100%;
+          border-bottom: 1px solid black;
+          @include tablet {
+            margin-top: 20px;
           }
-           
-       @include tablet{
-           flex: 1;
-           margin-bottom: 3rem;
-       }
-           .content_left-trousersJeans{
-              float: right;
-                @include tablets{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                }
-                // @include tablet{
-                //     display: flex;
-                //     flex-direction: column-reverse;
-                // }
-                &-right{
-                  float: right;
-                 @include tablet {
-                     margin-top: 20px;
-                 }
-                    & > h3{
-                       @include tablet{
-                        padding: 0rem 2rem 0rem 2rem;
-                        font-size: 15px;
-                       }
-                    }
-                }
-                &-right-trouser{
-                    @include tablet{
-                        margin-bottom: 40px;
-                    }
-                }
+          & > h3 {
+            @include tablet {
+              padding: 0rem 2rem 0rem 2rem;
+              font-size: 15px;
             }
+          }
         }
-        &_right-trouser{
-            @include tablet{
-                
-            }
-            .paginations{
-                display: flex;
-                justify-content: center;
-            }
+        &-right-trouser {
+          @include tablet {
+            margin-bottom: 40px;
+          }
         }
+      }
     }
+    &_right-trouser {
+      @include tablet {
+      }
+      .paginations {
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+}
+#sort_price {
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }

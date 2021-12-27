@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { FormControl, InputLabel, NativeSelect, Box } from '@mui/material';
-
 SortPrice.propTypes = {};
 
 function SortPrice({ onChanges }) {

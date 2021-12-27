@@ -1,13 +1,71 @@
-.title-product{
-    padding: 1rem;
-    font-size: 22px;
-    font-weight: 600;
-    text-align: center;
-  
-}
-.main{
+@use './../../../../sass/index.scss' as *;
+
+.main {
+  .title-product {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(248, 247, 247);
+    margin-bottom: 3rem;
+    overflow: hidden;
+    .main_arrow {
+      background: darkgoldenrod;
+      padding: 1rem;
+      width: 200px;
+      border-top-right-radius: 50px;
+      border-bottom-right-radius: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      animation: arrowLisst 10s infinite;
+
+      @keyframes arrowLisst {
+        from {
+          transform: translateX(-200px);
+        }
+        to {
+          transform: translateX(0px);
+        }
+      }
+
+      //       border-left: 50px solid transparent;
+      // border-right: 50px solid transparent;
+      // border-bottom: 50px solid red;
+      //   border-top: 50px solid transparent;
+      //   border-left: 100px solid gray;
+      //   border-bottom: 50px solid transparent;
+      & > span {
+        font-weight: 600;
+        font-size: 25px;
+      }
+    }
+    & > span:last-child {
+      color: rgb(51, 51, 159);
+      font-size: 16px;
+      font-style: italic;
+      &:hover {
+        color: gray;
+      }
+    }
+  }
+  .main_block {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-around;
     width: 100%;
-    margin-left: -10px;
+    // margin: auto;
+    // column-gap: 40px;
+    @include mobile {
+      justify-content: flex-start;
+      column-gap: 15px;
+      margin-left: 3px;
+    }
+    @include tablets {
+      justify-content: flex-start;
+      column-gap: 30px;
+      margin-left: 15px;
+    }
+  }
 }

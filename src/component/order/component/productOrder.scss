@@ -1,0 +1,195 @@
+@use './../../../sass/' as *;
+.order {
+  &_title-Cacel {
+    padding-bottom: 3rem;
+    text-align: center;
+    /* padding: 3rem; */
+    border-bottom: 2px solid beige;
+  }
+  &_list {
+    @include tablets {
+      width: 80%;
+      margin: auto;
+    }
+    .order_item {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 2rem;
+      border-bottom: 10px solid rgb(236, 235, 235);
+      .order_address {
+        .order_title {
+          font-size: 18px;
+          font-weight: 600;
+          padding: 1.5rem 1.5rem 1rem 0;
+        }
+        .order_adressName,
+        .order_adressPhone,
+        .order_adresss {
+          color: rgb(90, 88, 88);
+          font-size: 18px;
+          //  padding: 1rem;
+        }
+      }
+
+      .order_product {
+        // display: flex;
+        // .order_image{
+        //    flex: 1;
+        // }
+        // .order_content{
+        //    flex: 3;
+        // }
+        .order_flex {
+          display: flex;
+          border-bottom: 2px solid rgb(235, 232, 232);
+          padding-top: 1.5rem;
+          //  padding-bottom: 0.8rem;
+          .order_image {
+            flex: 1;
+            & > img {
+              object-fit: cover;
+
+              height: 80%;
+              flex-shrink: 0;
+
+              @include tablets {
+                height: 100px;
+                // object-fit:cover;
+              }
+            }
+          }
+          .order_content {
+            flex: 4;
+            margin-left: 10px;
+            @include tablets {
+              flex: 5;
+            }
+            .order_productName {
+              font-weight: bold;
+              width: 100%; // chiều rộng bằng khối bao nó
+              white-space: pre-wrap;
+              overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+              text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+              -webkit-line-clamp: 2; // số dòng muốn hiển thị
+              -webkit-box-orient: vertical;
+              display: -webkit-box;
+              @include tablet {
+                margin-bottom: 2rem;
+              }
+            }
+            .order_productPrice {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-end;
+              align-items: end;
+
+              .order_producPrices {
+                font-weight: 600;
+                @include tablet {
+                  margin-top: 1rem;
+                }
+              }
+            }
+          }
+        }
+
+        .order_total,
+        .order_discountl,
+        .order_totalMoney {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          @include tablets {
+            justify-content: space-between;
+            margin-left: auto;
+            width: 40%;
+            margin-bottom: 1rem;
+          }
+          & > span:first-child {
+            font-size: 16px;
+          }
+        }
+      }
+      & > button {
+        margin-left: auto;
+        padding: 0.5rem;
+        margin-top: 2rem;
+        border: none;
+        &:hover {
+          background: black;
+        }
+        & > span {
+          padding: 2rem;
+        }
+      }
+    }
+  }
+}
+.loading_order {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  .lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .lds-ellipsis div {
+    position: absolute;
+    top: 33px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+  }
+  .lds-ellipsis div:nth-child(1) {
+    left: 8px;
+    animation: lds-ellipsis1 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(2) {
+    left: 8px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(3) {
+    left: 32px;
+    animation: lds-ellipsis2 0.6s infinite;
+  }
+  .lds-ellipsis div:nth-child(4) {
+    left: 56px;
+    animation: lds-ellipsis3 0.6s infinite;
+  }
+  @keyframes lds-ellipsis1 {
+    0% {
+      transform: scale(0);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  @keyframes lds-ellipsis3 {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(0);
+    }
+  }
+  @keyframes lds-ellipsis2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(24px, 0);
+    }
+  }
+}

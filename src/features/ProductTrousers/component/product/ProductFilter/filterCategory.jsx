@@ -1,19 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import CategoryApi from './../../../../../api/categoryTrouser';
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  FormControl,
-  InputLabel,
-  MenuItem,
-  NativeSelect,
-  Paper,
-  Select,
-  Typography,
-} from '@mui/material';
-import { Box } from '@mui/system';
+import { FormControl, NativeSelect } from '@mui/material';
+
 import './styles.scss';
 FilterCategory.propTypes = {
   onChanges: PropTypes.func,
@@ -51,11 +40,11 @@ function FilterCategory({ onChanges, filter }) {
           }}
           onChange={handleChange}
         >
+          <option>Danh mục</option>
           {category.map((item, index) => (
-            <>
-              <option key={index}>Danh mục</option>
-              <option value={item.name}>{item.name}</option>
-            </>
+            <option key={index} value={item.name}>
+              {item.name}
+            </option>
           ))}
         </NativeSelect>
       </FormControl>

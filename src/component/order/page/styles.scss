@@ -1,0 +1,203 @@
+@use './../../../sass/' as *;
+.information_container {
+  min-height: 50vh;
+  width: 90%;
+  margin: auto;
+  @include tablet {
+    width: 80%;
+    margin: auto;
+  }
+  .information_titles {
+    margin-right: auto;
+    margin-bottom: 2rem;
+
+    left: 0;
+    width: 100%;
+
+    background: #f5f5f5;
+
+    & > span {
+      font-size: 13px;
+
+      padding: 2rem;
+    }
+  }
+  .information_order {
+    display: flex;
+    flex-direction: column;
+
+    font-size: 17px;
+
+    margin-bottom: 1rem;
+    & > span:first-child {
+      padding-top: 1.5rem;
+      padding-bottom: 2rem;
+
+      font-weight: 600;
+      font-size: 22px;
+
+      color: gray;
+    }
+    .information_fulter {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      @include mobile {
+        flex-direction: row;
+      }
+      .information_Link {
+        @include mobile {
+          flex: 1;
+        }
+      }
+      .information_router {
+        @include mobile {
+          padding-left: 10px;
+          margin-left: 30px;
+
+          flex: 2;
+          // border-left: 5px solid red;
+        }
+        @include tablets {
+          flex: 3;
+          // border-left: 5px solid red;
+        }
+      }
+    }
+    .information_content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid #d4d1d1;
+      border-bottom: 1px solid #d4d1d1;
+      padding: 0.4rem 0 0.2rem 0;
+      cursor: pointer;
+      // &:hover {
+      //   background: rgb(228, 223, 223);
+      // }
+      &:hover > .information_icons > a > svg {
+        opacity: 1;
+      }
+      .information_icons {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        & > span {
+          margin-left: 15px;
+          font-size: 14px;
+        }
+        & > a > span {
+          margin-left: 15px;
+          font-size: 14px;
+        }
+        & > a {
+          & > svg {
+            opacity: 0.3;
+          }
+        }
+      }
+    }
+    .information_top {
+      .icon_container {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-around;
+        padding: 2rem 0 2rem 0;
+        .activeOrder {
+          opacity: 0.3;
+        }
+        .icon_order {
+          flex-basis: 33%;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          & > span {
+            text-align: center;
+            font-size: 18px;
+            font-weight: 600;
+          }
+
+          .icon_count {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: red;
+            top: 0;
+            right: 20px;
+
+            align-items: center;
+            display: flex;
+            right: 20px;
+            font-size: 12px;
+            justify-content: center;
+            /* font-weight: 600; */
+            color: wheat;
+            @include mobile {
+              right: 30%;
+            }
+            @include tablets {
+              right: 40%;
+            }
+          }
+        }
+      }
+    }
+  }
+  .mobal {
+    position: fixed;
+    background: red;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    background: transparent;
+    .mobal_multiplier {
+      position: absolute;
+      height: 35vh;
+      top: 30%;
+      left: 10%;
+      width: 80%;
+      background: whitesmoke;
+      color: black;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      @include tablets {
+        top: 50%;
+        left: 50%;
+        height: 25vh;
+        transform: translate(-50%, -50%);
+      }
+      @include tablet {
+        height: 35vh;
+        width: 50%;
+      }
+      & > button {
+        bottom: 0;
+        margin-left: auto;
+        margin-top: auto;
+        //  right: 0;
+        padding: 1rem;
+        border: none;
+        //  position: absolute;
+        // margin: 1rem;
+        &:hover {
+          background: rgb(218, 66, 66);
+          cursor: pointer;
+        }
+      }
+      .submits {
+        margin-top: 1rem;
+        padding: 1rem;
+        border: none;
+        background: black;
+        color: white;
+        width: 100%;
+      }
+    }
+  }
+}

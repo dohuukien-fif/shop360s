@@ -1,15 +1,41 @@
-import React, { useState, useRef, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useRef } from 'react';
+
 import './styles.scss';
 Sizes.propTypes = {};
 
-function Sizes({ item, onChange }) {
-  const titleRef = useRef();
-
-  const [isActive, setActive] = useState(false);
-
-  const handleToggle = () => {
-    setActive(!isActive);
+function Sizes({ item, onChange, index }) {
+  const [isActive, setActive] = useState({
+    active: '',
+  });
+  const curentInput = useRef();
+  const handleToggle = async (newIndex, newValue) => {
+    console.log(newIndex);
+    setActive((prev) => ({
+      ...prev,
+      active: item[newIndex],
+    }));
+    if (onChange) await onChange(newIndex ? item[newIndex] : '');
+    console.log(newValue);
+    console.log('sizwwwwwwwwwwww', item[newIndex]);
+    // if (curentInput.current) {
+    //   clearTimeout(curentInput.current);
+    // }
+    // curentInput.current = setTimeout(() => {
+    //   if (onChange) {
+    //     onChange(newValue);
+    //   }
+    //   console.log('kien', newValue);
+    // }, 2000);
+    // if (curentInput.current) {
+    //   clearTimeout(curentInput.current);
+    // }
+    // curentInput.current = setTimeout(() => {
+    //   if (onChange) {
+    //     onChange(newValue);
+    //   }
+    //   console.log('kien', newValue);
+    // }, 2000);
+    // onChange(newValue);
   };
 
   // useEffect(() => {
@@ -41,11 +67,27 @@ function Sizes({ item, onChange }) {
   //     console.log('kien', newvalue);
   //   }, 5000);
   // };
-  const [state, setstate] = useState(false);
+  console.log(item);
+  console.log(isActive);
+  const getStyles = (index) => {
+    if (item[index] === isActive.active) {
+      return 'activess';
+    } else {
+      return 'actives';
+    }
+  };
+
   return (
-    <button className={isActive ? 'actives' : null}>
-      <span onClick={handleToggle}>{item}</span>
-    </button>
+    <>
+      {item.map((items, index) => (
+        <>
+          <button key={index} className={getStyles(index)}>
+            <span onClick={() => handleToggle(index, items)}>{items}</span>
+            <span className="tooltiptext">{items}</span>
+          </button>
+        </>
+      ))}
+    </>
   );
 }
 

@@ -9,7 +9,7 @@ ProductList.propTypes = {
 
 function ProductList({ products }) {
   return (
-    <div className="main_trousersList">
+    <div className="trousersList">
       {products.map((items, index) => (
         <Product key={items.id} product={items} />
       ))}

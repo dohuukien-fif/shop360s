@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 setImage.propTypes = {};
 
-function setImage({ Imagess, onChange }) {
+function setImage({ ids, Imagess, onChange }) {
   // console.log(typeof Imagess);
   let imgs = new Array(Imagess);
   const handeleChan = (newvlue) => {
@@ -12,14 +12,14 @@ function setImage({ Imagess, onChange }) {
     }
   };
   return (
-    <div className="selce_glass-img">
+    <div className="selce_glass-img" key={ids}>
       {Imagess.map((element, index) => (
         <>
           {element === ' ' ? (
             'kien'
           ) : (
             <>
-              <div>
+              <div key={element.id}>
                 <img src={element} onClick={() => handeleChan(index)} />
               </div>
               {/* <div>

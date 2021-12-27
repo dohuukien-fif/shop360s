@@ -27,7 +27,7 @@ function ProductFilter({ onChanges, filter }) {
       <div className="content_left-trousers-left">
         <h2>Danh mục sản phẩm</h2>
         <FilterCategory onChanges={handleCategory} />
-        <h3>Chọn giá</h3>
+
         <FilterPrice onChanges={handleSortPrice} />
       </div>
       <div className="content_left-trousers-right">

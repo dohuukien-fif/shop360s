@@ -1,24 +1,34 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+
 import './styles.scss';
 import { formatPrice } from './../../../../utils';
 import { useHistory } from 'react-router';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 Product.propTypes = {};
 
 function Product({ item }) {
+  const [Index, setIndex] = useState(0);
   const history = useHistory();
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const handleClick = () => {
-    history.push(`product/${item.id}`);
+    history.push(`Trang-chu/${item.id}`);
   };
   return (
-    <li className="main-item" key={item.id} onClick={handleClick} key={item.id}>
+    <li className="main-item " data-aos="fade-up" onClick={handleClick}>
       <div className="main-item_image">
-        <img src={item.Araray[0]} alt="" />
+        <img src={item.Araray[Index]} alt="" />
         <div className="main-item_images">
-          <img src={item.Araray[1]} alt="" />
-          <img src={item.Araray[2]} alt="" />
-          <img src={item.Araray[3]} alt="" />
+          {item.Araray.slice(0, 4).map((item, index) => (
+            <>
+              <img src={item} alt="" onMouseMove={() => setIndex(index)} />
+            </>
+          ))}
+          {/* <img src={item.Araray[1]} alt="" />
+          <img src={item.Ar aray[2]} alt="" />
+          <img src={item.Araray[3]} alt="" /> */}
         </div>
       </div>
       <div className="main-item_content">

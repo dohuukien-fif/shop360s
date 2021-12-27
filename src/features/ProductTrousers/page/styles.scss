@@ -5,8 +5,9 @@
          display: inline-block;
          padding: 1rem;
         background-color: whitesmoke;
+        
         & > span{
-           
+           font-size: 13px
         }
     }
     @include tablet{
@@ -15,7 +16,7 @@
     }
     & > h2{
         text-align: center;
-        padding: 3rem 0 1rem 0;
+        padding: 3rem 0 3rem 0;
    
         font-size: 25px;
    margin: auto;
@@ -27,7 +28,7 @@
         }
         &_left{
             height: 110px;
-            margin-bottom: 10rem;
+            margin-bottom: 13rem;
        @include tablet{
            flex: 1;
            margin-bottom: 3rem;
@@ -36,6 +37,8 @@
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
+                width: 95%;
+                margin: auto;
                 @include tablets{
                     display: flex;
                     justify-content: space-between;
@@ -46,15 +49,24 @@
                     flex-direction: column-reverse;
                 }
                 &-left{
+                    flex: 1;
                     & > h3{
                        @include tablet{
+
                         padding: 3rem 2rem 1rem 2rem;
                         font-size: 15px;
                        }
                     }
                 }
                 &-right{
+                    flex: 1;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+
                     @include tablet{
+                        justify-content: flex-start;
+                        width: 100%;
                         margin-bottom: 40px;
                     }
                 }

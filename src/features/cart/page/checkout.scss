@@ -1,0 +1,126 @@
+@use "./../../../sass/" as *;
+.checkout{
+  width: 95%;
+  margin: auto;
+  min-height: 50vh;
+ @include tablets{
+    width: 75%;
+ }
+ & > h2{
+    text-align: center;
+ }
+   .fullName_phone{
+    
+      column-gap: 10px;
+      font-family:"Montserrat",sans-serif;
+    
+      &-left{
+         // flex: 1;
+         & > span::before{
+            display: inline-block;
+            content: "*";
+            margin-right: 10px;
+
+            color: brown;
+            font-size: 20px;
+         }
+         & >input{
+            font-family:"Montserrat",sans-serif;
+         }
+      }
+      &-right{
+         // flex: 1;
+         & > span::before{
+            display: inline-block;
+            content: "*";
+            margin-right: 10px;
+
+            color: brown;
+            font-size: 20px;
+         }
+         & >input{
+            font-family:"Montserrat",sans-serif;
+         }
+      }
+   }
+   .email{
+      & > span::before{
+         display: inline-block;
+         content: "*";
+
+         margin-right: 10px;
+
+         color: brown;
+         font-size: 20px;
+      }
+   }
+   .address_note{
+      display: flex;
+      column-gap: 10px;
+      &-left{
+         flex: 1;
+         & > span::before{
+            display: inline-block;
+            content: "*";
+
+            margin-right: 10px;
+
+            color: brown;
+            font-size: 20px;
+         }
+      }
+      &-right{
+         flex: 1;
+         & > span::before{
+            display: inline-block;
+            content: "*";
+
+            margin-right: 10px;
+
+            color: brown;
+            font-size: 20px;
+         }
+      }
+    
+   }
+   .btn_form{
+      display: flex;
+  
+      background-color: black;
+
+        margin: auto;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        
+        & > span{
+           width: 200px;
+           padding: 1rem 2rem 1rem 2rem; 
+
+color: white;
+
+z-index: 1;
+
+&::before{
+   content: "";
+   position: absolute;
+   left: -100%;
+   top: 0;
+   bottom: 0;
+width: 100%;
+   background-color: red;
+   z-index: -1;
+   transition: 0.5s ease-out;
+}
+&:hover::before{
+   left: 0;
+}
+        }
+      
+   }
+}
+.css-md26zr-MuiInputBase-root-MuiOutlinedInput-root{
+ 
+      font-family:"Montserrat",sans-serif;
+   
+}

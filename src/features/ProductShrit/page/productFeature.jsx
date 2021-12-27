@@ -60,10 +60,11 @@ function ProductFeature(props) {
           <ProductFilter onChanges={setFilters} filter={filter} />
         </div>
         <div className="content_right">
-          {Loading ? <Selekent length={12} /> : <ProductLisst products={Product} />}
+          {Loading ? <Selekent length={pagination._limit} /> : <ProductLisst products={Product} />}
           <Pagination
             className="paginations"
-            color="primary"
+            variant="outlined"
+            shape="rounded"
             count={Math.ceil(pagination._totalRows / pagination._limit)}
             page={pagination._page}
             onChange={getPagination}

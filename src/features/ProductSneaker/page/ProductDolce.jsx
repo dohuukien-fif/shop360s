@@ -16,7 +16,7 @@ function ProductQuanJeans(props) {
   const [filters, setfilters] = useState({
     _page: 1,
     _limit: 12,
-    categoryName: '"Giày Dolce',
+    categoryName: 'giày Dolce',
   });
   const [pagination, setpagination] = useState({
     _page: 1,
@@ -57,17 +57,19 @@ function ProductQuanJeans(props) {
           <Link to="/">Trang chủ</Link> / <Link to="/Giay">Giày</Link> / Giày Dolce
         </span>
       </div>
-      <h2>GIÀY DOLCE</h2>
+
       <div className="content_trouser">
         <div className="content_trouser_left-trousersJeans">
+          <h2>GIÀY DOLCE</h2>
           <ProductFilter onChanges={setFilters} filter={filters} />
         </div>
         <div className="content_trouser_right-trouser">
           {/* <ProductQuanJean products={Product} /> */}
-          {Loading ? <Seleken length={12} /> : <ProductDolce products={Product} />}
+          {Loading ? <Seleken length={pagination._limit} /> : <ProductDolce products={Product} />}
           <Pagination
             className="paginations"
-            color="primary"
+            variant="outlined"
+            shape="rounded"
             count={Math.ceil(pagination._totalRows / pagination._limit)}
             page={pagination._page}
             onChange={getPagination}

@@ -20,6 +20,7 @@ function Sizes({ item, onChange }) {
   return (
     <button className={state ? 'active' : ''} onClick={() => setstate((x) => !x)}>
       <span onClick={() => handeChaneg(item)}>{item}</span>
+      <span class="tooltiptext">{item}</span>
     </button>
   );
 }

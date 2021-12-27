@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import HatApi from './../../../../api/ProductHatApi';
+import SneakerApi from './../../../../api/ProductSneakerApi';
 import { useHistory } from 'react-router';
 ChosingDiffrentProduct.propTypes = {
   product: PropTypes.object,
@@ -15,7 +15,7 @@ function ChosingDiffrentProduct({ product }) {
   useEffect(() => {
     const fetchApiRandom = async () => {
       try {
-        const res = await HatApi.getAll();
+        const res = await SneakerApi.getAll();
         setImages(res);
         console.log(res);
       } catch (error) {}

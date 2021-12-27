@@ -8,8 +8,6 @@ import './stylesQuanJeans.scss';
 import ProductFilter from './../component/product/ProductFilter/FilteAdidas/index';
 import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
 
-ProductQuanJeans.propTypes = {};
-
 function ProductQuanJeans(props) {
   const [Product, setProduct] = useState([]);
   const [Loading, setLoading] = useState(true);
@@ -57,17 +55,23 @@ function ProductQuanJeans(props) {
           <Link to="/">Trang chủ</Link> / <Link to="/Giay">Giày</Link> / Giày Adidas
         </span>
       </div>
-      <h2>GIÀY ADIDAS</h2>
+
       <div className="content_trouser">
         <div className="content_trouser_left-trousersJeans">
+          <h2>GIÀY ADIDAS</h2>
           <ProductFilter onChanges={setFilters} filter={filters} />
         </div>
         <div className="content_trouser_right-trouser">
           {/* <ProductQuanJean products={Product} /> */}
-          {Loading ? <Seleken length={12} /> : <ProductHatAdidas products={Product} />}
+          {Loading ? (
+            <Seleken length={pagination._limit} />
+          ) : (
+            <ProductHatAdidas products={Product} />
+          )}
           <Pagination
             className="paginations"
-            color="primary"
+            variant="outlined"
+            shape="rounded"
             count={Math.ceil(pagination._totalRows / pagination._limit)}
             page={pagination._page}
             onChange={getPagination}

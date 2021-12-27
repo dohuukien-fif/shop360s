@@ -1,152 +1,186 @@
-@use "./../../../../../sass/" as *;
-.info{
-    width: 95%;
-  
-  
-    margin: 0 auto;
-   &-name{
-margin-bottom: 1rem;
+@use './../../../../../sass/' as *;
+.info {
+  width: 95%;
+
+  margin: 0 auto;
+  &-name {
+    margin-bottom: 1rem;
+  }
+  &-price {
+    display: flex;
+    padding: 1.4rem 0 1rem 0;
+    border-top: 0.3px solid rgb(51, 50, 50);
+    &-prices {
+      font-size: 17px;
+      color: rgb(231, 16, 16);
+      text-decoration: underline;
+      font-weight: bold;
     }
-    &-price{
-        display: flex;
-        padding: 1.4rem 1.4rem 1rem 1.4rem;
-        border-top: 0.3px solid rgb(223, 221, 221);
-      &-prices{
-          font-size: 17px;
-        color: rgb(231, 16, 16);
-        text-decoration: underline;
-        font-weight: bold;
+    &-discount {
+      display: flex;
+      font-size: 13px;
+      & > span {
+        margin-left: 15px;
+        margin-right: 10px;
+        font-size: 13px;
+        text-decoration: line-through;
+        color: rgb(150, 148, 148);
       }
-      &-discount  {
-          display: flex;
-          font-size: 13px;
-          & > span{
-            margin-left: 15px;
-            margin-right: 10px;
-            font-size: 13px;
-            text-decoration: line-through;
-            color: rgb(150, 148, 148);
-            
-          }
-        //   & > div{
-              
-        //   }
-      }
+      //   & > div{
 
-    }
-    &-btn{
-      margin-bottom: 20px;
-   margin-top: 5px;
-      overflow: hidden;
-      width: 100%;
-   
-
-//       & >::before{
-// content: "";
-// position: absolute;
-// width: 100%;
-// right: 0;
-// left: -100%;
-// top: 0;
-// bottom: 0;
-
-
-// background-color: black;
-
-//       }
-//       & >:hover::before{
-//         left: 0;
-        
-      
-//       }
-        & > button{
-            width: 100%;
-            padding: 16px;
-            background-color: #000;
-     cursor: pointer;
-            border: none;
-            outline: none;
-            object-fit: none;
-         
-            & > span{
-                color: white;
-                z-index: 1000;
-            }
-           
-        }
-      
-        
-    }
-    &-size {
-       display: flex;
-       justify-content:start;
-       align-items: center;
-       overflow: hidden;
-        padding: 1.2rem 4rem 3rem 2rem;
-        border-top: 2px solid rgb(201, 196, 196);
-        & > h2{
-            width: 20%;
-        }
-        & > button{
-            padding: 0.7rem;
-            margin-left: 10px;
-            outline: none;
-            border: none;
-         }
-         .actives{
-          background: black;
-          color: white;
-            }
-      //    & >.active{
-      // background-color: black;
-      // color: white;
       //   }
     }
-    &-quantity{
+  }
+  &-btn {
+    margin-bottom: 20px;
+    margin-top: 5px;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    //       & >::before{
+    // content: "";
+    // position: absolute;
+    // width: 100%;
+    // right: 0;
+    // left: -100%;
+    // top: 0;
+    // bottom: 0;
+
+    // background-color: black;
+
+    //       }
+    //       & >:hover::before{
+    //         left: 0;
+
+    //       }
+    & > button {
+      width: 100%;
+      padding: 16px;
+      background-color: #000;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      object-fit: none;
+
+      & > span {
+        color: white;
+        z-index: 1000;
+      }
+    }
+  }
+  &-size {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    //  overflow: hidden;
+    padding: 1.2rem 4rem 5rem 0;
+    border-top: 2px solid rgb(201, 196, 196);
+    & > h2 {
+      width: 20%;
+    }
+
+    & > button {
+      padding: 0.7rem;
+      margin-left: 10px;
+      outline: none;
+      border: none;
+      position: relative;
+      cursor: pointer;
+      .tooltiptext {
+        visibility: hidden;
+        width: 30px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        // top: 0;
+        /* Position the tooltip */
+        position: absolute;
+        bottom: 110%;
+        left: 50%;
+        // margin-left: -60px;
+        z-index: 100;
+      }
+      &:hover .tooltiptext {
+        visibility: visible;
+      }
+      .delete_size {
+        position: absolute;
+        top: 100%;
+        margin-top: 10px;
+        color: black;
+      }
+    }
+
+    .actives {
+      background: #f1f1f1;
+      color: black;
+    }
+    .activess {
+      background: black;
+      color: white;
+    }
+    //    & >.active{
+    // background-color: black;
+    // color: white;
+    //   }
+  }
+  &-quantity {
     margin-bottom: 1rem;
+  }
+  &-information {
+    margin-bottom: 15px;
+    & > h2 {
+      margin-bottom: 14px;
     }
-    &-information{
-margin-bottom: 15px;
-      & > h2{
-        margin-bottom: 14px;
-      }
-      & > ul > li{
-        font-size: 14px;
-        line-height: 21px;
-        margin-bottom: 7px;
-        font-family: 'Quicksand', sans-serif!important;
-        color: #252a2b;
-        text-align: justify;
-      }
+    & > ul > li {
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 7px;
+      font-family: 'Quicksand', sans-serif !important;
+      color: #252a2b;
+      text-align: justify;
     }
-    &-description{
-      & > h2{
-        margin-bottom: 14px;
-      }
-      & > p{
-        font-size: 13px;
-        text-align: justify;
-        width:100%;// chiều rộng bằng khối bao nó
-    white-space: pre-wrap; 
-    overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
-    text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
-    -webkit-line-clamp: 5;// số dòng muốn hiển thị
-    -webkit-box-orient: vertical;
-     display: -webkit-box;
-      }
-      & > ul >li{
-        font-size: 14px;
-        line-height: 21px;
-        margin-bottom: 7px;
-        font-family: 'Quicksand', sans-serif!important;
-        color: #252a2b;
-        text-align: justify;
-      }
+  }
+  &-description {
+    & > h2 {
+      margin-bottom: 14px;
     }
- 
+    & > p {
+      font-size: 13px;
+      text-align: justify;
+      width: 100%; // chiều rộng bằng khối bao nó
+      white-space: pre-wrap;
+      overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+      text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+      -webkit-line-clamp: 5; // số dòng muốn hiển thị
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+    }
+    & > ul > li {
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 7px;
+      font-family: 'Quicksand', sans-serif !important;
+      color: #252a2b;
+      text-align: justify;
+    }
+  }
+  &-error {
+    color: red;
+    margin-left: 10px;
+    font-size: 13px;
+    margin-top: -10px;
+  }
 }
 
-.actives{
-  background: black;
-  color: white;
-    }
+// .actives {
+//   background: red;
+//   color: white;
+// }
+// .isactive {
+//   background: black;
+//   color: white;
+// }

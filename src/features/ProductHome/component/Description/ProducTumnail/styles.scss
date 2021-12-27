@@ -1,100 +1,113 @@
-@use  "./../../../../../sass/" as *;
-.thumnail{
-  
-   
-    .thumnai-image{
-        width:95%;
-       margin: auto;
-     
-        & > img{
-            width: 100%;
-            height: auto;
-            @include tablets {  
-                // box-shadow: $box-shadow;
-                width: 100%;
-                height: 650px;
-               
-                display: flex;
-                flex-shrink: 0;
-                margin-bottom: 2rem;
-            }
-            @include tablet {
-                // box-shadow: $box-shadow;
-                width: 100%;
-                height: 650px;
-     
-                display: flex;
-                flex-shrink: 0;
-            }
-        }
-      
-    }
-    .thumnai-images {
+@use './../../../../../sass/' as *;
+.thumnail {
+  .thumnai-image {
+    width: 95%;
+    margin: auto;
+
+    & > img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      @include tablets {
+        // box-shadow: $box-shadow;
         width: 100%;
+        height: 650px;
+
         display: flex;
-     justify-content: center;
-     cursor: pointer;
-        @include tablet{
-            width: 130px;
-        }
-      & > img{
-   
-          margin-bottom: 10px;
-          width: 50px;
-          height: 76px;
-          @include tablet{
-            width: 100px;
-            height: 100px;
-          }
+        flex-shrink: 0;
+        margin-bottom: 2rem;
       }
-    
+      @include tablet {
+        // box-shadow: $box-shadow;
+        width: 100%;
+        height: 650px;
+
+        display: flex;
+        flex-shrink: 0;
+      }
     }
-    .selce-img{
-        display:flex;
-        justify-content: start;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        width: calc(50% - 10px);
-        margin-left: -10px;
- margin-bottom: 2rem;
-      
-        & > div  {
-            width: calc(25% - 10px);
-            margin-left: 10px;
-            margin-bottom: 1rem;
-            @include mobile {
-                width: calc(15% - 10px);
-            margin-left: 10px;
-            
-            }
-            @include tablet {
-                width: calc(60% - 10px);
-            margin-left: 10px;
-            
-            }
-            & > img{
-                @include mobile{
-                  
-                    height: 100px;
-                }
-                @include tablets{
-                    width: 100px;
-                    height: 100px;
-                }
-                @include tablet{
-                    width: 50px;
-                    height: 80px;
-                }
-            }
+  }
+  .thumnai-images {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 95%;
+
+    // margin: auto;
+
+    cursor: pointer;
+    @include tablet {
+      width: 100px;
+    }
+    & > img {
+      cursor: pointer;
+      margin-bottom: 10px;
+      width: 50px;
+      height: 76px;
+
+      @include tablet {
+        width: 100px;
+        height: 60px;
+      }
+    }
+  }
+  .selce-img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex: 1;
+    flex-wrap: wrap;
+    width: calc(50% - 10px);
+    margin-left: -10px;
+    margin-bottom: 2rem;
+    width: 95%;
+    margin: auto;
+
+    & > div {
+      width: calc(25% - 10px);
+      margin-left: 10px;
+      margin-bottom: 1rem;
+
+      @include mobile {
+        width: calc(15% - 30px);
+        margin-left: 30px;
+      }
+      @include tablets {
+        width: calc(20% - 30px);
+        margin-left: 30px;
+      }
+      @include tablet {
+        width: calc(60% - 10px);
+        margin-left: 10px;
+      }
+      & > img {
+        height: 100px;
+        cursor: pointer;
+        // object-fit: co;
+        &:hover {
+          opacity: 0.7;
+        }
+        @include mobile {
+          height: 100px;
+        }
+        @include tablets {
+          width: 80px;
+          height: 80px;
         }
         @include tablet {
-            display:flex;
-          flex-direction: column;
-        
+          width: 55px;
+          height: 80px;
         }
-     }
-    @include tablet{
-        display: flex;
-        flex-direction: row-reverse;
+      }
     }
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  @include tablet {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: flex-start;
+  }
 }

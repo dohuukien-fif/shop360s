@@ -1,111 +1,133 @@
-@use "./../../../../../sass/" as *;
-.main_items-trousers{
-    flex-basis: 46%;
-// margin-bottom:2rem ;
-display: flex;
-flex-direction: column;
-
-   @include tablets{
-    flex-basis: 22%;
-   }
-   @include tablet{
-    flex-basis: 23%;
+@use './../../../../../sass/' as *;
+.product_items {
+  flex-basis: 46%;
+  // margin-bottom:2rem ;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+  // background: red;
+  // @include tablets{
+  //     flex-basis: calc(47% - 40px);
+  //    }
+  @include tablets {
+    flex-basis: calc(33.333% - 20px);
+  }
+  @include tablet {
+    flex-basis: calc(25% - 20px);
     margin-bottom: 2rem;
-   }
-.trousers_image{
-        position: relative;
-        overflow: hidden;
-cursor: pointer;
-        // transition: 1s ease-in-out;
-        &:hover >.trousers_images{
-           margin-top: -70px;
-           transition: 0.5s ease-in-out;
-        }
-        @include tablet{
-            height: 306px;
-        }
-        & > img{
-  width: 100%;
-      height: 231px;
-      flex-shrink: 0;
-      object-fit: 0;
-      @include mobile{
-          height: 452px;
-      }
-      @include tablets{
-          height: 283px;
-      }
-      @include tablet{
-        height:306px;
+  }
+  .product_figure {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    // transition: 1s ease-in-out;
+    &:hover > .product_figures {
+      margin-top: auto;
+
+      transition: 0.5s ease-in-out;
     }
-        }
-        .trousers_images{
-            position: absolute;
-            bottom: 0;
-            height:70px ;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-             top: 100%;
-             margin-top: 10px;
-            & > img{
-                width: 40px;
-                height: 40px;
-             
-                margin-left: 10px;
-            }
-        }
+    @include tablet {
+      height: 320px;
     }
-    .content_trousers{
-        text-align: center;
+    & > img {
+      width: 100%;
+      height: 280px;
+      //   flex-shrink: 0;
+      object-fit: revert;
+
+      @include mobile {
+        height: 520px;
+        object-fit: revert;
+      }
+      @include tablets {
+        height: 420px;
+      }
+      @include tablet {
+        height: 320px;
+      }
+    }
+    .product_figures {
+      position: absolute;
+      bottom: 0;
+      height: 100px;
+      width: 100%;
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: center;
+      background: transparent;
+      top: 100%;
+      object-fit: cover;
+      @include tablets {
+        height: 85px;
+      }
+      & > img {
+        border-radius: 5px;
+        width: 40px;
+        height: 40px;
+        //  background: red;
+        margin-left: 10px;
+        border: 0.8px solid rgb(211, 209, 209);
+        // object-fit: cover;
+        &:hover {
+          border: 0.8px solid black;
+        }
+      }
+    }
+  }
+  .product_body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .product_header {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      @include mobile {
+        padding: 3px 10px;
+      }
+      @include tablet {
+        padding: 15px 10px 0 0;
+      }
+      .product_name span {
+        margin-top: auto;
+        font-size: 12px;
+      }
+    }
+    .product_footer {
+      padding: 0 10px;
+      display: flex;
+      justify-content: center;
+
+      @include tablet {
+        // padding:8px 10px;
+        padding-bottom: 2rem;
+      }
+      .product_price {
+        margin-top: auto;
+        & > span {
+          color: red;
+          font-size: 14px;
+          text-decoration: underline;
+        }
+      }
+      .product_discount {
         display: flex;
-        flex-direction: column;
-        flex: 1;
-       
-        .content_trousers-top{
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            padding:3px 10px;
-            @include tablet{
-                padding:15px 10px;
-            }
-            &-name span{
-                margin-top: auto;
-font-size: 12px;
-            }
+        flex-direction: column-reverse;
+        margin-top: auto;
+        & > span:first-child {
+          font-size: 12px;
+          color: gray;
+          text-decoration: line-through;
+          margin-left: 8px;
         }
-        .content_trousers-bottom{
-            padding: 0 10px;
-            display: flex;
-            justify-content: center;
-       
-            @include tablet{
-                padding:8px 10px;
-            }
-            &-price{
-            
-                    & > span{
-                        color: red;
-                        font-size: 14px;
-                        text-decoration: underline;
-                    }
-            }
-            &-discount{
-                margin-top: auto;
-                & > span:first-child{
-                    font-size: 12px;
-                    color: gray;
-                    text-decoration:line-through;
-                    margin-left: 8px;
-                }
-                & > span:last-child{
-                    font-size: 11px;
-                    margin-left: 6px;
-                }
-            }
+        & > span:last-child {
+          font-size: 11px;
+          margin-left: 6px;
         }
+      }
     }
+  }
 }

@@ -25,19 +25,22 @@ function FilterPrice({ onChanges }) {
     });
   };
   return (
-    <div className="filter-prices">
-      <TextField
-        // style={{ height: '30px' }}
-        className="textInput"
-        type="text"
-        name="price_gte"
-        value={values.price_gte}
-        onChange={handleChange}
-      />
-      {/* <input type="text" name="price_lte" value={values.price_lte} onChange={handleChange} /> */}
-      <button type="submit" onClick={handleSubmit}>
-        Áp dụng
-      </button>
+    <div className="filter">
+      <h3>Chọn giá</h3>
+      <div className="filter-prices">
+        <TextField
+          // style={{ height: '30px' }}
+          className="textInput"
+          type="text"
+          name="price_gte"
+          value={values.price_gte}
+          onChange={handleChange}
+        />
+        {/* <input type="text" name="price_lte" value={values.price_lte} onChange={handleChange} /> */}
+        <button type="submit" onClick={handleSubmit}>
+          Áp dụng
+        </button>
+      </div>
     </div>
   );
 }

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import ProductHatGucci from './../component/product/productList/ProducGucci/index';
 import './stylesQuanJeans.scss';
 import ProductFilter from './../component/product/ProductFilter/FilterGucci/index';
+import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
 // import './stylesQuanJeans.scss';
 ProductQuanJeans.propTypes = {};
 
@@ -55,17 +56,19 @@ function ProductQuanJeans(props) {
           <Link to="/">Trang chủ</Link> / <Link to="/Mu">Mũ</Link> / Mũ Gucci
         </span>
       </div>
-      <h2>MŨ GUCCI</h2>
+
       <div className="content_trouser">
         <div className="content_trouser_left-trousersJeans">
+          <h2>MŨ GUCCI</h2>
           <ProductFilter onChanges={setFilters} filter={filters} />
         </div>
         <div className="content_trouser_right-trouser">
-          <ProductHatGucci products={Product} />
+          {Loading ? <Seleken length={12} /> : <ProductHatGucci products={Product} />}
           {/* {Loading ? <Selekent length={12} /> : <ProductLisst products={Product} />} */}
           <Pagination
             className="paginations"
-            color="primary"
+            variant="outlined"
+            shape="rounded"
             count={Math.ceil(pagination._totalRows / pagination._limit)}
             page={pagination._page}
             onChange={getPagination}

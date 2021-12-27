@@ -1,0 +1,79 @@
+@use "./../../../sass/" as *;
+.notification{
+   .notification_list{
+      // @include mobile{
+       
+      //    overflow: auto;
+      // }
+      // @include tablets{
+        
+      //    overflow: auto;
+      // }
+      max-height: 2;
+      .notification_item{
+         display: flex;
+         margin-bottom: 1.5rem;
+       
+         .notification_image{
+            flex: 2;
+         
+            overflow: hidden;
+            cursor: pointer;
+            width: 80%;
+             @include mobile{
+               width: 100%;
+               flex: 1;
+            }
+            & > img{
+               height:50%;
+               @include mobile{
+                  height: 100%;
+               }
+            }
+            &:hover{
+               transform: scale(1.1);
+            }
+          
+         }
+         .notification_content{
+            flex: 2;
+            margin-left: 20px;
+         }
+      }
+   }
+}
+//
+.address{
+   .address_title{
+text-align: center;
+cursor: pointer;
+      & > p{
+         padding: 1rem;
+         background: rgb(56, 130, 182);
+      }
+   }
+   .address_list{
+      .address_item{
+         display: flex;
+         flex-direction: column;
+         margin-bottom: 1rem;
+       .address_name,.address_phone,.address_email,.address_add,.address_city{
+         & > span:first-child{
+            font-weight: 600;
+            font-size: 18px;
+         }
+         & > span:last-child{
+         
+            font-size: 16px;
+         }
+       }
+       & > button{
+         margin-left: auto;
+         right: 0;
+         padding: 1rem;
+         border: none;
+      }
+      }
+   
+   }
+}

@@ -1,44 +1,50 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useEffect } from 'react';
+
 import './styles.scss';
 import { formatPrice } from './../../../../../utils/index';
 import { useHistory } from 'react-router';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 Product.propTypes = {};
 
 function Product({ product }) {
+  const [Index, setIndex] = useState(0);
   const { name, id, Araray, originalPrice, promotionpencent, price } = product;
   const history = useHistory();
+  useEffect(() => {
+    AOS.init();
+  }, []);
   const handleClick = () => {
     history.push(`Kinh/${product.id}`);
   };
 
   return (
-    <div className="main_items-trousers" key={id} onClick={handleClick}>
-      <div className="trousers_image">
-        <img src={Araray[0]} alt="" />
-        <div className="trousers_images">
+    <div className="product_items" key={id} data-aos="fade-up" onClick={handleClick}>
+      <div className="product_figure">
+        <img src={Araray[Index]} alt="" />
+        <div className="product_figures">
           {Araray.map((items, index) => (
-            <img src={items} alt="" />
+            <img key={index} src={items} alt="" onMouseMove={() => setIndex(index)} />
           ))}
         </div>
       </div>
-      <div className="content_trousers">
-        <div className="content_trousers-top">
-          <div className="content_trousers-top-name">
+      <div className="product_body">
+        <header className="product_header">
+          <div className="product_name">
             <span>{name}</span>
           </div>
-        </div>
-        <div className="content_trousers-bottom">
-          <div className="content_trousers-bottom-price">
+        </header>
+        <footer className="product_footer">
+          <div className="product_price">
             <span>{formatPrice(price)}</span>
           </div>
           {promotionpencent > 0 && (
-            <div className="content_trousers-bottom-discount">
+            <div className="product_discount">
               <span>{formatPrice(originalPrice)}</span>
               <span>{` - ${promotionpencent}%`}</span>
             </div>
           )}
-        </div>
+        </footer>
       </div>
     </div>
   );

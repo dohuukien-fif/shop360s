@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-// import Inputfield from 'component/form-control/inputField';
-
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-
-import QuantityField from './../../../../component/form-control/QuantitiFiend';
-import { Button } from '@mui/material';
+import CircularProgress from '@mui/material/CircularProgress';
+import PropTypes from 'prop-types';
+import React from 'react';
+// import Inputfield from 'component/form-control/inputField';
+import { useForm } from 'react-hook-form';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-AddTocartForm.propTypes = {};
+import * as yup from 'yup';
+import QuantityField from './../../../../component/form-control/QuantitiFiend';
+AddTocartForm.propTypes = {
+  onSubmits: PropTypes.func,
+};
 
 function AddTocartForm({ onSubmits = null }) {
   const schema = yup.object().shape({
@@ -27,10 +27,22 @@ function AddTocartForm({ onSubmits = null }) {
   });
   const handleSubmit = async (value) => {
     console.log('kien', value);
-    if (onSubmits) {
-      await onSubmits(value);
-    }
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        // setLoading(true);
+        if (onSubmits) {
+          onSubmits(value);
+        }
+        // setTimeout(() => {
+        //   setLoading(false);
+        // }, 2000);
+
+        form.reset();
+        resolve(true);
+      }, 2000);
+    });
   };
+  const { isSubmitting } = form.formState;
   return (
     <form onSubmit={form.handleSubmit(handleSubmit)}>
       <QuantityField name="quantity" label="Quantity" form={form} />
@@ -40,7 +52,16 @@ function AddTocartForm({ onSubmits = null }) {
           <span>
             <AiOutlineShoppingCart />
           </span>{' '}
-          <span>Add to cart</span>
+          <span>
+            Add to cart
+            {isSubmitting && (
+              <CircularProgress
+                // sx={{ fontSize: '10px' }}
+                style={{ width: '18px', height: '18px', marginLeft: '10px' }}
+                color="inherit"
+              />
+            )}
+          </span>
         </button>
       </div>
     </form>

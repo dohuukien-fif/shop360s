@@ -17,7 +17,7 @@ function ProductFeatures(props) {
       <Switch>
         <Route path={match.url} exact component={Product} />
 
-        <Route path={`${match.path}/quan-jeans`} component={ProductQuanJeans} />
+        <Route path={`${match.path}/quan-jeans`} exact component={ProductQuanJeans} />
         <Route path={`${match.path}/quan-au`} component={ProductQuanAu} />
         <Route path={`${match.path}/vay-nu`} component={ProductVaynu} />
         <Route path={`${match.path}/quan-short`} component={ProductQuanShort} />

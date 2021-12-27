@@ -26,12 +26,15 @@ QuantityField.propTypes = {
 
 function QuantityField(props) {
   //   const classes = useStyles();
-  const { form, name, label, disabled } = props;
+  const { form, name, label, disabled, onChangeRHF } = props;
   const { errors, setValue } = form;
   const hasError = !!errors[name];
-
+  const handleChange = (value) => {
+    if (!onChangeRHF) return;
+    onChangeRHF(value);
+  };
   return (
-    <FormControl error={hasError} fullWidth margin="normal" variant="outlined" size="small">
+    <FormControl error={hasError} width="50%" margin="normal" variant="outlined" size="small">
       <Controller
         name={name}
         control={form.control}
@@ -46,11 +49,12 @@ function QuantityField(props) {
             </IconButton>
 
             <OutlinedInput
+              sx={{ width: '50%' }}
               id={name}
               type="number"
               disabled={disabled}
               value={value}
-              onChange={onChange}
+              onChange={handleChange(value)}
               onBlur={onBlur}
             />
 

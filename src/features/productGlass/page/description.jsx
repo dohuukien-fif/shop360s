@@ -9,20 +9,38 @@ import ProductApi from '../../../api/productapi';
 import Sken from './../../ProductHome/component/ProductSelekent/index';
 import SlidesHomes from './../component/slides/slidesHome';
 import Descriptions from './../component/Description/Descriptions/index';
+import Skenlenk from './../component/Description/Descriptions/index';
+import SelenChosse from './../component/ProductSelekent/chossing';
 import Paper from '@mui/material/Paper';
+import { addTocart } from './../../cart/cartSlice';
+import { useDispatch } from 'react-redux';
+import ChosingDiffrentProduct from './../component/slides/ChosingDiffrentProduct';
+import { useUserContext } from './../../../component/contextApi/index';
+import SelenkenDescription from './../component/ProductSelekent/index';
 function Description() {
   const {
     params: { kinhId },
     url,
   } = useRouteMatch();
-
+  const dispatch = useDispatch();
+  const { user } = useUserContext();
   const { product, Loading } = useDetailProduct(kinhId);
   console.log(product);
   const title =
     product.categoryName === undefined ? ' ' : `${product.categoryName} / ${product.name}`;
   //change quantity
-  const handlechangeQuantity = (newvalue) => {
-    console.log(newvalue);
+  const handleAddtoCart = (formValue) => {
+    if (user === null) {
+      alert('vui lòng đăng nhập');
+      return;
+    }
+    const action = addTocart({
+      id: product.id,
+      product,
+      quantity: formValue.quantity,
+    });
+    dispatch(action);
+    console.log('nung', formValue.size);
   };
   return (
     <div className="description_glass">
@@ -35,14 +53,21 @@ function Description() {
           {Loading ? (
             <Sken length={1} />
           ) : (
-            <ProductInfo product={product} onChange={handlechangeQuantity} />
+            <ProductInfo product={product} onChange={handleAddtoCart} />
           )}
         </div>
+      </div>
+      <div className="choose">
+        {Loading ? (
+          <SelenChosse length={4} width={90} height={85} />
+        ) : (
+          <ChosingDiffrentProduct product={product} />
+        )}
       </div>
       <div className="evaluate ">
         <Paper elevation={3}>
           <h2 className="evaluate_title">CHI TIẾT</h2>
-          <Descriptions product={product} />
+          {Loading ? <SelenkenDescription length={1} /> : <Descriptions product={product} />}
         </Paper>
       </div>
       <div className="related_glass">

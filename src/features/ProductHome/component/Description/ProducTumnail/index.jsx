@@ -46,7 +46,7 @@ function Thumnail({ product }) {
         {/* <h1>{images[0]}</h1> */}
       </div>
       <div className="thumnai-images">
-        <SetImage Imagess={product.Araray} onChange={handoChange} />
+        <SetImage ids={id} Imagess={product.Araray} onChange={handoChange} />
         {/* {new Array(Araray).map((item, index) => (
           <>
 

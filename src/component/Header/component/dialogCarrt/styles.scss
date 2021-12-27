@@ -1,0 +1,190 @@
+@use './../../../../sass/index.scss' as *;
+.header_cart2 {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 7777;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms linear;
+  // .activecarts {
+  //   right: 0;
+  // }
+  .cart2_container {
+    position: absolute;
+    background: white;
+    right: -50%;
+    top: 0;
+    bottom: 0;
+    width: 80%;
+    transition: all 500ms linear;
+    @include mobile {
+      width: 60%;
+    }
+    @include tablets {
+      width: 45%;
+    }
+    @include tablet {
+      width: 30%;
+    }
+    .cart2_block {
+      padding: 3rem;
+      @include mobile {
+        padding: 5rem;
+      }
+      @include tablet {
+        padding: 7rem;
+      }
+      .line {
+        &_list {
+          border-bottom: 3px solid black;
+          padding-bottom: 3rem;
+          .line_item {
+            display: flex;
+
+            .line_adside {
+              flex: 3;
+              margin-right: 20px;
+              @include tablet {
+                margin-right: 5px;
+              }
+              & > img {
+                width: 70px;
+                height: 100%;
+                object-fit: contain;
+              }
+            }
+            .line_body {
+              padding: 20px 0;
+              flex: 6;
+              .line_quantity-price {
+                .line_quantity {
+                  & > span {
+                    padding: 6px 12px;
+                    background: #ededed;
+                  }
+                }
+                .line_price {
+                  margin-left: 15px;
+                  & > span {
+                    font-size: 14px;
+                    color: #736f73;
+                  }
+                }
+              }
+              .line_name {
+                line-height: 1.8rem;
+                margin-bottom: 1rem;
+                & > span {
+                  font-size: 13px;
+                }
+              }
+              .line_quantity-price {
+                display: flex;
+              }
+            }
+            .line_delete {
+              flex: 1;
+            }
+          }
+        }
+      }
+      .line_delete {
+        display: flex;
+        align-items: center;
+        & > button {
+          border: none;
+          background: white;
+          & > svg {
+            font-size: 18px;
+          }
+        }
+      }
+      .line_total {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 2rem 1rem 3rem 1rem;
+        & > span:first-child {
+          font-size: 15px;
+        }
+        & > span:last-child {
+          font-size: 14px;
+        }
+      }
+      .lint_btn {
+        display: flex;
+        justify-content: space-between;
+        & > button {
+          // background: black;
+          padding: 15px;
+          font-size: 12px;
+
+          position: relative;
+          z-index: 1;
+
+          cursor: pointer;
+
+          background: white;
+
+          &::before {
+            position: absolute;
+            content: '';
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: #000;
+            color: white;
+            z-index: -1;
+            transition: 0.3s ease-out;
+          }
+          &:hover::before {
+            left: 100%;
+            right: 0;
+          }
+          &:hover > span {
+            color: black;
+          }
+          @include mobile {
+            padding: 25px 30px 25px 30px;
+            font-size: 13px;
+          }
+          @include tablet {
+            padding: 20px 30px 20px 30px;
+            font-size: 13px;
+          }
+          & > span {
+            color: white;
+            z-index: 3;
+
+            // padding: 2rem;
+          }
+          // & > span {
+          //   padding: 2rem;
+          //   color: white;
+          //   background: black;
+          // }
+        }
+      }
+    }
+    .cart2_title {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 5rem;
+    }
+  }
+}
+.activecart {
+  opacity: 1;
+  visibility: visible;
+}
+.activeCartModal {
+  right: 0 !important;
+}

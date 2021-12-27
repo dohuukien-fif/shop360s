@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import './styles.scss';
 setImage.propTypes = {};
 
-function setImage({ Imagess, onChange }) {
+function setImage({ Imagess, onChange, ids }) {
   // console.log(typeof Imagess);
-  let imgs = new Array(Imagess);
+  // let imgs = new Array(Imagess);
   const handeleChan = (newvlue) => {
     if (onChange) {
       onChange(newvlue);

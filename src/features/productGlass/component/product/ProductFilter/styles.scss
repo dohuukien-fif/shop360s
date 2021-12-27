@@ -1,29 +1,40 @@
-@use "./../../../../../sass/" as *;
-.filter-prices{
-transform: translateY(18px);
-display: flex;
-justify-content: center;
-align-items: center;
-& > button{
-    height: 40px;
-    padding: 1rem;
-    border-radius: 5px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-}
-.selectPrice{
-   @include tablet{
-    width: 220px;
- 
-   }
-}
-// .filter-category{
-//     @include tablet{
-//     margin-bottom: 3rem;
-//    }
+// @use "./../../../../../sass/" as *;
+// .filter{
+//     transform: translateY(18px);
+//     & > h3{
+//         font-size: 13px;
+//     }
+//     .filter-prices{
+
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         & > button{
+//             height: 40px;
+//             padding: 1rem;
+//             border-radius: 5px;
+//             background-color: black;
+//             color: white;
+//             cursor: pointer;
+//             display: flex;
+//             justify-content: center;
+//             align-items: center;
+
+//         }
+//         }
+//         .selectPrice{
+//            @include tablet{
+//             width: 220px;
+
+//            }
+//         }
 // }
-// .textInput{
-//     height: 30px;
-// }
+
+// // .filter-category{
+// //     @include tablet{
+// //     margin-bottom: 3rem;
+// //    }
+// // }
+// // .textInput{
+// //     height: 30px;
+// // }

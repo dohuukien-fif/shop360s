@@ -21,7 +21,7 @@ function ProductFeatures(props) {
         <Route path={`${match.path}/mu-burberry`} component={ProductBurberry} />
         <Route path={`${match.path}/mu-gucci`} component={ProductGucci} />
         <Route path={`${match.path}/mu-dolce`} component={ProductDolce} />
-        <Route path={`${match.path}/kinh-lacoste`} component={ProductLacoste} />
+        <Route path={`${match.path}/mu-lacoste`} component={ProductLacoste} />
         <Route path={`${match.url}/:muId`} component={Description} />
       </Switch>
     </div>

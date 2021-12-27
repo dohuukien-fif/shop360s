@@ -1,0 +1,119 @@
+@use  "./../../../../sass/"as *;
+.newLisst_title{
+   & > span{
+     font-size: 40px;
+     text-align: center;
+     display: block;
+     padding: 8rem ;
+   }
+}
+.postLisst{
+   width: 90%;
+   margin: auto;
+  @include tablets{
+   width: 98%;
+   display: flex;
+   justify-content: space-between;
+   /* justify-content: center; */
+   /* align-items: center; */
+   margin: auto;
+}
+@include tablet{
+   width: 79%;
+   display: flex;
+   justify-content: space-between;
+   /* justify-content: center; */
+   /* align-items: center; */
+   margin: auto;
+}
+  
+ 
+   .post_item{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 3rem;
+      @include tablets{
+         flex-basis: 32%;
+      }
+      .post_adside{
+         .post_figure{
+
+         }
+
+      }
+      .post_header{
+         .post_date{
+            & > span{
+               font-size: 14px;
+               color: gray;
+               text-align: center;
+             
+               display: block;
+            }
+         }
+         .post_title{
+            & > span{
+                 
+             margin: auto auto 1.5rem auto;
+    width: 82%;
+    font-size: 15px;
+    text-align: center;// chiều rộng bằng khối bao nó
+
+white-space: pre-wrap; 
+overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+-webkit-line-clamp: 1;// số dòng muốn hiển thị
+-webkit-box-orient: vertical;
+ display: -webkit-box;
+ position: relative;
+
+ &::before{
+position: absolute;
+content: "";
+margin: auto;
+left: 40%;
+width: 50px;
+margin-top: 10px;
+bottom: 0;
+height: 2px;
+background: orange;
+ }
+            }
+         }
+      }
+      .post_footer{
+         width: 90%;
+         margin: auto;
+         @include tablets{
+            width: 95%;
+         }
+         .post_action{
+      & > span{
+         font-size: 15px;
+         text-align: center;
+         line-height: 2rem;
+ 
+         text-align: center;
+         white-space: pre-wrap; 
+         overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+         text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+         -webkit-line-clamp: 2;// số dòng muốn hiển thị
+         -webkit-box-orient: vertical;
+          display: -webkit-box;
+          @include tablets{
+            line-height: 2rem;
+            font-size: 13px;
+                 text-align: center;
+                 white-space: pre-wrap; 
+                 overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+                 text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+                 -webkit-line-clamp: 3;// số dòng muốn hiển thị
+                 -webkit-box-orient: vertical;
+                  display: -webkit-box;
+          }
+      }
+ 
+         }
+      }
+   }
+}

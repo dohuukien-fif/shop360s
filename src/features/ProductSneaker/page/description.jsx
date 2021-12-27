@@ -12,20 +12,38 @@ import SlidesHomes from './../component/slides/slidesHome';
 import Descriptions from './../component/Description/Descriptions/index';
 import Paper from '@mui/material/Paper';
 import ChosingDiffrentProduct from '../component/slides/ChosingDiffrentProduct';
-import Seleken from './../component/ProductSelekent/seleken';
+import Seleken from './../component/ProductSelekent/chossing';
+import { addTocart } from './../../cart/cartSlice';
+import { useDispatch } from 'react-redux';
+import { useUserContext } from './../../../component/contextApi/index';
 function Description() {
+  const { user } = useUserContext();
   const {
     params: { giayId },
     url,
   } = useRouteMatch();
+  const dispatch = useDispatch();
 
   const { product, Loading } = useDetailProduct(giayId);
   console.log(product);
   const title =
     product.categoryName === undefined ? ' ' : `${product.categoryName} / ${product.name}`;
   //change quantity
-  const handlechangeQuantity = (newvalue) => {
-    console.log(newvalue);
+  // const handlechangeQuantity = (newvalue) => {
+  //   console.log(newvalue);
+  // };
+  const handleAddtoCart = (formValue) => {
+    if (user === null) {
+      alert('vui lòng đăng nhập');
+      return;
+    }
+    const action = addTocart({
+      id: product.id,
+      product,
+      quantity: formValue.quantity,
+    });
+    dispatch(action);
+    console.log('nung', formValue.size);
   };
   return (
     <div className="description_glass">
@@ -38,7 +56,7 @@ function Description() {
           {Loading ? (
             <Sken length={1} />
           ) : (
-            <ProductInfo product={product} onChange={handlechangeQuantity} />
+            <ProductInfo product={product} onChange={handleAddtoCart} />
           )}
         </div>
       </div>

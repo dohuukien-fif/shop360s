@@ -1,33 +1,82 @@
 import logo from './logo.svg';
+import { useEffect } from 'react';
+
 import './app.scss';
 import Home from './features/ProductHome/index';
 import Headers from './component/Header';
-import Sex from './features/ProductHome/page/detail';
-import { Route, Switch, Redirect } from 'react-router-dom';
+
+import { Route, Switch, Redirect, useHistory, useLocation } from 'react-router-dom';
 import QuanFeature from './features/ProductTrousers/index';
 import AoFeature from './features/ProductShrit/index';
 import KinhFeature from './features/ProductGlass/index';
 import muFeature from './features/ProductHats/index';
 import GiayFeature from './features/ProductSneaker/index';
+import CartFeature from './features/cart/index';
+import Login from './component/auth/login';
+import Register from './component/auth/register';
+import Thongtins from './component/order/page/orderCheckou';
+import { useUserContext } from './component/contextApi/index';
+import NotFound from './component/notFound/index';
+import Fouter from './component/fouter/index';
+import SearchProduct from './features/SearchProduct/index';
+// import Order from './component/order/index';
 function App() {
+  const { user, registerUser, logoutUser, signInUser, loading } = useUserContext();
+  const history = useHistory();
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  const isloginin = JSON.parse(localStorage.getItem('accessToken'));
+  const haslogin = Boolean(isloginin);
+  // console.log(haslogin);
+  // useEffect(() => {
+  //   const handlepussh = () => {
+  //     // if (isloginin === undefined) return;
+  //     if (loading) {
+  //       <Redirect from="/login" to="/Trang-chu" />;
+  //     }
+  //   };
+  //   handlepussh();
+  // }, [loading]);
+
   return (
     <div>
       <Headers />
 
       <Switch>
-        <Redirect from="/" to="/product" exact />
-        <Route path="/product" component={Home} />
+        <Redirect from="/" to="/Trang-chu" exact />
+
+        <Route path="/Trang-chu" component={Home} />
+        {/* {user === null && <Redirect to="/Trang-chu" />} */}
+        {haslogin && <Redirect from="/login" to="/Trang-chu" />}
+        {haslogin && <Redirect from="/register" to="/Trang-chu" />}
         <Route path="/Quan" component={QuanFeature} />
         <Route path="/Ao" component={AoFeature} />
+        {/* <Route path="/tat-ca" component={AllproductFeature} /> */}
         <Route path="/Kinh" component={KinhFeature} />
+        {/* <Redirect from="" to="/product" exact /> */}
+        <Route path="/Search" component={SearchProduct} />
         <Route path="/Mu" component={muFeature} />
         <Route path="/Giay" component={GiayFeature} />
+        <Route path="/Cart" component={CartFeature} />
+        <Route path="/Thongtin" component={Thongtins} />
+        <Route path="/login" component={Login} />
+        <Route path="/register" component={Register} />
+
+        <Route component={NotFound} />
+        {/* {logoutUser && <Redirect to="/" />}
+        {user === null && <Redirect to="/" />} */}
+
         {/* <Route path="/todo" component={Todofeatures} />
         <Route path="/abum" component={AlbumFeature} />
         <Route path="/products" component={ProducFeatures} />
         <Route path="/cart" component={CartFeture} />
         <Route component={NotFound} /> */}
       </Switch>
+
+      <Fouter />
+      {/* {user === null && <Redirect to="/login" />} */}
     </div>
   );
 }

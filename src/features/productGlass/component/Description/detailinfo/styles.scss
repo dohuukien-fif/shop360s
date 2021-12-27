@@ -23,6 +23,10 @@
        & > span:last-child{
         color:  rgb(93, 92, 92);
         margin-left: 10px;
+        display: none;
+        @include mobile{
+          display: block;
+        }
       }
     }
    &-name{

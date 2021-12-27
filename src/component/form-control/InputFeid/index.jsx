@@ -1,8 +1,8 @@
-import { TextField } from '@material-ui/core';
+import { TextField } from '@mui/material';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Controller } from 'react-hook-form';
-
+import './styles.scss';
 InputField.propTypes = {
   form: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
@@ -24,6 +24,7 @@ function InputField(props) {
         <TextField
           margin="normal"
           variant="outlined"
+          id="filled-disabled"
           fullWidth
           label={label}
           disabled={disabled}

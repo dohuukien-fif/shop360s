@@ -1,0 +1,17 @@
+@use  "./../../../../../../sass/index.scss" as *;
+.trousersList{
+    display: flex;
+flex-wrap: wrap;
+    justify-content: space-around;
+    min-height: 50vh;
+    @include tablets{
+        justify-content:flex-start;
+        column-gap: 20px;
+        margin-left: 20px;
+    }
+    @include tablet{
+
+      column-gap: 30px;
+      margin-left: 0px;
+  }
+} 

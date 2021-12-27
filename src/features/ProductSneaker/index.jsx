@@ -9,6 +9,7 @@ import ProductConverse from './page/ProductConverse';
 import ProductDolce from './page/ProductDolce';
 import ProductLacoste from './page/ProductLacote';
 import ProductGucci from './page/ProductLacote';
+import ProductDior from './page/ProductDior';
 ProductFeatures.propTypes = {};
 
 function ProductFeatures(props) {
@@ -22,9 +23,11 @@ function ProductFeatures(props) {
         <Route path={`${match.path}/giay-burberry`} component={ProductBurberry} />
         <Route path={`${match.path}/giay-gucci`} component={ProductGucci} />
         <Route path={`${match.path}/giay-dolce`} component={ProductDolce} />
-        <Route path={`${match.path}/giay-Converse`} component={ProductConverse} />
+        <Route path={`${match.path}/giay-converse`} component={ProductConverse} />
+        <Route path={`${match.path}/giay-dior`} component={ProductDior} />
+
         <Route path={`${match.path}/giay-lacoste`} component={ProductLacoste} />
-        <Route path={`${match.url}/:muId`} component={Description} />
+        <Route path={`${match.url}/:giayId`} component={Description} />
       </Switch>
     </div>
   );
