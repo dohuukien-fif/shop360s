@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 import { formatPrice } from './../../../../../utils';
@@ -57,7 +57,9 @@ function ProductInfo({ product, onChange }) {
         <h2>THÔNG TIN</h2>
         <ul>
           {information.map((item, index) => (
-            <li key={index}>{item}</li>
+            <Fragment key={index}>
+              <li key={index}>{item}</li>
+            </Fragment>
           ))}
         </ul>
       </div>
@@ -72,7 +74,9 @@ function ProductInfo({ product, onChange }) {
         <h2> + Hướng dẫn sử dụng</h2>
         <ul>
           {instruct.map((item, index) => (
-            <li>{item}</li>
+            <Fragment key={index}>
+              <li>{item}</li>
+            </Fragment>
           ))}
         </ul>
         {/* <ul>

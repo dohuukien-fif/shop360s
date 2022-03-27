@@ -15,7 +15,7 @@ const GlassApi = {
   },
   update(data) {
     const url = `/kinh/${data}`;
-    return axiosClient.get(url, data);
+    return axiosClient.patch(url, data);
   },
   detele(id) {
     const url = `/kinh/${id}`;

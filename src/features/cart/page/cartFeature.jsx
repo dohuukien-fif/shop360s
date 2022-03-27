@@ -11,19 +11,21 @@ import CartList from '../component/cartLisst';
 import CartTotal from '../component/CartTotal';
 import './cartFeature.scss';
 
-
 CartFeture.propTypes = {};
 
 function CartFeture(props) {
   const cartTotal = useSelector(cartItemTotal);
+  const cartItemsizes = useSelector((state) => state.carts.newsizes);
+
   const dispatch = useDispatch();
   const refDebound = useRef(null);
   const history = useHistory();
   const cartItem = useSelector(cartItemSelector);
+
   const { id, originalPrice, promotionPercent, shortDescription } = cartItem;
   console.log(cartItem);
   //dispatch id up reduxSlice remove item
-
+  console.log('cartItemsize', cartItem);
   const handleRemoveItem = (id) => {
     const action = removeFromCart(id);
     dispatch(action);
@@ -40,7 +42,7 @@ function CartFeture(props) {
   console.log(cartItem);
 
   console.log('carts', cartItem);
-//dispatch checkOut product {total , discount , product}
+  //dispatch checkOut product {total , discount , product}
   const hadleSubmitCheckout = (newvalue) => {
     // const addItem = cartItem[cartItem.length - 1];
     let arr = [];

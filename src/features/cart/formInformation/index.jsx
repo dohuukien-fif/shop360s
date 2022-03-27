@@ -1,8 +1,6 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import CartTotal from './../component/CartTotal';
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import Inputfield from './../../../component/form-control/InputFeid/index';
 import Textfield from './../../../component/form-control/textFeild/index';

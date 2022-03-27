@@ -1,0 +1,16 @@
+@use './../../../../sass/index.scss' as *;
+.filter_product {
+  display: flex;
+  flex-direction: column;
+
+  .filter_product-left {
+    display: flex;
+    align-items: flex-start;
+
+    column-gap: 30px;
+
+    @include tablets {
+      flex-direction: column;
+    }
+  }
+}

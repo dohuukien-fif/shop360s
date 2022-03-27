@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, Fragment } from 'react';
 
 import './styles.scss';
 Sizes.propTypes = {};
@@ -80,12 +80,12 @@ function Sizes({ item, onChange, index }) {
   return (
     <>
       {item.map((items, index) => (
-        <>
+        <Fragment key={index}>
           <button key={index} className={getStyles(index)}>
             <span onClick={() => handleToggle(index, items)}>{items}</span>
             <span className="tooltiptext">{items}</span>
           </button>
-        </>
+        </Fragment>
       ))}
     </>
   );

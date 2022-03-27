@@ -129,7 +129,10 @@
         color: gray;
       }
     }
-
+    @include mobile {
+      font-size: 35px;
+      // padding: 8rem 4rem 8rem 4rem;
+    }
     @include tablet {
       font-size: 40px;
       padding: 8rem 4rem 8rem 4rem;
@@ -148,6 +151,7 @@
 // }
 .scroll_top {
   // display: inline-block;
+  display: none;
   position: fixed;
   background-color: #ff9800;
   width: 50px;
@@ -161,6 +165,9 @@
   // opacity: 0;
   // visibility: hidden;
   z-index: 1;
+  @include mobile {
+    display: block;
+  }
 }
 // .scroll_top::after {
 //   content: "\f077";

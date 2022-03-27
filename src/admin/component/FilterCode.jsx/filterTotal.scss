@@ -1,0 +1,23 @@
+@use './../../../sass/index.scss' as *;
+.filterTotal {
+  display: flex;
+  flex-direction: column;
+
+  & > span {
+    font-size: 20px;
+    font-weight: 700;
+
+    margin-bottom: 10px;
+  }
+  & > select {
+    width: 100%;
+
+    height: 25px;
+
+    @include tablets {
+      width: 150px;
+
+      height: 35px;
+    }
+  }
+}

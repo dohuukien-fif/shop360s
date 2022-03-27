@@ -1,0 +1,346 @@
+.admin_theme {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  column-gap: 10px;
+
+  .active_model {
+    opacity: 1 !important;
+    visibility: visible !important;
+    right: 0 !important;
+  }
+  .admin_theme-icon {
+    & > svg {
+      color: black;
+      font-size: 30px;
+
+      cursor: pointer;
+    }
+  }
+
+  .admin_theme-swapper {
+    position: fixed;
+
+    right: -100%;
+    bottom: 0;
+    top: 0;
+
+    z-index: 100;
+
+    width: 300px;
+
+    background: white;
+
+    box-shadow: 0 7px 24px rgb(0 0 0 / 9%);
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+
+    .admin_theme-block {
+      padding: 20px;
+
+      .admin_theme-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        font-size: 17px;
+
+        margin-bottom: 30px;
+
+        & > span {
+          font-weight: 600;
+        }
+        & > svg {
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+      .admin_theme-chosse {
+        .admin_theme-chosse-title {
+          margin-bottom: 20px;
+          font-size: 17px;
+
+          color: rgb(83, 80, 80);
+        }
+        .admin_theme-chosse-list {
+          .admin_theme-item {
+            display: flex;
+            align-items: center;
+
+            margin-top: 10px;
+
+            column-gap: 10px;
+
+            & > button {
+              width: 40px;
+              height: 40px;
+
+              border-radius: 50%;
+
+              display: flex;
+              align-items: center;
+
+              cursor: pointer;
+            }
+          }
+          .admin_theme-item:first-child {
+            & > button {
+              background: white;
+
+              border: 1px solid rgb(240, 237, 237);
+            }
+          }
+          .admin_theme-item:last-child {
+            & > button {
+              background: black;
+
+              border: 1px solid black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.theme-mode-dark {
+  background-color: #212022;
+
+  //THEME
+  .admin_theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    column-gap: 10px;
+
+    .admin_theme-icon {
+      & > svg {
+        color: white;
+        font-size: 30px;
+
+        cursor: pointer;
+      }
+    }
+  }
+  //ADMIN
+  .admin_swapper {
+    .admin_right-cart {
+      & > button {
+        & > span {
+          & > svg {
+            color: white;
+          }
+        }
+      }
+    }
+
+    .admin_left {
+      background: #2e2d2e;
+      .sidePage__menu {
+        .sidePage__QuickMenu {
+          .sidePage__QuickMenu-product {
+            .sidePage__QuickMenu-Accordion {
+              background: #2e2d2e;
+            }
+          }
+        }
+      }
+    }
+    .admin_right-mini {
+      background: #2e2d2e !important;
+      color: white;
+      &::before {
+        border-bottom: 15px solid #2e2d2e !important;
+      }
+      &::after {
+        background: #212022 !important;
+      }
+      .admin_mini-total {
+        background-color: #2e2d2e !important;
+      }
+    }
+
+    .admin_right-account {
+      .admin_right-icon {
+        & > svg {
+          color: white;
+        }
+        & > span {
+          color: white;
+        }
+        .admin_right-menu {
+          color: white;
+          & > span {
+            &:hover {
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+  //HOME
+  .revanue {
+    .revanue_container {
+      .revanue__group {
+        background: #2e2d2e;
+        color: white;
+
+        &:hover {
+          color: black !important;
+        }
+        &::before {
+          background: white;
+        }
+      }
+    }
+  }
+
+  .revanue_table {
+    .revanue_customers {
+      background: #2e2d2e;
+      color: white;
+
+      .revanue_customers-top {
+        color: black;
+      }
+      .revanue_customers-bottom {
+        .revanue_customers-bottom-list {
+          .revanue_customers-bottom-item {
+            color: white !important;
+
+            &:hover {
+              background: white;
+              color: black !important;
+            }
+          }
+        }
+      }
+    }
+    .revanue_latestOrder {
+      background: #2e2d2e;
+      color: white;
+
+      .revanue_latestOrder-top {
+        color: black;
+      }
+
+      .revanue_latestOrder-bottom {
+        .revanue_latestOrder-bottom-list {
+          .revanue_latestOrder-bottom-item {
+            color: white !important;
+
+            &:hover {
+              background: white !important;
+              color: black !important;
+            }
+          }
+        }
+      }
+    }
+  }
+  //CUSTOMERS
+  .customers {
+    .customers_title {
+      color: white;
+    }
+    .customers_block {
+      background: #2e2d2e;
+      color: white;
+      .customers__swapper {
+        background: #2e2d2e;
+
+        .customers__top {
+          background: #1e1e1e;
+          color: white;
+        }
+
+        .customers__content {
+          .customers__list {
+            .customers__item {
+              color: white;
+
+              .customers_index {
+                color: white;
+              }
+              .customers_spend {
+                color: white;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .customers_pagination {
+      .css-1p5q5e5-MuiStack-root {
+        & > nav {
+          & > ul {
+            & > li {
+              & > button {
+                color: white !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  //PRODUCT
+  .products {
+    color: white;
+
+    .products_newProduct-swapper {
+      .Filter {
+        background: #2e2d2e;
+      }
+
+      .product_title {
+        color: black;
+      }
+
+      .products_list {
+        background: #2e2d2e;
+      }
+    }
+  }
+  //ORDER
+
+  .products {
+    .products-order {
+      .products-order-top {
+        .products-order-top_group {
+          background: #2e2d2e;
+        }
+      }
+      .products-order-bottom {
+        .products_order-bottom-right {
+          .product_order-caledar {
+            background: #2e2d2e;
+          }
+        }
+      }
+    }
+
+    .product_order-tab {
+      .product_order-swapper {
+        .product_title-order {
+          background: #2e2d2e;
+        }
+        .products_list-order {
+          .products_item-order {
+            background: #2e2d2e;
+          }
+        }
+        .completed {
+          .products_item-order {
+            background: #2e2d2e;
+          }
+        }
+      }
+    }
+  }
+}

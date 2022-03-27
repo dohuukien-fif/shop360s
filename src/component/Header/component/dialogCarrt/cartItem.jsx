@@ -1,9 +1,9 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { formatPrice } from './../../../../utils/index';
+import React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeFromCart, setQuantity } from './../../../../features/cart/cartSlice';
+import { useDispatch } from 'react-redux';
+import { removeFromCart } from './../../../../features/cart/cartSlice';
+import { formatPrice } from './../../../../utils/index';
 CartItem.propTypes = {
   items: PropTypes.object,
 };

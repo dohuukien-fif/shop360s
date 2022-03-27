@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
 index.propTypes = {};
@@ -15,7 +15,10 @@ function index({ product }) {
           <h2> Hướng dẫn bảo Quản</h2>
           <ul>
             {product.instruct.map((item, index) => (
-              <li>{item}</li>
+              <Fragment key={index}>
+                {' '}
+                <li>{item}</li>
+              </Fragment>
             ))}
           </ul>
         </div>
@@ -25,7 +28,10 @@ function index({ product }) {
           <h2> THÔNG TIN CHUNG</h2>
           <ul>
             {product.information.map((item, index) => (
-              <li>{item}</li>
+              <Fragment key={index}>
+                {' '}
+                <li>{item}</li>
+              </Fragment>
             ))}
           </ul>
         </div>

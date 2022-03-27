@@ -1,4 +1,4 @@
-import { createSlice, createSelector } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 const CartSlice = createSlice({
   name: 'carts',
   initialState: {
@@ -15,16 +15,33 @@ const CartSlice = createSlice({
     addTocart(state, action) {
       const newCart = action.payload;
       const index = state.cartItem.findIndex((item) => item.id === newCart.id);
+
       if (index >= 0) {
         const newCart = action.payload;
+        const nnnewSzie = state.cartItem[index].newSize.find((e) => e.size);
         state.cartItem[index].quantity += newCart.quantity;
+        //check  newSize  >   0   reder
+        if (state.cartItem[index].newSize.length > 0) {
+          if (nnnewSzie.size === newCart.size) {
+            state.cartItem[index].newSize.find((e) => (e.quantity += newCart.quantity));
+          } else {
+            state.cartItem[index].newSize.push({ size: newCart.size, quantity: newCart.quantity });
+          }
+        }
 
-        state.cartItem[index].size = newCart.size;
         localStorage.setItem('newItem', JSON.stringify(state.cartItem));
       } else {
         state.cartItem.push(newCart);
+
         // state.cartItem.push(newCart.size);
         localStorage.setItem('newItem', JSON.stringify(state.cartItem));
+      }
+    },
+    setSize(state, action) {
+      const newCart = action.payload;
+      const index = state.cartItem.findIndex((item) => item.id === newCart.id);
+      if (index >= 0) {
+        state.newsizes.push(newCart);
       }
     },
     setQuantity(state, action) {
@@ -61,6 +78,13 @@ const CartSlice = createSlice({
   },
 });
 const { actions, reducer } = CartSlice;
-export const { showMiniCart, hideMiniCart, addTocart, setQuantity, removeFromCart, removeCart } =
-  actions;
+export const {
+  setSize,
+  showMiniCart,
+  hideMiniCart,
+  addTocart,
+  setQuantity,
+  removeFromCart,
+  removeCart,
+} = actions;
 export default reducer;

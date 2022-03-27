@@ -82,11 +82,14 @@
 
     & > button {
       padding: 0.7rem;
-      margin-left: 10px;
+      margin-left: 5px;
       outline: none;
       border: none;
       position: relative;
       cursor: pointer;
+      @include mobile {
+        margin-left: 10px;
+      }
       .tooltiptext {
         visibility: hidden;
         width: 30px;

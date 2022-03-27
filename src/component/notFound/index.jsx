@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
 import { useHistory } from 'react-router-dom';
+import './styles.scss';
 NotFound.propTypes = {};
 
 function NotFound(props) {

@@ -20,6 +20,7 @@ function Product({ product }) {
 
   return (
     <div className="product_items" data-aos="fade-up" key={id} onClick={handleClick}>
+      {product.promotionpencent > 0 && <span className="onsale">Giảm giá!</span>}
       <div className="product_figure">
         <img src={Araray[Index]} alt="" />
         <div className="product_figures">

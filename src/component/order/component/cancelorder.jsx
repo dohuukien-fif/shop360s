@@ -1,11 +1,11 @@
 import React from 'react';
-
+import { BsCheckCircle } from 'react-icons/bs';
+import { MdOutlineLocalShipping, MdOutlinePayment, MdOutlinePlace } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import { remoCheckout } from './../../../features/cart/cartSelector';
-
-import { MdOutlinePlace } from 'react-icons/md';
-import './productOrder.scss';
 import { formatPrice } from './../../../utils/index';
+import './productOrder.scss';
+
 ProductOrder.propTypes = {};
 
 function ProductOrder(props) {
@@ -26,10 +26,16 @@ function ProductOrder(props) {
   return (
     <div className="order">
       <div className="order_title-Cacel">
-        <h2>Đơn hàng đã hủy</h2>
+        <div className="order_banner">
+          <p>ĐƠN HÀNG ĐÃ HỦY</p>
+        </div>
+        {/* <h2>Đơn hàng đã hủy</h2> */}
       </div>
       {cartCheckouts.length === 0 ? (
-        <h3>không có đơn hàng hủy nào</h3>
+        <div className="order_error">
+          {' '}
+          <BsCheckCircle /> <h3>vui lòng mua hàng</h3>
+        </div>
       ) : (
         <>
           <div className="order_list">
@@ -37,19 +43,64 @@ function ProductOrder(props) {
               <>
                 {items?.map((itemsss, index) => (
                   <div className="order_item ">
-                    <div className="order_address">
-                      {/* <h1>{items.infor.value.address}</h1> */}
-                      <div className="order_title">
-                        <MdOutlinePlace style={{ fontSize: '20px' }} /> Địa chỉ nhận hàng
+                    <div className="order_code">
+                      <span>{`# ${itemsss?.code}`}</span>
+                    </div>
+                    <div className="order_information">
+                      <div className="order_address">
+                        {/* <h1>{items.infor.value.address}</h1> */}
+                        <div className="order_title">
+                          <MdOutlinePlace style={{ fontSize: '20px' }} />{' '}
+                          <span>Địa chỉ nhận hàng</span>
+                        </div>
+                        <div className="order_adressName">
+                          <span>
+                            <strong>Họ và Tên </strong> {itemsss?.infor?.fullName}
+                          </span>
+                        </div>
+                        <div className="order_adressPhone">
+                          <span>
+                            <strong>Số Điện Thoại </strong> {itemsss.infor.phone}
+                          </span>
+                        </div>
+                        <div className="order_adresss">
+                          <span>
+                            <strong>Địa Chỉ </strong> {itemsss.infor.address}
+                          </span>
+                        </div>
                       </div>
-                      <div className="order_adressName">
-                        <span>{itemsss?.infor?.value?.fullName}</span>
+
+                      <div className="order_address">
+                        {/* <h1>{items.infor.value.address}</h1> */}
+                        <div className="order_title">
+                          <MdOutlineLocalShipping style={{ fontSize: '20px' }} />{' '}
+                          <span>Hình Thức Đặt Hàng</span>
+                        </div>
+                        <div className="order_adressName">
+                          <span>
+                            <strong>Phương thức đặt hàng</strong> Giao hàng tại nhà
+                          </span>
+                        </div>
                       </div>
-                      <div className="order_adressPhone">
-                        <span>{itemsss.infor.value.phone}</span>
-                      </div>
-                      <div className="order_adresss">
-                        <span>{itemsss.infor.value.address}</span>
+
+                      <div className="order_address">
+                        {/* <h1>{items.infor.value.address}</h1> */}
+                        <div className="order_title">
+                          <MdOutlinePayment style={{ fontSize: '20px' }} />
+                          <span> Hình Thức Thanh Toán</span>
+                        </div>
+                        <div className="order_adressName">
+                          <span>
+                            <strong>Thanh toán khi nhận hàng</strong>
+                          </span>
+
+                          <span
+                            className="order_handling"
+                            style={{ color: 'red', fontWeight: '600' }}
+                          >
+                            Đã hủy...
+                          </span>
+                        </div>
                       </div>
                     </div>
                     <div className="order_product">

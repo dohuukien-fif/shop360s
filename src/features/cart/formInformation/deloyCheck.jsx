@@ -1,11 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
+import PropTypes from 'prop-types';
+import React from 'react';
 import { formatPrice } from './../../../utils';
 import './deloyCheck.scss';
 deloyCheck.propTypes = {
@@ -18,7 +16,7 @@ deloyCheck.propTypes = {
 function deloyCheck({ opens, handlcheck, handleClick, cartTotals, cartInformation }) {
   const totalCart = cartTotals[cartTotals.length - 1];
   // const sexxs = totalCart.sexx.map((items, index) => items.product);
-  console.log(totalCart);
+  console.log('totalCart', totalCart);
 
   return (
     <Dialog
@@ -31,7 +29,7 @@ function deloyCheck({ opens, handlcheck, handleClick, cartTotals, cartInformatio
           <div className="succes_title">Xác nhận đơn hàng</div>
           <div className="succes_cart-lisst">
             {cartTotals !== undefined &&
-              totalCart.sexx.map((items, index) => (
+              totalCart?.sexx.map((items, index) => (
                 <div className="succes_cart-item" key={items.id}>
                   <div className="succes_top" key={items.id}>
                     <div className="succes_top-image">
@@ -51,10 +49,10 @@ function deloyCheck({ opens, handlcheck, handleClick, cartTotals, cartInformatio
                   </div>
                 </div>
               ))}
-            <div className="succes_total">
-              <span>Thanh toán</span>
-              {formatPrice(totalCart?.total)}
-            </div>
+          </div>
+          <div className="succes_total">
+            <span>Thanh toán</span>
+            {formatPrice(totalCart?.total)}
           </div>
           <div className="succes_information">
             {/* <div className="information_title">Xác nhận thông tin</div> */}

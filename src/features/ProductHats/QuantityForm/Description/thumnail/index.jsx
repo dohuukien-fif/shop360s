@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import PropTypes, { object } from 'prop-types';
-import './styles.scss';
 import SetImage from './setImage';
+import './styles.scss';
 ProductThumnail.propTypes = {
   //   product: PropTypes.array,
 };

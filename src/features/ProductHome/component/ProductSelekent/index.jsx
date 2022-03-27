@@ -16,8 +16,8 @@ function selekeList({ length }) {
         {Array.from(new Array(length)).map((x, index) => (
           <Grid key={index} item xs={12} sm={6} md={6} lg={6}>
             <Box padding={2}>
-              <Skeleton fullWidth />
-              <Skeleton variant="rectangular" fullWidth height={400} />
+              <Skeleton fullwidth="true" />
+              <Skeleton variant="rectangular" fullwidth="true" height={400} />
             </Box>
           </Grid>
         ))}

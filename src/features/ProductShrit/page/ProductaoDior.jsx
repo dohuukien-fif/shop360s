@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import ShirtApi from './../../../api/ProductShritApi';
 import { Pagination } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { BiChevronsUp } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import ShirtApi from './../../../api/ProductShritApi';
+import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
+import ProductFilter from './../component/product/ProductFilter/FilterAodior/index';
 import ProductDior from './../component/product/productList/ProducDior/index';
 import './stylesQuanJeans.scss';
-import ProductFilter from './../component/product/ProductFilter/FilterAodior/index';
-import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
-import { BiChevronsUp } from 'react-icons/bi';
 ProductQuanJeans.propTypes = {};
 
 function ProductQuanJeans(props) {

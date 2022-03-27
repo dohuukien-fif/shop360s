@@ -1,26 +1,18 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import AdressForm from './../formInformation/index';
-import './checkout.scss';
-import { useSelector, useDispatch } from 'react-redux';
-import { addInformation } from './../cartSlice/Information';
-import { addCheckout } from './../cartSlice/checkout';
-import { cartTotalSelector, cartInformationSelector } from './../cartSelector';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
-import Slide from '@mui/material/Slide';
-import Deloy from '../formInformation/deloy';
-
-import { removeTotalCart } from './../cartSlice/totalslice';
-import { removeCart } from './../cartSlice';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
+import { useUserContext } from '../../../component/contextApi';
+import Deloy from '../formInformation/deloy';
 import DeloyCheck from '../formInformation/deloyCheck';
+import OrderApi from './../../../api/OrderApi';
+import { cartInformationSelector, cartItemTotal, cartTotalSelector } from './../cartSelector';
+import { removeCart } from './../cartSlice';
+import { addCheckout } from './../cartSlice/checkout';
+import { addInformation } from './../cartSlice/Information';
+import { removeTotalCart } from './../cartSlice/totalslice';
+import AdressForm from './../formInformation/index';
+import './checkout.scss';
 // CartCheckout.propTypes = {};
 
 function CartCheckout(props) {
@@ -28,57 +20,69 @@ function CartCheckout(props) {
   const [opens, setOpens] = useState(false);
   const [checkss, setcheck] = useState('');
   const dispatch = useDispatch();
+  const { user } = useUserContext();
   const history = useHistory();
   const cartTotals = useSelector(cartTotalSelector);
   const cartInformation = useSelector(cartInformationSelector);
   console.log(cartInformation);
-
+  const cartItemTotals = useSelector(cartItemTotal);
   const handleClickOpens = () => {
     setOpens(true);
     setOpen(false);
   };
 
-  const handleCloses = () => {
-    setOpens(false);
-  };
   const handlcheck = () => {
     setcheck(false);
     setOpen(true);
     setOpens(false);
   };
-  const handlcheckout = () => {
-    setcheck('ok');
-    setOpen(false);
-    setOpens(false);
-  };
-  const handleSubmit = async (value) => {
-    console.log('kien', value);
 
+  const dates = new Date();
+  const dataday = `${dates.getDate()}/${dates.getMonth() + 1}/${dates.getFullYear()}`;
+  const datahour = `${dates.getHours()}:${dates.getMinutes() + 1}:${dates.getSeconds()}`;
+  const handleSubmit = async (value) => {
     const action = await addInformation({ value });
     dispatch(action);
     if (cartInformation !== undefined) setOpen(true);
     //
   };
-  console.log('hay');
+
   const cartTotalss = new Array(cartTotals[cartTotals.length - 1]);
   const handleClick = async () => {
-    const actions = addCheckout({
+    const actions = await addCheckout({
+      code: Math.floor(Math.random() * 4000) + 100,
+      day: dataday,
+      time: datahour,
       id: Date.now(),
-      infor: cartInformation,
+      status: 'Pending',
+      user: { name: user?.displayName, email: user?.email },
+      infor: cartInformation.value,
       cartTotalss,
+    });
+
+    await OrderApi.add({
+      code: Math.floor(Math.random() * 4000) + 100,
+      day: dataday,
+      time: datahour,
+      id: Date.now(),
+      status: 'Pending',
+      user: { name: user?.displayName, email: user?.email },
+      infor: cartInformation.value,
+      cartTotalss,
+      total: cartItemTotals,
     });
 
     dispatch(actions);
     dispatch(removeTotalCart());
     dispatch(removeCart());
     setOpens(false);
-    swal({
+
+    await swal({
       // title: 'Good job!',
       text: 'Đặt hàng thành công!',
       icon: 'success',
     });
-
-    await history.push('/');
+    history.push('/');
   };
   return (
     <div className="checkout">

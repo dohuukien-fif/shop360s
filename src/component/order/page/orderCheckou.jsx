@@ -1,25 +1,25 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import Account from './../component/account/index';
-import './styles.scss';
-import { Link, useHistory, useRouteMatch, Switch, Route } from 'react-router-dom';
-
-import { GiBackwardTime } from 'react-icons/gi';
 import { AiOutlineRight } from 'react-icons/ai';
-
 import { BiExit } from 'react-icons/bi';
-
-import FormAccount from './../component/formAccout';
-import Order from './../component/order';
-import Bell from './../component/notification';
-import Exit from './../component/cancelorder';
-import Addres from './../component/addres';
-import ProductOrrder from './order';
-import Check from './../component/productOrder';
+import { GiBackwardTime } from 'react-icons/gi';
+import { useSelector } from 'react-redux';
+import { Link, Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
+import { cartCheckout } from './../../../features/cart/cartSelector';
 import { useUserContext } from './../../contextApi/index';
+import Account from './../component/account/index';
+import Addres from './../component/addres';
+import Exit from './../component/cancelorder';
+import FormAccount from './../component/formAccout';
+import Bell from './../component/notification';
+import Order from './../component/order';
+import Check from './../component/productOrder';
+import ProductOrrder from './order';
+import './styles.scss';
+
 OrderCheckou.propTypes = {};
 
 function OrderCheckou(props) {
+  const cartCheckouts = useSelector(cartCheckout);
   const [isMobal, setMobal] = useState(false);
   const { user } = useUserContext();
   const history = useHistory();

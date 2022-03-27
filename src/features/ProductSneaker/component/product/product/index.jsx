@@ -20,6 +20,7 @@ function Product({ product }) {
 
   return (
     <div className="product_items" key={id} data-aos="fade-up" onClick={handleClick}>
+      {product.promotionpencent > 0 && <span className="onsale">Giảm giá!</span>}
       <div className="product_figure">
         <img src={Araray[Index]} alt="" />
         <div className="product_figures">
@@ -41,7 +42,7 @@ function Product({ product }) {
           {promotionpencent > 0 && (
             <div className="product_discount">
               <span>{formatPrice(originalPrice)}</span>
-              <span>{` - ${promotionpencent}%`}</span>
+              {/* <span>{` - ${promotionpencent}%`}</span> */}
             </div>
           )}
         </footer>

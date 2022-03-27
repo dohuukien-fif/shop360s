@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import TrousersApi from './../../../api/ProductTrousersApi';
 import { Pagination } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import TrousersApi from './../../../api/ProductTrousersApi';
+import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
+import ProductFilter from './../component/product/ProductFilter/FilterAoDolce/index';
 import ProductDolce from './../component/product/productList/ProductDolce/index';
 import './stylesQuanJeans.scss';
-import ProductFilter from './../component/product/ProductFilter/FilterAoDolce/index';
-import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
 
 ProductQuanJeans.propTypes = {};
 

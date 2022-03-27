@@ -19,9 +19,15 @@ import { useUserContext } from './component/contextApi/index';
 import NotFound from './component/notFound/index';
 import Fouter from './component/fouter/index';
 import SearchProduct from './features/SearchProduct/index';
+import IntroduceFeartures from './features/introduce/page/index';
+import NewFeatures from './features/introduce/page/new';
+import AdminFeatures from './admin/page/Admin';
 // import Order from './component/order/index';
+
+import { useSelector } from 'react-redux';
 function App() {
   const { user, registerUser, logoutUser, signInUser, loading } = useUserContext();
+  const themeReducer = useSelector((state) => state.theme);
   const history = useHistory();
   const { pathname } = useLocation();
   useEffect(() => {
@@ -40,6 +46,15 @@ function App() {
   //   handlepussh();
   // }, [loading]);
 
+  const LINKREDIRECT =
+    localStorage.getItem('REDERESS') && JSON.parse(localStorage.getItem('REDERESS'));
+  const ISLINKREDIRECT = Boolean(LINKREDIRECT);
+
+  useEffect(() => {
+    if (haslogin) {
+      localStorage.removeItem('REDERESS');
+    }
+  }, [haslogin]);
   return (
     <div>
       <Headers />
@@ -49,8 +64,10 @@ function App() {
 
         <Route path="/Trang-chu" component={Home} />
         {/* {user === null && <Redirect to="/Trang-chu" />} */}
-        {haslogin && <Redirect from="/login" to="/Trang-chu" />}
-        {haslogin && <Redirect from="/register" to="/Trang-chu" />}
+        {haslogin && <Redirect from="/login" to={ISLINKREDIRECT ? LINKREDIRECT : '/Trang-chu'} />}
+        {haslogin && (
+          <Redirect from="/register" to={ISLINKREDIRECT ? LINKREDIRECT : '/Trang-chu'} />
+        )}
         <Route path="/Quan" component={QuanFeature} />
         <Route path="/Ao" component={AoFeature} />
         {/* <Route path="/tat-ca" component={AllproductFeature} /> */}
@@ -61,6 +78,9 @@ function App() {
         <Route path="/Giay" component={GiayFeature} />
         <Route path="/Cart" component={CartFeature} />
         <Route path="/Thongtin" component={Thongtins} />
+        <Route path="/gioi-thieu" component={IntroduceFeartures} />
+        <Route path="/tin-tuc" component={NewFeatures} />
+        <Route path="/admin" component={AdminFeatures} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
 

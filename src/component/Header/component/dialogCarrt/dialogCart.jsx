@@ -1,18 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { AiOutlineClose } from 'react-icons/ai';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { cartItemSelector, cartItemTotal } from './../../../../features/cart/cartSelector';
-import { useSelector, useDispatch } from 'react-redux';
+import { addTotal } from './../../../../features/cart/cartSlice/totalslice';
+import { formatPrice } from './../../../../utils/index';
 import CartLisst from './cartLisst';
 import './styles.scss';
-import { formatPrice } from './../../../../utils/index';
-import { useHistory } from 'react-router-dom';
-import { addTotal } from './../../../../features/cart/cartSlice/totalslice';
 DialogCarrt.propTypes = {};
 
-function DialogCarrt({ openCart, setopenCart }) {
+function DialogCarrt({ openCart, setopenCart, CloseMiniCart }) {
   const cartItem = useSelector(cartItemSelector);
   console.log(cartItem);
+
   const history = useHistory();
   const dispatch = useDispatch();
   const cartTotal = useSelector(cartItemTotal);
@@ -29,9 +29,10 @@ function DialogCarrt({ openCart, setopenCart }) {
     dispatch(action);
     history.push('/Cart/checkout');
   };
+
   return (
     <>
-      <div className={openCart ? 'header_cart2 activecart' : 'header_cart2'}>
+      <div ref={CloseMiniCart} className={openCart ? 'header_cart2 activecart' : 'header_cart2'}>
         <div className={openCart ? 'cart2_container activeCartModal' : 'cart2_container'}>
           <div className="cart2_block">
             <div className="cart2_title">

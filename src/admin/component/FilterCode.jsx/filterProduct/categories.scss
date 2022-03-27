@@ -1,0 +1,56 @@
+@use './../../../../sass/index.scss' as *;
+.categories {
+  .categories_title {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .categories_content {
+    font-size: 14px;
+
+    .categories_section {
+      display: none;
+
+      @include tablets {
+        display: block;
+      }
+    }
+
+    .slidePrice_mobile {
+      @include tablets {
+        display: none;
+      }
+
+      & > select {
+        width: 100%;
+        padding: 10px;
+
+        border-radius: 5px;
+
+        .categories_option {
+          margin: 10px;
+        }
+        & > option {
+          height: 10px;
+
+          &:optional {
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+
+    .categories_group {
+      display: flex;
+
+      column-gap: 10px;
+
+      margin-top: 10px;
+
+      & > input {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+}

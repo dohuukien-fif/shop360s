@@ -1,5 +1,5 @@
 import { AddCircleOutline, RemoveCircleOutline } from '@mui/icons-material';
-import { FormControl, FormHelperText, IconButton, OutlinedInput, Typography } from '@mui/material';
+import { FormControl, FormHelperText, IconButton, OutlinedInput } from '@mui/material';
 import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
 import React from 'react';

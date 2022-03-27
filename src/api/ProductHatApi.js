@@ -15,7 +15,7 @@ const HatApi = {
   },
   update(data) {
     const url = `/mu/${data}`;
-    return axiosClient.get(url, data);
+    return axiosClient.patch(url, data);
   },
   detele(id) {
     const url = `/mu/${id}`;

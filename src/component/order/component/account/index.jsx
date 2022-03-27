@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { BsCamera } from 'react-icons/bs';
-import './styles.scss';
 import { useUserContext } from './../../../contextApi/index';
+import './styles.scss';
 Account.propTypes = {};
 
 function Account(props) {

@@ -1,0 +1,199 @@
+@use './../../../sass/index.scss' as *;
+.sidePage__QuickMenu-product {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+
+  .activeAccordion {
+    box-shadow: 0 7px 24px rgb(0 0 0 / 9%);
+    border-radius: 10px;
+    background-color: #bdd6ec;
+  }
+  .active {
+    opacity: 1 !important;
+    visibility: visible !important;
+
+    height: 100% !important;
+  }
+
+  .activeIcon {
+    transform: rotate(180deg);
+
+    transition: all 0.3s ease-in-out !important;
+  }
+
+  .activeLink {
+    background: #f0f8ff;
+
+    border-radius: 10px;
+
+    color: black;
+  }
+
+  .sidePage__QuickMenu-Accordion {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease !important;
+
+    height: 0;
+
+    background: #276ba5;
+    box-shadow: 1px 1px 3px 0 rgb(0 0 0 / 40%), inset 0 1px 0 0 hsl(0deg 0% 100% / 10%);
+
+    border-radius: 10px;
+
+    margin-top: 10px;
+
+    .sidePage__QuickMenu-group {
+      margin: 0 5px;
+      display: flex;
+      align-items: center;
+
+      column-gap: 10px;
+
+      padding-bottom: 5px;
+      padding-top: 5px;
+
+      font-size: 17px;
+
+      cursor: pointer;
+
+      transition: 300ms ease-in-out !important;
+
+      margin-top: 5px;
+
+      width: 100%;
+      &:hover {
+        background: #f0f8ff;
+
+        color: black;
+
+        border-radius: 10px;
+
+        @include tablet {
+          transform: translateX(5px);
+        }
+      }
+
+      & > a {
+        column-gap: 5px;
+
+        @include tablets {
+          display: flex;
+          align-items: center;
+
+          width: 100%;
+        }
+        & > span {
+          visibility: hidden;
+
+          padding: 10px 5px;
+
+          background: #1f5482;
+
+          border-top-right-radius: 10px;
+          border-bottom-right-radius: 10px;
+
+          @include tablets {
+            visibility: visible;
+
+            background: transparent;
+          }
+        }
+        & > svg {
+          font-size: 25px;
+        }
+        & > svg:last-child {
+          margin-left: auto;
+        }
+        &:hover > span {
+          visibility: visible !important;
+
+          color: black;
+        }
+      }
+    }
+  }
+
+  .sidePage__QuickMenu-groups {
+    padding: 5px 0;
+    margin-top: 15px;
+
+    display: flex;
+    align-items: center;
+
+    column-gap: 10px;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 300ms ease-in-out !important;
+
+    width: 100%;
+
+    @include tablet {
+      margin-left: 5px;
+
+      padding-left: 5px;
+    }
+    & > a {
+      display: flex;
+      align-items: center;
+
+      column-gap: 5px;
+
+      @include tablets {
+        width: 100%;
+      }
+      & > span {
+        visibility: hidden;
+
+        padding: 10px 5px;
+
+        background: #1f5482;
+
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        display: none;
+        @include tablets {
+          visibility: visible;
+
+          background: transparent;
+
+          display: block;
+        }
+      }
+      & > svg {
+        font-size: 25px;
+      }
+      & > svg:last-child {
+        margin-left: auto;
+
+        display: none;
+        @include tablets {
+          display: block;
+        }
+      }
+      &:hover > span {
+        visibility: visible !important;
+
+        color: black;
+      }
+    }
+
+    &:hover {
+      background: #bdd6ec;
+
+      color: black;
+
+      border-radius: 10px;
+
+      @include tablet {
+        transform: translateX(5px);
+      }
+    }
+  }
+}

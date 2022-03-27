@@ -26,7 +26,7 @@ function ProductLisst({ product }) {
               .filter((e) => e.categoryName === 'áo')
               .slice(0, 10)
               .map((item, index) => (
-                <Product key={item.id} item={item} />
+                <Product key={index} item={item} />
               ))}
           </div>
         </ul>
@@ -44,7 +44,7 @@ function ProductLisst({ product }) {
             {product
               .filter((e) => e.categoryName === 'giày')
               .map((item, index) => (
-                <Product key={item.id} item={item} />
+                <Product key={index} item={item} />
               ))}
           </div>
         </ul>
@@ -63,7 +63,7 @@ function ProductLisst({ product }) {
             {product
               .filter((e) => e.categoryName === 'quần')
               .map((item, index) => (
-                <Product key={item.id} item={item} />
+                <Product key={index} item={item} />
               ))}
           </div>
         </ul>

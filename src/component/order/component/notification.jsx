@@ -1,13 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { CgNotes } from 'react-icons/cg';
-import { FiBell } from 'react-icons/fi';
-import { GiBackwardTime } from 'react-icons/gi';
-import { AiOutlineRight } from 'react-icons/ai';
-import { FaShuttleVan } from 'react-icons/fa';
-import { BsChatSquareText } from 'react-icons/bs';
-import { MdCardMembership } from 'react-icons/md';
-import { fontSize } from '@mui/system';
 import './styles.scss';
 bell.propTypes = {};
 

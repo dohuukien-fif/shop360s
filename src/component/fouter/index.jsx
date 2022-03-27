@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
-import { HiOutlineMailOpen } from 'react-icons/hi';
 import { BsTelephoneForward } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
+import { HiOutlineMailOpen } from 'react-icons/hi';
+import './styles.scss';
 Fouter.propTypes = {};
 
 function Fouter(props) {

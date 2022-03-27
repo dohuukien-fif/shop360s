@@ -1,107 +1,102 @@
-@use  "./../../../sass/" as *;
-.MuiPaper-root{
-   width: 90%;
-   height:auto;
+@use './../../../sass/' as *;
+.MuiPaper-root {
+  width: 90%;
+  height: auto;
 
-   font-family:"Montserrat",sans-serif;
- 
+  font-family: 'Montserrat', sans-serif;
 }
-.MuiButton-root{
-   font-weight: 600;
+.MuiButton-root {
+  font-weight: 600;
 }
 
 // .Dia_log1{
 // height: 500px;
 // width: auto;
 // }
-.information{
-   font-family:"Montserrat",sans-serif;
-   font-size: 13px;
-   &_title{
-      font-weight: 600;
-      margin-bottom: 2rem;
-      text-align: center;
-        font-size: 20px;
+.information {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  &_title {
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 20px;
 
     color: black;
-  
-   }
-   &_fullName{
-      display: flex;
-      flex-direction: column;
-      & > span:first-child{
-         font-size: 15px;
-         color: red;
-      }
-      & > span:last-child{
-         font-size: 14px;
-         padding: 0.5rem;
+  }
+  &_fullName {
+    display: flex;
+    flex-direction: column;
+    & > span:first-child {
+      font-size: 15px;
+      color: red;
+    }
+    & > span:last-child {
+      font-size: 14px;
+      padding: 0.5rem;
 
-         color: black;
-     
-      }
-   }
-   &_phone{
-      display: flex;
-      flex-direction: column;
-      & > span:first-child{
-         font-size: 15px;
+      color: black;
+    }
+  }
+  &_phone {
+    display: flex;
+    flex-direction: column;
+    & > span:first-child {
+      font-size: 15px;
 
-         color: red;
-      }
-      & > span:last-child{
-         font-size: 14px;
-         padding: 0.5rem;
+      color: red;
+    }
+    & > span:last-child {
+      font-size: 14px;
+      padding: 0.5rem;
 
-         color: black;
-       
-      }
-   }
-   &_email{
-      display: flex;
-      flex-direction: column;
-      & > span:first-child{
-         font-size: 15px;
+      color: black;
+    }
+  }
+  &_email {
+    display: flex;
+    flex-direction: column;
+    & > span:first-child {
+      font-size: 15px;
 
-         color: red;
-      }
-      & > span:last-child{
-         font-size: 14px;
-         padding: 0.5rem;
+      color: red;
+    }
+    & > span:last-child {
+      font-size: 14px;
+      padding: 0.5rem;
 
-         color: black;
-      }
-   }
-   &_adress{
-      display: flex;
-      flex-direction: column;
-      & > span:first-child{
-         font-size: 15px;
+      color: black;
+    }
+  }
+  &_adress {
+    display: flex;
+    flex-direction: column;
+    & > span:first-child {
+      font-size: 15px;
 
-         color: red;
-      }
-      & > span:last-child{
-         font-size: 14px;
-         padding: 0.5rem;
+      color: red;
+    }
+    & > span:last-child {
+      font-size: 14px;
+      padding: 0.5rem;
 
-         color: black;
-        
-      }
-   }
-   &_note{
-      display: flex;
-      flex-direction: column;
-      & > span:first-child{
-         font-size: 15px;
+      color: black;
+    }
+  }
+  &_note {
+    display: flex;
+    flex-direction: column;
 
-         color: red;
-      }
-      & > span:last-child{
-         font-size: 14px;
-         padding: 0.5rem;
+    & > span:first-child {
+      font-size: 15px;
 
-         color: black;
-         
-      }
-   }
+      color: red;
+    }
+    & > span:last-child {
+      font-size: 14px;
+      padding: 0.5rem;
+
+      color: black;
+    }
+  }
 }

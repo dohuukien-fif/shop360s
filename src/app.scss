@@ -1,5 +1,6 @@
-@use './sass/' as *;
+@use './sass/index.scss' as *;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -8,6 +9,7 @@
 html {
   font-size: 60%;
   line-height: 3rem;
+  -webkit-tap-highlight-color: transparent;
   @include mobile {
     font-size: 80%;
     line-height: 2.5rem;

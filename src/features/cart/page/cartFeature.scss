@@ -109,6 +109,18 @@
             //   row-gap: 30px;
             flex: 1;
           }
+
+          .size_List {
+            font-size: 14px;
+
+            .size_item {
+              & > span:first-child {
+                font-weight: 700;
+
+                margin-right: 10px;
+              }
+            }
+          }
           .cart_figure {
             & > img {
               display: flex;

@@ -24,7 +24,7 @@ function slidesProduct(props) {
           <img src="https://360boutique.vn/wp-content/uploads/2021/12/Banner-WEb.jpg" alt="" />
         </div>
         <div className="slides-image">
-          <img src="https://360boutique.vn/wp-content/uploads/2021/10/WEB-LEN.jpg" alt="" />
+          <img src="https://360boutique.vn/wp-content/uploads/2021/12/BANNER-WEB-1.jpg" alt="" />
         </div>
         <div className="slides-image">
           <img src=" https://360boutique.vn/wp-content/uploads/2021/11/web-copy.jpg" alt="" />

@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import { remove } from 'dom-helpers';
-import QuantityField from './../../../component/form-control/QuantitiFiend/index';
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import CloseIcon from '@mui/icons-material/Close';
+import React, { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { BsFillTrashFill } from 'react-icons/bs';
 import * as yup from 'yup';
+import QuantityField from './../../../component/form-control/QuantitiFiend/index';
 import { formatPrice } from './../../../utils/index';
 
-import { Typography, Box, Link } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import { BsFillTrashFill } from 'react-icons/bs';
 CartItem.propTypes = {};
 
 function CartItem({ items, onSubmit, removes }) {
-  const { id, product, quantity, size } = items;
+  const { id, product, quantity, size, newSize } = items;
   const [Sizessss, setSizessss] = useState('');
   console.log(items);
   const schema = yup.object().shape({
@@ -54,6 +51,8 @@ function CartItem({ items, onSubmit, removes }) {
   //   handleSubmit(sizes);
   //   console.log(sizes);
   // };
+
+  console.log('newSize', newSize);
   return (
     <div className="cart_item">
       <div className="cart_name--mobile">
@@ -70,6 +69,17 @@ function CartItem({ items, onSubmit, removes }) {
           </div>
           <div className="cart_name">
             <h3>{product.name}</h3>
+
+            {newSize.length > 1 && (
+              <div className="size_List">
+                {newSize.map((item, idx) => (
+                  <div className="size_item" key={idx}>
+                    <span>Size:</span>
+                    <span>{`${item.size} X  ${item.quantity}`}</span>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </header>
 

@@ -1,12 +1,11 @@
-import React, { useState, useCallback } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
+import React from 'react';
 // import PropTypes from 'prop-types';
 // import CartTotal from './../component/CartTotal';
 import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import './styles.scss';
 import Inputfield from './../../../form-control/InputFeid/index';
-import { date } from 'yup';
+import './styles.scss';
 // import Textfield from './../../../component/form-control/InputFeid/index';
 
 FormInformation.propTypes = {};

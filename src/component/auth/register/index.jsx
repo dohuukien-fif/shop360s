@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import RegisterForm from './../registerForm';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { useUserContext } from '../../contextApi/index';
+import RegisterForm from './../registerForm';
 // import { register } from './../../userSlice/userSlice';
 // import { unwrap } from '@reduxjs/toolkit';
 // import { useSnackbar } from 'notistack';
@@ -13,7 +12,7 @@ Register.propTypes = {
 
 function Register(props) {
   //   const { enqueueSnackbar } = useSnackbar();
-  const dispatch = useDispatch();
+
   const { registerUser, error } = useUserContext();
 
   const hanledoSubmit = async (values) => {
@@ -29,6 +28,7 @@ function Register(props) {
 
       if (email && password && name) await registerUser(email, password, name);
       //close Dialog
+
       const { closeDialog } = props;
       if (closeDialog) {
         closeDialog();

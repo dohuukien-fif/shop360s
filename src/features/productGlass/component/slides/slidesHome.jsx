@@ -1,53 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-
-import Slider from 'react-slick';
-import GlassApi from './../../../../api/ProductGlassApi';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import SwiperCore, { FreeMode, Navigation, Pagination } from 'swiper';
+// import 'swiper/components/navigation/navigation.scss';
+import 'swiper/modules/navigation/navigation.scss'; // Navigation module
+import 'swiper/modules/pagination/pagination.scss'; // Pagination module
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
+import 'swiper/swiper.scss'; // core Swiper
+import GlassApi from './../../../../api/ProductGlassApi';
 import { formatPrice } from './../../../../utils';
-import Skenlent from './../../../ProductHome/component/ProductSelekent/seleken';
+SwiperCore.use([FreeMode, Pagination, Navigation]);
 SlidesHome.propTypes = {};
 
 function SlidesHome(props) {
   const [Imagess, setImages] = useState([]);
   const [Loading, setLoading] = useState(true);
   const history = useHistory();
-  var settings = {
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: false,
-        },
-      },
-    ],
-  };
 
   useEffect(() => {
     const fetchApiRandom = async () => {
@@ -64,39 +31,82 @@ function SlidesHome(props) {
     history.push(`${newId}`);
   };
   return (
-    <>
-      {Loading ? (
-        <Skenlent length={4} />
-      ) : (
-        <Slider {...settings}>
-          {Imagess.slice(Math.floor(Math.random() * Imagess.length)).map((item, index) => (
-            <div className="sidess" onClick={() => handleClick(item.id)}>
-              {new Array(item.Araray)
-                .filter((e) => e)
-                .map((items, index) => (
-                  <img src={items[0]} alt="" />
-                ))}
-              <div className="content">
-                <div className="content__top">
-                  <div className="content__top-name">{item.name}</div>
-                </div>
-                <div className="content__bottom">
-                  <div className="content__bottom-prices">
-                    <div className="content__bottom-prices-price">{formatPrice(item.price)}</div>
-                    {item.promotionpencent > 0 && (
-                      <div className="content__bottom-prices-discount">
-                        <div> {formatPrice(item.originalPrice)}</div>
-                        <div>{` - ${item.promotionpencent} %`}</div>
-                      </div>
-                    )}
+    <Swiper
+      slidesPerView={3}
+      spaceBetween={30}
+      // freeMode={true}
+      navigation
+      pagination={{
+        clickable: true,
+        // clickable: true,
+      }}
+      breakpoints={{
+        300: {
+          slidesPerView: 2,
+          spaceBetween: 10,
+        },
+        400: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 30,
+        },
+      }}
+      className="mySwiper"
+      // data-swiper-autoplay="2000"
+    >
+      {Imagess.map((item, index) => (
+        <SwiperSlide key={index} onClick={() => handleClick(item.id)}>
+          {/* <div className="slides-image">
+          <img src="https://360boutique.vn/wp-content/uploads/2021/12/Banner-WEb.jpg" alt="" />
+        </div> */}
+          {new Array(item.Araray)
+            .filter((element) => element)
+            .map((items, index) => (
+              // {console.log(items)}
+              <img key={index} src={items[0]} alt="" />
+            ))}
+          <div className="content">
+            <div className="content__top">
+              <div className="content__top-name">{item.name}</div>
+            </div>
+            <div className="content__bottom">
+              <div className="content__bottom-prices">
+                <div className="content__bottom-prices-price">{formatPrice(item.price)}</div>
+                {item.promotionpencent > 0 && (
+                  <div className="content__bottom-prices-discount">
+                    <div> {formatPrice(item.originalPrice)}</div>
+                    {/* <div>{` - ${item.promotionpencent} %`}</div> */}
                   </div>
-                </div>
+                )}
               </div>
             </div>
-          ))}
-        </Slider>
-      )}
-    </>
+          </div>
+        </SwiperSlide>
+      ))}
+      {/* <SwiperSlide>
+      <img src="https://360boutique.vn/wp-content/uploads/2021/12/BANNER-WEB-1.jpg" alt="" />
+    </SwiperSlide>
+    <SwiperSlide>
+      <img src=" https://360boutique.vn/wp-content/uploads/2021/11/web-copy.jpg" alt="" />
+    </SwiperSlide>
+    <SwiperSlide>
+      <img src=" https://360boutique.vn/wp-content/uploads/2021/11/web-copy.jpg" alt="" />
+    </SwiperSlide>
+    <SwiperSlide>
+      <img src=" https://360boutique.vn/wp-content/uploads/2021/11/web-copy.jpg" alt="" />
+    </SwiperSlide> */}
+    </Swiper>
   );
 }
 

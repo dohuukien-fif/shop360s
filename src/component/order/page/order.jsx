@@ -1,16 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { NavLink, useRouteMatch } from 'react-router-dom';
-import { CgNotes } from 'react-icons/cg';
-import { FiBell } from 'react-icons/fi';
-import { GiBackwardTime } from 'react-icons/gi';
 import { AiOutlineRight } from 'react-icons/ai';
-import { FaShuttleVan, FaRegAddressCard, FaHome } from 'react-icons/fa';
+import { CgNotes } from 'react-icons/cg';
+import { FaHome } from 'react-icons/fa';
+import { FiBell } from 'react-icons/fi';
 // import { IoHome } from 'react-icons/io';
-import { MdCardMembership, MdSpeakerNotesOff } from 'react-icons/md';
+import { MdSpeakerNotesOff } from 'react-icons/md';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 
-import { fontSize } from '@mui/system';
-import { Link, useHistory, Switch, Route } from 'react-router-dom';
 OrderAccount.propTypes = {};
 
 function OrderAccount(props) {

@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
 import { Link } from 'react-router-dom';
-import { AiOutlineRight } from 'react-icons/ai';
+import './styles.scss';
 NakLink.propTypes = {};
 
 function NakLink({ torget, scrow }) {
@@ -14,7 +12,10 @@ function NakLink({ torget, scrow }) {
       }
     >
       <h3>Danh sách sản phẩm</h3>
-
+      <li>
+        {' '}
+        <Link to="/gioi-thieu">Giới Thiệu</Link>
+      </li>
       <li>
         <span>Áo</span>
         <ul className="dropdown">
@@ -149,7 +150,10 @@ function NakLink({ torget, scrow }) {
           </li>
         </ul>
       </li>
-      <li>Tin tức</li>
+      <li>
+        {' '}
+        <Link to="/tin-tuc">Tin Tức</Link>
+      </li>
       {/* <li>Giới thiệu </li> */}
       {/* <li>
         <Link to="/Cart">cart</Link>

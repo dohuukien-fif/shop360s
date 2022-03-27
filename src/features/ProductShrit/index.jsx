@@ -1,14 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Route, Switch, useRouteMatch, useLocation } from 'react-router-dom';
-import Product from './page/productFeature';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Description from './page/description';
+import ProductAoDolce from './page/ProducDolce';
 import ProductAoAdidas from './page/ProductaoAdidas';
 import ProductAoBur from './page/ProductAoBurberry';
 import ProductCavin from './page/ProductaoCavin';
 import ProductAoDior from './page/ProductaoDior';
-import ProductAoDolce from './page/ProducDolce';
-import ProductGucci from './page/ProductGucci';
+import Product from './page/productFeature';
 import ProductAoKenzo from './page/ProductKenzo';
 import ProductAOLacoste from './page/ProductLacoste';
 // import ProductLacoste from './page/ProductLacoste';

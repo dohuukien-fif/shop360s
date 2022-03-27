@@ -1,14 +1,14 @@
-import { createContext, useContext, useState } from 'react';
 import {
-  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
   signOut,
   updateProfile,
-  sendPasswordResetEmail,
 } from 'firebase/auth';
+import { createContext, useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { auth } from './../../firebase';
-import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
 export const UserContext = createContext({});
 
 export const useUserContext = () => {

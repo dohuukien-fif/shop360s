@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
-import { useSelector } from 'react-redux';
 export const cartItemSelector = (state) => state.carts.cartItem;
+export const cartItemsize = (state) => state.carts.newsizes;
 export const cartTotalSelector = (state) => state.total.TotalItem;
 export const cartInformationSelector = (state) => state.infor;
 export const cartCheckout = (state) => state.Check.checkout;

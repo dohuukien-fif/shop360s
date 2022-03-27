@@ -51,8 +51,9 @@
         }
       }
       .information_router {
+        // border: 1px solid black;
         @include mobile {
-          padding-left: 10px;
+          // padding-left: 10px;
           margin-left: 30px;
 
           flex: 2;

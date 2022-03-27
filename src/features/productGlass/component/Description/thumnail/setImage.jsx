@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import './styles.scss';
 setImage.propTypes = {};
@@ -14,7 +14,7 @@ function setImage({ ids, Imagess, onChange }) {
   return (
     <div className="selce_glass-img" key={ids}>
       {Imagess.map((element, index) => (
-        <>
+        <Fragment key={index}>
           {element === ' ' ? (
             'kien'
           ) : (
@@ -40,7 +40,7 @@ function setImage({ ids, Imagess, onChange }) {
               </div> */}
             </>
           )}
-        </>
+        </Fragment>
       ))}
     </div>
   );

@@ -15,7 +15,7 @@ const TrousersApi = {
   },
   update(data) {
     const url = `/quan/${data}`;
-    return axiosClient.get(url, data);
+    return axiosClient.patch(url, data);
   },
   detele(id) {
     const url = `/quan/${id}`;

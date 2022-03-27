@@ -1,18 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
+import React, { Fragment } from 'react';
+import { AiFillFacebook, AiFillInstagram, AiFillStar, AiOutlineTwitter } from 'react-icons/ai';
 import { formatPrice } from './../../../../../utils';
-import Sizes from './size';
 import QuantityForm from './../../quantityForm/index';
-import Description from './description';
-import {
-  AiFillFacebook,
-  AiOutlineTwitter,
-  AiFillInstagram,
-  AiOutlineStar,
-  AiFillStar,
-} from 'react-icons/ai';
-import { BsFillCartCheckFill } from 'react-icons/bs';
+import './styles.scss';
 //   product: PropTypes.array,
 // };
 
@@ -112,7 +102,9 @@ function ProductInfo({ product, onChange }) {
         <h2>THÔNG TIN</h2>
         <ul>
           {information.map((item, index) => (
-            <li key={index}>{item}</li>
+            <Fragment key={index}>
+              <li>{item}</li>
+            </Fragment>
           ))}
         </ul>
       </div>

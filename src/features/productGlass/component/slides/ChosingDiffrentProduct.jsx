@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import GlassApi from './../../../../api/ProductGlassApi';
 import { useHistory } from 'react-router';
@@ -27,7 +27,9 @@ function ChosingDiffrentProduct({ product }) {
     <div className="choose_image">
       <h2>Lựa chon khác : </h2>
       {Imagess.slice(0, 6).map((item, index) => (
-        <img onClick={() => handleClick(item.id)} src={item.Araray[0]} alt="" />
+        <Fragment key={index}>
+          <img onClick={() => handleClick(item.id)} src={item.Araray[0]} alt="" />
+        </Fragment>
       ))}
     </div>
   );

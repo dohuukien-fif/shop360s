@@ -1,15 +1,12 @@
-import React, { useRef, useState } from 'react';
-import PropTypes from 'prop-types';
-// import Inputfield from 'component/form-control/inputField';
-
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import CircularProgress from '@mui/material/CircularProgress';
+import React, { useState } from 'react';
+// import Inputfield from 'component/form-control/inputField';
+import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-
 import QuantityField from './../../../../component/form-control/QuantitiFiend';
 import Setbutton from './../Description/ProductInfo/size';
 
-import CircularProgress from '@mui/material/CircularProgress';
 AddTocartForm.propTypes = {};
 
 function AddTocartForm({ item, onSubmits = null }) {

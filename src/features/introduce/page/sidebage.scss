@@ -1,0 +1,98 @@
+@use './../../../sass/index.scss' as *;
+.side {
+  border: 1px solid rgb(233, 232, 232);
+
+  margin-bottom: 25px;
+
+  padding: 15px;
+  .side_title {
+    font-size: 17px;
+    font-weight: 500;
+
+    margin-bottom: 35px;
+    padding-bottom: 10px;
+
+    border-bottom: 2px solid black;
+
+    & > p {
+      text-align: center;
+    }
+  }
+  .activeAccotion {
+    opacity: 1;
+
+    visibility: visible;
+    height: 100%;
+  }
+  &_list {
+    opacity: 0;
+
+    visibility: hidden;
+    height: 0;
+    transition: 300ms ease-in-out !important;
+    @include tablets {
+      opacity: 1;
+
+      visibility: visible;
+      height: 100%;
+    }
+    .side_item:not(:last-child) {
+      border-bottom: 1px solid rgb(226, 225, 225);
+    }
+    .side_item {
+      display: flex;
+      align-items: flex-start;
+
+      column-gap: 10px;
+      padding-bottom: 10px;
+      margin-bottom: 15px;
+
+      .side_adside {
+        flex: 1;
+
+        margin: 0 auto;
+
+        display: flex;
+        justify-content: flex-start;
+
+        @include tablets {
+          justify-content: center;
+        }
+
+        .side_image {
+          width: 70%;
+
+          @include mobile {
+            width: 50%;
+          }
+
+          @include tablets {
+            width: 90%;
+          }
+          & > img {
+            cursor: pointer;
+          }
+        }
+      }
+
+      .side_infor {
+        flex: 2;
+
+        font-size: 13px;
+        font-weight: 500;
+
+        @include mobile {
+          font-size: 14px;
+        }
+
+        .side_name {
+          cursor: pointer;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+    }
+  }
+}

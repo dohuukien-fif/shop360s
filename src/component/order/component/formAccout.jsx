@@ -1,14 +1,11 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Textfield from './../../form-control/textFeild/index';
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { LinearProgress } from '@mui/material';
+import { makeStyles } from '@mui/styles';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
-import { Avatar, Button, LinearProgress, LockOutlinedIcon, Typography } from '@mui/material';
-import { makeStyles, spacing } from '@mui/styles';
-import NoAccountsIcon from '@mui/icons-material/NoAccounts';
+import Textfield from './../../form-control/textFeild/index';
 
-import { Link } from 'react-router-dom';
 // import { LinearProgress } from '../../../../../node_modules/@mui/material/index';
 
 const useStyles = makeStyles({

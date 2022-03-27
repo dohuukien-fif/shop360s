@@ -1,16 +1,12 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import PropTypes, { object } from 'prop-types';
-import { BsCartPlus } from 'react-icons/bs';
-
-import { GiBackwardTime } from 'react-icons/gi';
-import { AiOutlineRight } from 'react-icons/ai';
-import { FaShuttleVan } from 'react-icons/fa';
 import { BsChatSquareText } from 'react-icons/bs';
+import { FaShuttleVan } from 'react-icons/fa';
 import { MdCardMembership } from 'react-icons/md';
-import { Link, useHistory } from 'react-router-dom';
-import { fontSize } from '@mui/system';
 import { useSelector } from 'react-redux';
-import { cartCheckout, Checout } from './../../../features/cart/cartSelector';
+import { Link } from 'react-router-dom';
+import { cartCheckout } from './../../../features/cart/cartSelector';
+
 // import { Link } from 'react-router-dom';
 Order.propTypes = {
   handleClick: PropTypes.func,

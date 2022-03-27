@@ -1,0 +1,16 @@
+@use './../../../sass/index.scss' as *;
+.newProduct {
+  &_title {
+    font-size: 25px;
+    font-weight: 600;
+
+    margin-bottom: 20px;
+  }
+
+  .newProduct_form {
+  }
+}
+.activeDialog {
+  opacity: 1 !important;
+  visibility: visible !important;
+}

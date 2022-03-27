@@ -1,11 +1,25 @@
-$box-shadow:#e0e0e0 -2px 2px 29px 0px;
-$mobile-width:600px;
-$tablets-width:1024px;
-$tablet-width:1367px;
+$box-shadow: #e0e0e0 -2px 2px 29px 0px;
+$main-bg: #ffffff;
+$txt-color: #455560;
 
-$font-family:"Montserrat",sans-serif;
+$mobile-befect: 400px;
+$mobile-width: 600px;
+$tablets-width: 1024px;
+$tablet-width: 1367px;
 
+$font-family: 'Montserrat', sans-serif;
 
-$primary:#252a2b;
-$white:#fff;
-$black:#000;
+$white: white;
+$primary: #252a2b;
+
+$black: #000;
+
+$main-bg-light: #ffffff;
+$second-bg-light: #fafafb;
+$txt-color-light: #455560;
+$box-shadow-light: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+$main-bg-dark: #2d2d2d;
+$second-bg-dark: #202020;
+$txt-color-dark: #bbbbbb;
+$box-shadow-dark: rgba(0, 0, 0, 0.2) 0px 5px 10px;

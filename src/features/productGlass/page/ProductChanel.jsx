@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import GlassApi from './../../../api/ProductGlassApi';
 import { Pagination } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import GlassApi from './../../../api/ProductGlassApi';
+import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
+import ProductFilter from './../component/product/ProductFilter/FilterChanel/index';
 import ProductChanel from './../component/product/productList/ProductChanel/index';
 import './stylesQuanJeans.scss';
-import ProductFilter from './../component/product/ProductFilter/FilterChanel/index';
-import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
 
 ProductQuanJeans.propTypes = {};
 

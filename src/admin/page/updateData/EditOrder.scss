@@ -1,0 +1,279 @@
+@use './../../../sass/index.scss' as *;
+.editOrder {
+  display: flex;
+  flex-direction: column;
+  &_title {
+    display: flex;
+
+    border: 1px solid gray;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    padding: 10px;
+
+    .editOrder_title-left-mobile {
+      flex: 2;
+      @include tablets {
+        display: none;
+      }
+    }
+
+    .editOrder_title-right-mobile {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      @include tablets {
+        display: none;
+      }
+    }
+    .editOrder_title-left {
+      flex: 1;
+
+      display: none;
+
+      @include tablets {
+        display: flex;
+      }
+
+      & > span:first-child {
+        flex: 1;
+      }
+      & > span:last-child {
+        flex: 2;
+
+        display: flex;
+        justify-content: center;
+      }
+    }
+
+    .editOrder_title-right {
+      flex: 1;
+
+      display: none;
+
+      @include tablets {
+        display: flex;
+        justify-content: center;
+      }
+      & > span {
+        flex: 1;
+
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+  &_list {
+    font-size: 14px;
+
+    margin-bottom: 30px;
+
+    .editOrder_item {
+      display: flex;
+      align-items: flex-start;
+
+      padding: 5px;
+
+      column-gap: 10px;
+
+      margin-top: 8px;
+
+      background-color: #ffffff;
+
+      border-radius: 8px;
+
+      @include mobile {
+        padding: 15px;
+      }
+      // &:hover {
+      //   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+      //     rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px,
+      //     rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+      //   background: blue;
+      // }
+
+      .editOrder_left {
+        flex: 2;
+
+        display: flex;
+
+        column-gap: 5px;
+        flex-direction: column;
+
+        @include tablets {
+          flex: 1;
+          flex-direction: row;
+        }
+
+        .editOrder_code {
+          font-weight: 700;
+          font-size: 16px;
+
+          flex: 1;
+
+          display: none;
+
+          @include tablets {
+            display: block;
+          }
+        }
+        .editOrder_product {
+          flex: 2;
+
+          display: flex;
+          flex-direction: row;
+
+          column-gap: 5px;
+
+          @include tablets {
+            flex-direction: row;
+          }
+
+          display: flex;
+          .editOrder_adside {
+            flex: 1;
+
+            & > img {
+              width: 70px;
+              max-width: 70px;
+              height: 70px;
+
+              border-radius: 6px;
+            }
+          }
+
+          .editOrder_name {
+            flex: 2;
+
+            font-weight: 600;
+
+            @include tablets {
+              flex: 1;
+            }
+          }
+        }
+      }
+      .editOrder_right {
+        flex: 1;
+
+        display: flex;
+
+        column-gap: 5px;
+
+        flex-direction: column;
+
+        row-gap: 15px;
+
+        @include tablets {
+          flex-direction: row;
+        }
+        .editOrder_quantity {
+          flex: 1;
+
+          display: none;
+
+          @include tablets {
+            display: flex;
+            justify-content: center;
+          }
+        }
+
+        .editOrder_total {
+          flex: 1;
+
+          display: none;
+
+          font-weight: 700;
+          font-size: 18px;
+
+          @include tablets {
+            display: flex;
+            justify-content: center;
+          }
+        }
+
+        .editOrder_pay {
+          flex: 1;
+
+          display: flex;
+          justify-content: center;
+
+          font-weight: 700;
+
+          font-size: 18px;
+
+          @include tablets {
+            color: rgb(184, 26, 26);
+          }
+        }
+      }
+    }
+  }
+
+  .product_item-order-total {
+    margin-left: auto;
+
+    background: white;
+
+    box-shadow: 1px 1px 3px 0 rgb(0 0 0 / 40%), inset 0 1px 0 0 hsl(0deg 0% 100% / 10%);
+    padding: 15px;
+
+    font-size: 15px;
+
+    width: 95%;
+
+    margin-right: auto;
+
+    @include tablets {
+      width: 300px;
+      max-height: 300px;
+      max-width: 300px;
+
+      margin-right: unset;
+    }
+
+    .product_item-order-total-swapper {
+      .product_item-total-top {
+        border-bottom: 2px solid rgb(240, 238, 238);
+
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        .product_item-order-group {
+          display: flex;
+          justify-content: space-between;
+
+          line-height: 3.5rem;
+
+          & > span:last-child {
+            font-weight: 700;
+            font-size: 18px;
+          }
+        }
+      }
+
+      .product_item-total-bottom {
+        .product_item-order-group {
+          display: flex;
+          justify-content: space-between;
+
+          line-height: 2.5rem;
+
+          & > span:first-child {
+            font-weight: 600;
+            font-size: 18px;
+          }
+
+          & > span:last-child {
+            font-weight: 800;
+            font-size: 20px;
+
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}

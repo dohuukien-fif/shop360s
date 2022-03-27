@@ -2,10 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 // import counterSlice from '../features/couter/component/couterSclice';
 // import userSlice from '../features/Auth/userSlice/userSlice';
 import CartSlice from './../features/cart/cartSlice';
-import TotalSlice from './../features/cart/cartSlice/totalslice';
-import InforlSlice from './../features/cart/cartSlice/Information';
 import ChecklSlice from './../features/cart/cartSlice/checkout';
+import InforlSlice from './../features/cart/cartSlice/Information';
+import TotalSlice from './../features/cart/cartSlice/totalslice';
 import SearchSlice from './../features/SearchProduct/Slic/searchSlice';
+import ThemeAdmin from './theme';
 const rootReducer = {
   // counter: counterSlice,
   // user: userSlice,
@@ -14,6 +15,7 @@ const rootReducer = {
   total: TotalSlice,
   infor: InforlSlice,
   Check: ChecklSlice,
+  theme: ThemeAdmin,
 };
 const store = configureStore({
   reducer: rootReducer,

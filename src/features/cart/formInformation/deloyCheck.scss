@@ -1,115 +1,127 @@
-.succes{
-   width: 100%;
-   font-family:"Montserrat",sans-serif;
-   &_title{
-      text-align: center;
+.succes {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  &_title {
+    text-align: center;
     margin-bottom: 1rem;
 
     font-size: 14px;
     font-weight: 600;
-   }
-   &_cart-lisst{
-      width: 100%;
-      height: auto;
-      // background-color: red;
-     
-      font-size: 11px;
-     
-      .succes_cart-item{
-         display: flex;
-       
-         font-size: 10px;
-         .succes_top{
-            flex: 2;
-            display: flex;
-       justify-content: space-between;
-       align-items: center;
-            .succes_top-image {
-               width: 50px;
-               height: 50px;
-               & > img{
-                  width: 50px;
-                  height: 50px;
-               }
-            }
-            &-name{
-               width:100%;// chiều rộng bằng khối bao 
-               line-height: 15px;
-               margin-left: 7px;
+  }
+  &_cart-lisst {
+    width: 100%;
 
-               white-space: pre-wrap; 
-               overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
-               text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
-               -webkit-line-clamp: 2;// số dòng muốn hiển thị
-               -webkit-box-orient: vertical;
-                display: -webkit-box;
-               
-            }
-   
-         }
-         .succes_bottom{
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            align-items: flex-end;
-            &-payload{
-               font-size: 12px;
-            font-weight: 600;
-            }
-         }
-      }
-.succes_total{
-   display: flex;
-   flex-direction: column;
-   text-align: right;
-   font-style: italic;
+    max-height: 300px;
+    overflow-x: auto;
+    // background-color: red;
 
-   font-weight: 600;
-   font-size: 14px;
-   color: red;
-   margin-bottom: 2rem;
-}
-      }
+    font-size: 11px;
 
-      &_information{
-font-size: 13px;
-&-fullName{
-   & > span:first-child{
-      font-weight: 600;
-    color: black;
-   }
-}
-&-fullName{
-   & > span:first-child{
-      font-weight: 600;
-    color: black;
-   }
-}
-&-phone{
-   & > span:first-child{
-      font-weight: 600;
-    color: black;
-   }
-}
-&-email{
-   & > span:first-child{
-      font-weight: 600;
-    color: black;
-   }
-}
-&-adress{
-   & > span:first-child{
-      font-weight: 600;
-    color: black;
-   }
-}
-&-note{
-   & > span:first-child{
-      font-weight: 600;
-    color: black;
-   }
-}
+    &::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: rgb(211, 206, 206);
+      border-radius: 5px;
+
+      // border: 2px solid #555555;
+      // outline: 1px solid slategrey;
+    }
+
+    .succes_cart-item {
+      display: flex;
+
+      font-size: 10px;
+
+      margin-bottom: 10px;
+      .succes_top {
+        flex: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .succes_top-image {
+          width: 50px;
+          height: 50px;
+          & > img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+        &-name {
+          width: 100%; // chiều rộng bằng khối bao
+          line-height: 15px;
+          margin-left: 7px;
+
+          white-space: pre-wrap;
+          overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+          text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+          -webkit-line-clamp: 2; // số dòng muốn hiển thị
+          -webkit-box-orient: vertical;
+          display: -webkit-box;
+        }
       }
-   
+      .succes_bottom {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        &-payload {
+          font-size: 12px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+  .succes_total {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    font-style: italic;
+
+    font-weight: 600;
+    font-size: 14px;
+    color: red;
+    margin-bottom: 2rem;
+  }
+  &_information {
+    font-size: 13px;
+    &-fullName {
+      & > span:first-child {
+        font-weight: 600;
+        color: black;
+      }
+    }
+    &-fullName {
+      & > span:first-child {
+        font-weight: 600;
+        color: black;
+      }
+    }
+    &-phone {
+      & > span:first-child {
+        font-weight: 600;
+        color: black;
+      }
+    }
+    &-email {
+      & > span:first-child {
+        font-weight: 600;
+        color: black;
+      }
+    }
+    &-adress {
+      & > span:first-child {
+        font-weight: 600;
+        color: black;
+      }
+    }
+    &-note {
+      & > span:first-child {
+        font-weight: 600;
+        color: black;
+      }
+    }
+  }
 }

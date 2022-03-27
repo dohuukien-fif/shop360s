@@ -6,7 +6,7 @@
 //     font-weight: 600;
 // }
 .main-item {
-  flex-basis: 48%;
+  flex-basis: calc(50% - 15px);
   //  margin-left: 15px;
   margin-bottom: 20px;
   display: flex;
@@ -16,11 +16,11 @@
     flex-basis: calc(50% - 10px);
   }
   @include tablets {
-    flex-basis: calc(33.333% - 30px);
+    flex-basis: calc(33.333% - 25px);
   }
 
   @include tablet {
-    flex-basis: calc(25% - 30px);
+    flex-basis: calc(25% - 25px);
   }
   .main-item_image {
     position: relative;
@@ -61,7 +61,7 @@
     cursor: pointer;
     @include mobile {
       width: 100%;
-      height: 520px;
+      height: 540px;
     }
     @include tablets {
       width: 100%;
@@ -88,7 +88,7 @@
     .main-item_top {
       display: flex;
 
-      padding: 0.5rem;
+      padding: 1rem;
       .main-item_name {
         margin: auto;
         // text-align: center;
@@ -96,6 +96,11 @@
         // padding: 0.5rem;
         line-height: 16px;
         font-size: 13px;
+
+        // padding-left: 1rem;
+        // padding-right: 1rem;
+
+        text-align: center;
       }
     }
     .main-item_bottom {
@@ -129,4 +134,22 @@
       }
     }
   }
+}
+.onsale {
+  background: rgba(0, 0, 0, 0)
+    url(https://360boutique.vn/wp-content/themes/360boutique/img/new-tag-png-4.png) repeat scroll 0
+    0;
+  color: #fff;
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  height: 73px;
+  left: 15px;
+  padding: 10px;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: -3px;
+  width: 75px;
+  z-index: 9;
 }

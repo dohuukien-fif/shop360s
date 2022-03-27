@@ -15,7 +15,7 @@ const ShirtApi = {
   },
   update(data) {
     const url = `/shrit/${data}`;
-    return axiosClient.get(url, data);
+    return axiosClient.patch(url, data);
   },
   detele(id) {
     const url = `/shrit/${id}`;

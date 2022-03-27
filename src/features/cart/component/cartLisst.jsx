@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Cartitem from './cartItem';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import PropTypes from 'prop-types';
+import React, { useEffect } from 'react';
+import Cartitem from './cartItem';
 CartList.propTypes = {
   item: PropTypes.array,
   setQuantity: PropTypes.func,

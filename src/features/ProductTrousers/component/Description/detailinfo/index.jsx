@@ -54,7 +54,9 @@ function ProductInfo({ product, onChange }) {
         <h2>THÔNG TIN</h2>
         <ul>
           {information.map((item, index) => (
-            <li key={index}>{item}</li>
+            <>
+              <li key={index}>{item}</li>
+            </>
           ))}
         </ul>
       </div>
@@ -69,7 +71,9 @@ function ProductInfo({ product, onChange }) {
         <h2>Mô tả</h2>
         <ul>
           {instruct.map((item, index) => (
-            <li>{item}</li>
+            <>
+              <li key={index}>{item}</li>
+            </>
           ))}
         </ul>
         {/* <ul>

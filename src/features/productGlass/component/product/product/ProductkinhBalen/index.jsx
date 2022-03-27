@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-
-import { formatPrice } from './../../../../../../utils/index';
-import { useHistory } from 'react-router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { formatPrice } from './../../../../../../utils/index';
+
 Product.propTypes = {};
 
 function Product({ product }) {
@@ -18,6 +18,7 @@ function Product({ product }) {
   };
   return (
     <div className="trousers_items" key={id} data-aos="fade-up" onClick={handleClick}>
+      {product.promotionpencent > 0 && <span className="onsale">Giảm giá!</span>}
       <div className="trousers_figure">
         <img src={Araray[Index]} alt="" />
         <div className="trousers_figures">

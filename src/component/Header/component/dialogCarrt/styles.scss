@@ -43,6 +43,21 @@
         &_list {
           border-bottom: 3px solid black;
           padding-bottom: 3rem;
+
+          max-height: 400px;
+          overflow-x: auto;
+
+          &::-webkit-scrollbar {
+            width: 10px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background-color: rgb(211, 206, 206);
+            border-radius: 5px;
+
+            // border: 2px solid #555555;
+            // outline: 1px solid slategrey;
+          }
           .line_item {
             display: flex;
 

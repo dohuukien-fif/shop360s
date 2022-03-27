@@ -1,9 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { FiSearch } from 'react-icons/fi';
-import { AiOutlineClose } from 'react-icons/ai';
-import './styles.scss';
 import CircularProgress from '@mui/material/CircularProgress';
+import React from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
+import { FiSearch } from 'react-icons/fi';
+import './styles.scss';
 DialogSearch.propTypes = {};
 
 function DialogSearch(props) {
@@ -15,10 +14,14 @@ function DialogSearch(props) {
     setopenSearch,
     ref,
     loadingSearchs,
+    CloseMiniSearch,
   } = props;
   // const {} = props;
   return (
-    <div className={openSearch ? 'header_Search2 activeSearch' : 'header_Search2'}>
+    <div
+      ref={CloseMiniSearch}
+      className={openSearch ? 'header_Search2 activeSearch' : 'header_Search2'}
+    >
       <div className={openSearch ? 'Search2_container activeSearchModal' : 'Search2_container'}>
         <div className="Search2_block">
           <div className="Search2_title">

@@ -1,8 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import { Route, Switch, useRouteMatch, useLocation } from 'react-router-dom';
-
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Product from './page/cartFeature';
 import Cartchecout from './page/checkOut';
 

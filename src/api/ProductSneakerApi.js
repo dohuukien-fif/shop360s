@@ -15,7 +15,7 @@ const SneakerApi = {
   },
   update(data) {
     const url = `/sneaker/${data}`;
-    return axiosClient.get(url, data);
+    return axiosClient.patch(url, data);
   },
   detele(id) {
     const url = `/sneaker/${id}`;

@@ -31,7 +31,11 @@
       width: 30%;
     }
     .Search2_block {
-      padding: 7rem;
+      padding: 2rem;
+
+      @include tablet {
+        padding: 7rem;
+      }
       & > form {
         display: flex;
         & > input {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 
 import './styles.scss';
 import { formatPrice } from './../../../../utils';
@@ -17,14 +17,16 @@ function Product({ item }) {
     history.push(`Trang-chu/${item.id}`);
   };
   return (
-    <li className="main-item " data-aos="fade-up" onClick={handleClick}>
+    <li className="main-item " data-aos="fade-up" onClick={handleClick} key={item.id}>
+      {item.promotionpencent > 0 && <span className="onsale">Giảm giá!</span>}
       <div className="main-item_image">
         <img src={item.Araray[Index]} alt="" />
+
         <div className="main-item_images">
           {item.Araray.slice(0, 4).map((item, index) => (
-            <>
+            <Fragment key={index}>
               <img src={item} alt="" onMouseMove={() => setIndex(index)} />
-            </>
+            </Fragment>
           ))}
           {/* <img src={item.Araray[1]} alt="" />
           <img src={item.Ar aray[2]} alt="" />

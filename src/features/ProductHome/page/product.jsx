@@ -1,19 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
-import Slide from './../component/slides';
-import ProductLisst from '../component/productLisst';
-import ProductApi from './../../../api/productapi';
 // import queryString from 'query-string';
 // import { PriceChange } from '@mui/icons-material';
 import { Pagination } from '@mui/material';
-import Sekenle from './../component/ProductSelekent/seleken';
-import ProductFilter from '../component/ProductFilter';
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import NewsProduct from '../component/news/newLisst';
+import React, { useEffect, useState } from 'react';
 import { BiChevronsUp } from 'react-icons/bi';
-import { searchData } from '../../SearchProduct/Slic/searchSelec';
-import { useSelector, useDispatch } from 'react-redux';
+import { useRouteMatch } from 'react-router-dom';
+import NewsProduct from '../component/news/newLisst';
+import ProductLisst from '../component/productLisst';
+import ProductApi from './../../../api/productapi';
+import Sekenle from './../component/ProductSelekent/seleken';
+import Slide from './../component/slides';
+import './styles.scss';
 ProductFeature.propTypes = {};
 
 function ProductFeature(props) {

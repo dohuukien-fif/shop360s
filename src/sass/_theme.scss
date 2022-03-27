@@ -1,0 +1,14 @@
+@use './variables' as *;
+.theme-mode-light {
+  $main-bg: $main-bg-light;
+  $second-bg: $second-bg-light;
+  $txt-color: $txt-color-light;
+  $box-shadow: $box-shadow-light;
+}
+
+.theme-mode-dark {
+  $main-bg: $main-bg-dark;
+  $second-bg: $second-bg-dark;
+  $txt-color: $txt-color-dark;
+  $box-shadow: $box-shadow-dark;
+}

@@ -1,0 +1,16 @@
+@use './../../../sass/index.scss' as *;
+.filter_order {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+
+  column-gap: 20px;
+
+  row-gap: 20px;
+
+  @include tablets {
+    flex-direction: row;
+  }
+}

@@ -8,6 +8,12 @@ import { Provider } from 'react-redux';
 import store from './app/store';
 import { UserContextProvider } from './component/contextApi/index';
 // import { Provider } from 'react-redux';
+// import 'swiper/css/bundle';
+// import ReactDOM from "react-dom";
+
+// eslint-disable-next-line
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
 ReactDOM.render(
   <React.StrictMode>
     <UserContextProvider>
