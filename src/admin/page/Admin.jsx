@@ -2,7 +2,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Badge from '@mui/material/Badge';
 import IconButton from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { RiAccountPinCircleFill } from 'react-icons/ri';
 import { useSelector } from 'react-redux';
 import { Link, Redirect, Route, Switch, useRouteMatch } from 'react-router-dom';
@@ -14,23 +14,23 @@ import ProfilesFeaures from '../component/Profiles';
 import ThemeMenu from '../component/ThemeMenu';
 import { useUserContext } from './../../component/contextApi/index';
 import './Admin.scss';
-import CustomersFeatures from './Customers';
-import GlassApiFeatures from './Glass';
-import HatApiFeatures from './Hats';
-import HomeFeatures from './Home';
+import CustomersFeatures from './customers/Customers';
+import GlassApiFeatures from './glass/Glass';
+import HatApiFeatures from './hats/Hats';
+import HomeFeatures from './home/Home';
 import NewGlassFeatures from './newProduct/newGlass';
 import NewHatFeatues from './newProduct/newHats';
 import NewproductFeatures from './newProduct/newProduct';
 import NewShirtFeatures from './newProduct/newShrits';
 import NewSneakerFeatures from './newProduct/newSneaker';
 import NewTrouserFeatures from './newProduct/newTrouser';
-import OrderFeatures from './order';
-import ProductFeatures from './product';
+import OrderFeatures from './order/order';
+import ProductFeatures from './product/product';
 import SearchApiFeatures from './Search';
-import ShirtApiFeatures from './shirts';
+import ShirtApiFeatures from './shirts/shirts';
 import SidePageFeatures from './sidePage';
-import SneakerApiFeatures from './Sneakers';
-import TrousersApiFeatures from './Trouser';
+import SneakerApiFeatures from './sneakers/Sneakers';
+import TrousersApiFeatures from './trousers/Trouser';
 import EditGlass from './updateData/EditGlass';
 import EditHats from './updateData/EditHats';
 import EditOrderFeatures from './updateData/EditOrder';
@@ -38,8 +38,11 @@ import EditProductFeatures from './updateData/EditProduct';
 import EditSearch from './updateData/EditSearch';
 import EditShirt from './updateData/EditShirts';
 import EditTrouser from './updateData/EditTrouser';
-import UsersFeatures from './Users';
+import UsersFeatures from './user/Users';
 import './../component/ThemeMenu/styles.scss';
+import NewFeatures from './new/index';
+import ViewCustomers from './customers/view';
+import ManagerFeatures from './manager/page/index';
 AdminFeatures.propTypes = {};
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -119,11 +122,11 @@ function AdminFeatures(props) {
                       {lengthOrder
                         .filter((e) => e.day.split('/')[0] === dates.getDate().toString())
                         .map((items, index) => (
-                          <>
+                          <Fragment key={items.code}>
                             {items.cartTotalss.map((itemss, idx) => (
-                              <>
+                              <Fragment key={idx}>
                                 {itemss.sexx.map((itemsss, index) => (
-                                  <div className="admin_mini-item">
+                                  <div className="admin_mini-item" key={index}>
                                     <div className="admin_mini-left">
                                       <div className="admin_mini-code">
                                         <span>{`#  ${items.code}`}</span>
@@ -150,9 +153,9 @@ function AdminFeatures(props) {
                                     </div>
                                   </div>
                                 ))}
-                              </>
+                              </Fragment>
                             ))}
-                          </>
+                          </Fragment>
                         ))}
                     </>
                   )}
@@ -197,6 +200,9 @@ function AdminFeatures(props) {
                 <Route path={`${match.url}/Product`} exact>
                   <ProductFeatures />
                 </Route>
+                <Route path={`${match.url}/manager`} exact>
+                  <ManagerFeatures />
+                </Route>
                 <Route path={`${match.url}/Glass`} exact>
                   <GlassApiFeatures />
                 </Route>
@@ -224,6 +230,10 @@ function AdminFeatures(props) {
                 <Route path={`${match.url}/Order`} exact>
                   <OrderFeatures />
                 </Route>
+                <Route path={`${match.url}/News`} exact>
+                  <NewFeatures />
+                </Route>
+
                 {/* //newProduct */}
                 <Route path={`${match.url}/newProduct`} exact>
                   <NewproductFeatures />
@@ -268,6 +278,9 @@ function AdminFeatures(props) {
                 </Route>
                 <Route path={`${match.url}/Order/:orderId`}>
                   <EditOrderFeatures />
+                </Route>
+                <Route path={`${match.url}/Customers/:customerId`}>
+                  <ViewCustomers />
                 </Route>
               </>
             )}

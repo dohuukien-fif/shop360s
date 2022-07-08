@@ -1,8 +1,8 @@
 import React from 'react';
 import './styles.scss';
-index.propTypes = {};
+LoadingFeatues.propTypes = {};
 
-function index(props) {
+function LoadingFeatues(props) {
   return (
     <div className="loading_order">
       <div className="lds-ellipsis">
@@ -15,4 +15,4 @@ function index(props) {
   );
 }
 
-export default index;
+export default LoadingFeatues;

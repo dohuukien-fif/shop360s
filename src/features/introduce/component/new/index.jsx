@@ -16,7 +16,7 @@ function Newcontent({ DataIntroduce }) {
 
       <div className={{} ? 'new_list activeAccotion' : 'new_list'}>
         {DataIntroduce.map((items, idex) => (
-          <div className="new_item" onClick={() => handleIdItem(items.id)}>
+          <div className="new_item" onClick={() => handleIdItem(items.id)} key={items.id}>
             <div className="new_adside">
               <div className="new_image">
                 <img src={items.image} alt="" />

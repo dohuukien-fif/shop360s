@@ -1,6 +1,6 @@
-import SearchApi from './../../api/productapi';
+import SearchApi from './../../api/Searchapi';
 import { useState, useEffect } from 'react';
-export default function useUpdateProduct(productId) {
+export default function useUpdateSearch(productId) {
   const [product, setproduct] = useState([]);
   const [Loading, setLoading] = useState(true);
 

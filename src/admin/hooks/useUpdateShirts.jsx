@@ -1,6 +1,6 @@
-import ShirtsApi from './../../api/productapi';
+import ShirtsApi from './../../api/ProductShritApi';
 import { useState, useEffect } from 'react';
-export default function useUpdateProduct(productId) {
+export default function useUpdateShirt(productId) {
   const [product, setproduct] = useState([]);
   const [Loading, setLoading] = useState(true);
 

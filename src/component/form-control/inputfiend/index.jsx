@@ -10,7 +10,7 @@ import { useController, Control } from 'react-hook-form';
 //   label?: string;
 // }
 
-export default function Inputfeild({ name, control, label, ...inputProps }) {
+export default function Inputfeild({ placeholder, name, control, label, ...inputProps }) {
   const {
     field: { value, onChange, onBlur },
   } = useController({
@@ -20,7 +20,14 @@ export default function Inputfeild({ name, control, label, ...inputProps }) {
 
   return (
     <>
-      <input type="text" name={name} value={value} onChange={onChange} onBlur={onBlur} />
+      <input
+        type="text"
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        placeholder={placeholder}
+      />
     </>
   );
 }

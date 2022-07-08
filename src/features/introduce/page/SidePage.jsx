@@ -22,7 +22,7 @@ function SidePage({ DataIntroduce, onSubmits }) {
       </div>
       <div className={isaccotiton ? 'side_list activeAccotion' : 'side_list'}>
         {DataIntroduce.map((items, idex) => (
-          <div className="side_item" onClick={() => handleIdItem(items.id)}>
+          <div className="side_item" onClick={() => handleIdItem(items.id)} key={items.id}>
             <div className="side_adside">
               <div className="side_image">
                 <img src={items.image} alt="" />

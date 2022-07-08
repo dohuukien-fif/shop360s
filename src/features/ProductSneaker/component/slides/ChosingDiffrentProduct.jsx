@@ -23,10 +23,14 @@ function ChosingDiffrentProduct({ product }) {
     fetchApiRandom();
   }, []);
   console.log(Imagess);
+  const randomMovie = Math.floor(Math.random() * Imagess.length);
   return (
     <div className="choose_image">
       <h2>Lựa chon khác : </h2>
-      {Imagess.slice(0, 6).map((item, index) => (
+      {Imagess.slice(
+        randomMovie < 6 ? 0 : randomMovie - 6,
+        randomMovie < 6 ? Imagess.length : randomMovie
+      ).map((item, index) => (
         <Fragment key={index}>
           <img onClick={() => handleClick(item.id)} src={item.Araray[0]} alt="" />
         </Fragment>

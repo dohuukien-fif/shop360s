@@ -92,7 +92,7 @@ function Description() {
       </div>
       <div className="related">
         <h2>SẢN PHẨM LIÊN QUAN</h2>
-        <SlidesHomes />
+        <SlidesHomes category={product.categoryName} />
       </div>
     </div>
   );

@@ -1,43 +1,32 @@
-import { TextField } from '@mui/material';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { Controller } from 'react-hook-form';
+import * as React from 'react';
 
-InputField.propTypes = {
-  form: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
+import { useController, Control } from 'react-hook-form';
 
-  label: PropTypes.string,
-  disabled: PropTypes.bool,
-};
+// export interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
+//   name: string;
+//   control: Control<any>;
+//   label?: string;
+// }
 
-function InputField(props) {
-  const { form, name, label, disabled } = props;
-  const { errors } = form;
-  const hasError = errors[name];
+export default function Textfield({ name, control, label, placeholder, ...inputProps }) {
+  const {
+    field: { value, onChange, onBlur },
+  } = useController({
+    name,
+    control,
+  });
 
   return (
-    <Controller
-      name={name}
-      control={form.control}
-      render={({ onChange, onBlur, value, name }) => (
-        <TextField
-          id="outlined-multiline-static"
-          multiline
-          rows={4}
-          fullWidth
-          label={label}
-          disabled={disabled}
-          error={!!hasError}
-          helperText={errors[name]?.message}
-          name={name}
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur}
-        />
-      )}
-    />
+    <>
+      <textarea
+        type="text"
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        placeholder={placeholder}
+        la
+      />
+    </>
   );
 }
-
-export default InputField;

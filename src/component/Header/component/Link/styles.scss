@@ -11,6 +11,7 @@
 .menulist {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   position: fixed;
   left: -100%;
@@ -19,6 +20,8 @@
   top: 0;
 
   overflow-y: scroll;
+
+  transition: 500ms ease-in-out !important  ;
   // transition: all 300ms linear;
   // @include tablet{
   //   margin-bottom: 100px;
@@ -27,6 +30,18 @@
   // &.actives{
   //     display: none;
   // }
+
+  @include tablet {
+    left: 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: auto;
+
+    transition: none !important;
+  }
   &::-webkit-scrollbar {
     display: none;
   }
@@ -36,8 +51,19 @@
 
     border-top: 1px solid rgb(241, 235, 235);
   }
-  @include tablet {
+
+  .menulist_figust {
+    margin-top: 10px;
+
+    width: 90%;
+    & > img {
+      width: 50px;
+    }
+    @include tablet {
+      display: none;
+    }
   }
+
   & > h3 {
     font-size: 20px;
     text-transform: uppercase;
@@ -45,33 +71,28 @@
     margin-bottom: 30px;
     font-weight: 550;
 
-    @include mobile {
+    @include tablet {
       display: none;
     }
-  }
-  @include mobile {
-    left: 0;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-    margin: auto;
   }
 
   &.active {
     background-color: whitesmoke;
     position: fixed;
+
     top: 0;
-    height: 100%;
-    width: 80%;
     left: 0;
+    bottom: 0;
+
+    height: 100%;
+    width: 50%;
     // transition: 0.8s ease-in-out;
     z-index: 8;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transition: all 500ms linear;
-    @include mobile {
+
+    @include tablet {
       display: none;
+      width: 60%;
     }
   }
 
@@ -90,6 +111,11 @@
 
     color: #252a2b;
 
+    display: flex;
+    flex-direction: column;
+
+    transition: 500ms ease-in-out !important;
+
     @include mobile {
       padding: 0.5rem;
       // background: red;
@@ -100,6 +126,8 @@
     }
     &:hover {
       color: red;
+
+      cursor: pointer;
     }
     &::before {
       content: '';
@@ -135,13 +163,20 @@
       align-items: center;
     }
     .dropdown {
-      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+      height: 0;
+
+      transform: scale(0);
+      transform-origin: top left;
       // transition: 5s ease-in;
       // display: flex;
       // flex-direction: column;
       // justify-content: center;
       // align-items: center;
-      @include mobile {
+
+      @include tablet {
         display: block;
         opacity: 0;
         visibility: hidden;
@@ -168,8 +203,10 @@
 
         display: flex;
         justify-content: flex-start;
+
         align-items: center;
         color: #252a2b;
+
         @include mobile {
           padding-top: 1rem;
           padding-left: 1.5rem;
@@ -192,7 +229,12 @@
     }
 
     &:hover .dropdown {
-      display: block;
+      opacity: 1;
+      visibility: visible;
+
+      transform: scale(1);
+
+      height: auto;
     }
     @include mobile {
       &:hover .dropdown {
@@ -211,21 +253,15 @@
   //   border-bottom: 1px solid gray;
   // }
 }
-.activeMenu {
-  @include mobile {
-    position: absolute;
-    top: 0%;
-    left: 40%;
-    transform: translateX(-40%);
-    border: none;
-  }
-  @include tablets {
-    position: absolute;
-    top: 0%;
-    left: 40%;
-    transform: translateX(-40%);
-    border: none;
-  }
+.activeMenuScroll {
+  // @include mobile {
+  //  position: absolute;
+  //  top: 0%;
+  //  left: 40%;
+  //  transform: translateX(-40%);
+  // border: none;
+  // }
+
   @include tablet {
     position: absolute;
     // top: 10%;
@@ -235,21 +271,23 @@
   }
   & > li {
     @include mobile {
-      width: 62px;
+      width: 150px;
       padding: 0.8rem;
     }
-    @include tablets {
-      width: 90px;
-    }
+
     @include tablet {
       width: 100px;
       padding: 1rem;
     }
     .dropdown {
+      transition: 500ms ease-in-out !important;
       @include mobile {
         width: 250%;
       }
       @include tablets {
+        width: 350%;
+      }
+      @include tablet {
         width: 200%;
       }
     }

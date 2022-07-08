@@ -33,12 +33,11 @@
 
       width: 50%;
       margin: auto;
+      bottom: auto;
       // box-shadow: $box-shadow;
     }
     @include tablet {
       top: 50%;
-      width: 30%;
-      height: 70%;
 
       padding: 2rem;
       margin: auto;

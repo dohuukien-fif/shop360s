@@ -80,8 +80,12 @@ function deloyCheck({ opens, handlcheck, handleClick, cartTotals, cartInformatio
         </div>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handlcheck}>Trở về</Button>
-        <Button onClick={handleClick}>Mua hàng</Button>
+        <button className="succes__information--btn--succes" onClick={handleClick}>
+          Mua hàng
+        </button>
+        <button className="succes__information--btn--close" onClick={handlcheck}>
+          Trở về
+        </button>
       </DialogActions>
     </Dialog>
   );

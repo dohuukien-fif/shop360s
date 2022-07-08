@@ -45,7 +45,7 @@ function AddTocartForm({ onSubmits = null }) {
   const { isSubmitting } = form.formState;
   return (
     <form onSubmit={form.handleSubmit(handleSubmit)}>
-      <QuantityField name="quantity" label="Quantity" form={form} />
+      <QuantityField sx={{ width: 50 }} name="quantity" label="Quantity" form={form} />
 
       <div className="info-btn">
         <button type="submit">

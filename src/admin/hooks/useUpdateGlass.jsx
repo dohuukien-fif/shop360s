@@ -1,6 +1,6 @@
 import GlassApi from './../../api/ProductGlassApi';
 import { useState, useEffect } from 'react';
-export default function useUpdateProduct(productId) {
+export default function useUpdateGlass(productId) {
   const [product, setproduct] = useState([]);
   const [Loading, setLoading] = useState(true);
 

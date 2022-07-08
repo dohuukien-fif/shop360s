@@ -12,7 +12,7 @@ Login.propTypes = {
 };
 
 function Login(props) {
-  const { signInUser, error, user } = useUserContext();
+  const { signInUser, error, user, loading } = useUserContext();
   const history = useHistory();
   //   const [error, seterror] = useState();
   const handleSubmit = async (values) => {

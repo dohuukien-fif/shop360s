@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './filterCode.scss';
+import { AiOutlineSearch } from 'react-icons/ai';
 SearchCode.propTypes = {};
 
 function SearchCode({ onSubmitCode }) {
@@ -19,10 +20,16 @@ function SearchCode({ onSubmitCode }) {
     <div className="code">
       <div className="code_inputSearch">
         <span>Nhập mã code</span>
-        <input type="text" value={Search} onChange={handleChange} placeholder="Nhập code " />
-      </div>
-      <div className="code_btn">
-        <button onClick={handleSubmitCode}>Tìm kiếm</button>
+        <div className="code_search">
+          <input type="text" value={Search} onChange={handleChange} placeholder="Nhập code " />
+
+          <div className="code_btn">
+            <button onClick={handleSubmitCode}>
+              {' '}
+              <AiOutlineSearch />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

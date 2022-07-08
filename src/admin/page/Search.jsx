@@ -11,7 +11,7 @@ import FilterTotal from '../component/FilterCode.jsx/filterProduct/sortPrice';
 import ProductItem from '../component/productAdmin/productItem';
 import OrderApi from './../../api/OrderApi';
 import ProductApi from './../../api/productapi';
-import './product.scss';
+
 import useCategories from './../hooks/useCategories';
 import useMaxPrice from '../hooks/useMaxPrice';
 ProductFeatures.propTypes = {};

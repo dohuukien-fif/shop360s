@@ -2,6 +2,7 @@
 .order {
   min-height: 300px;
   padding-bottom: 2rem;
+
   &_banner {
     padding: 2rem;
     margin-bottom: 1rem;
@@ -44,7 +45,7 @@
   &_list {
     @include tablets {
       width: 95%;
-      margin: auto;
+      margin: 30px auto;
     }
     @include tablets {
       width: 95%;

@@ -1,6 +1,6 @@
-import HatsApi from './../../api/productapi';
+import HatsApi from './../../api/ProductHatApi';
 import { useState, useEffect } from 'react';
-export default function useUpdateProduct(productId) {
+export default function useUpdateHats(productId) {
   const [product, setproduct] = useState([]);
   const [Loading, setLoading] = useState(true);
 

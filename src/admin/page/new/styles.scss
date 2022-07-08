@@ -1,0 +1,99 @@
+@use './../../../sass/index.scss' as *;
+.new {
+  .new_swapper {
+    width: 100%;
+
+    font-size: 14px;
+
+    margin: auto;
+    @include tablets {
+      width: 90%;
+    }
+
+    .new_title {
+      font-weight: 700;
+      font-size: 20px;
+
+      margin-bottom: 20px;
+    }
+    .new_body {
+      box-shadow: 0 7px 24px rgb(0 0 0 / 9%);
+      border-radius: 10px;
+      background-color: #fff;
+
+      margin: 50px auto;
+
+      padding: 20px;
+
+      width: 95%;
+
+      min-height: 80vh;
+
+      .new_group {
+        margin-top: 15px;
+
+        display: flex;
+        flex-direction: column;
+
+        & > textarea {
+          min-height: 200px;
+
+          padding: 10px;
+        }
+        .new_figures {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          padding: 20px;
+
+          background: rgb(250, 249, 249);
+
+          & > img {
+            width: 200px;
+            height: 200px;
+          }
+        }
+        & > span {
+          font-weight: 600;
+
+          margin-left: 10px;
+        }
+        & > input[type='file'] {
+          display: none;
+        }
+        & > label {
+          font-weight: 600;
+
+          & > span {
+            background: rgb(34, 34, 216);
+            color: white;
+
+            border: none;
+
+            padding: 10px;
+          }
+          & > strong {
+            color: red;
+          }
+        }
+      }
+      .new_btn {
+        & > button {
+          background: rgb(63, 63, 208);
+
+          border: none;
+          color: white;
+
+          padding: 20px;
+
+          margin-top: 10px;
+
+          cursor: pointer;
+
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

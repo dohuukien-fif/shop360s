@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { BsCheckCircle } from 'react-icons/bs';
 import { MdOutlineLocalShipping, MdOutlinePayment, MdOutlinePlace } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
@@ -7,7 +7,7 @@ import { addRemoCheckout, removeCheckout } from './../../../features/cart/cartSl
 import { formatPrice } from './../../../utils/index';
 import LodingComponent from './../../loading/index';
 import './productOrder.scss';
-
+import OrderApi from './../../../api/OrderApi';
 ProductOrder.propTypes = {};
 
 function ProductOrder(props) {
@@ -20,15 +20,21 @@ function ProductOrder(props) {
     setLoading(true);
     return new Promise((resolve) => {
       setTimeout(() => {
+        //delete   api order
+        OrderApi.delete(id);
+        //redux   item  checkout
         const action = removeCheckout(id);
         dispatch(action);
+        //add   refuil
         const actions = addRemoCheckout(cartCheckouts);
         dispatch(actions);
+        //promise   bolean  true
         resolve(true);
         setLoading(false);
       }, 3000);
     });
   };
+
   // const pass = cartCheckouts.forEach.cartTotals.map((item) => item);
   // console.log(pass);
   // const lastAddCheckOut = cartCheckouts.map((items) => items.cartTotals);

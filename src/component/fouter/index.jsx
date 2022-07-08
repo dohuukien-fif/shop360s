@@ -1,10 +1,33 @@
-import React from 'react';
+import { async } from '@firebase/util';
+import { doc, setDoc } from 'firebase/firestore';
+import React, { useState } from 'react';
 import { BsTelephoneForward } from 'react-icons/bs';
 import { HiOutlineMailOpen } from 'react-icons/hi';
+import { db } from '../../firebase';
 import './styles.scss';
 Fouter.propTypes = {};
 
 function Fouter(props) {
+  const [valueEmail, setValueEmail] = useState('');
+  const handleChangeValueEmail = (e) => {
+    const { value } = e.target;
+    setValueEmail(value);
+  };
+
+  const uid = new Date().getMilliseconds();
+
+  console.log(uid);
+
+  const handleSubmitValueEmail = async (e) => {
+    e.preventDefault();
+
+    const docRef = doc(db, 'email', uid.toString());
+
+    await setDoc(docRef, { valueEmail });
+    console.log(valueEmail);
+
+    setValueEmail('');
+  };
   return (
     <div className="footer">
       <div className="footer_top">
@@ -14,8 +37,14 @@ function Fouter(props) {
               <HiOutlineMailOpen style={{ fontSize: '20px' }} /> <span>Đăng kí nhận tin</span>
             </div>
             <div className="newsletter_input">
-              <form>
-                <input type="email" placeholder="Nhập email của bạn" required />
+              <form onSubmit={handleSubmitValueEmail}>
+                <input
+                  type="email"
+                  placeholder="Nhập email của bạn"
+                  value={valueEmail}
+                  required
+                  onChange={handleChangeValueEmail}
+                />
                 <button type="submit">ĐĂNG KÍ</button>
               </form>
             </div>

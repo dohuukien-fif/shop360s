@@ -1,243 +1,235 @@
-@use "./../../../../../sass/" as *;
-.info_glass{
-    width: 95%;
-  
-  
-    margin: 0 auto;
-    @include tablets{
-      width: 100%;
+@use './../../../../../sass/' as *;
+.info_glass {
+  width: 95%;
+
+  margin: 0 auto;
+  @include tablets {
+    width: 100%;
     //  display: flex;
     //  flex-direction: column;
     //  justify-content: flex-start;
-    }
-    &-evaluate{
-      font-size: 16px;
-       color: #ffbc59;
-       display: flex;
-      //  justify-content: center;
-       align-items: center;
-       & > span:first-child{
-         color:  rgb(176, 172, 172);
-         margin-right: 10px;
-       }
-       & > span:last-child{
-        color:  rgb(93, 92, 92);
-        margin-left: 10px;
-        display: none;
-        @include mobile{
-          display: block;
-        }
-      }
-    }
-   &-name{
-margin-bottom: 3rem;
-    }
-  .infomation{
+  }
+  &-evaluate {
+    font-size: 16px;
+    color: #ffbc59;
     display: flex;
-justify-content: space-between;
-margin-bottom: 10px;
-      &_origin{
-            & > span:first-child{
-              font-size: 15px;
-              color: rgb(176, 172, 172);
-            }
-            & > span:last-child{
-              font-size: 15px;
-            
-            }
-      }
-      &_category{
-        & > span:first-child{
-          font-size: 15px;
-          color: rgb(204, 200, 200);
-        }
-        & > span:last-child{
-          font-size: 15px;
-        
-        }
-      }
+    //  justify-content: center;
+    align-items: center;
+    & > span:first-child {
+      color: rgb(176, 172, 172);
+      margin-right: 10px;
     }
-    .info_glass-price{
+    & > span:last-child {
+      color: rgb(93, 92, 92);
+      margin-left: 10px;
+      display: none;
+      @include mobile {
         display: block;
-        padding: 1.4rem 1.4rem 1rem 0rem;
-      @include tablet{
-        padding: 1rem 1.4rem 1rem 0rem;
-      }
-      &-prices{
-        color: #fe302e;
-
-        font-weight: 600;
-        font-family: Georgia,Sans-serifrif;
-        font-size: 31px;
-        font-style: italic;
-
-        margin-top: 3px;
-        line-height: 45px;
-         
-      }
-
-
-      &-discount  {
-          display: flex;
-          // flex-wrap: wrap-reverse;
-          // flex-wrap: wrap;
-          // flex-direction: column-reverse;
-          font-size: 15px;
-          & > span{
-            margin-left: 15px;
-            font-size: 20px;
-            font-family: Georgia,Sans-serifrif;
-            text-decoration: line-through;
-            color: #aaa;
-            margin-right: 17px;
-          }
-          & > div{
-            color: #c20d0d;
-            text-transform: uppercase;
-            font-size: 13px;
-            font-weight: 700;
-            font-family: Georgia,Sans-serifrif;
-            font-style: italic;
-            // margin: -10px 0 0 15px;
-            // top: -10px;
-          }
-      }
-
-    }
-    &-btn{
-      margin-bottom: 20px;
-   margin-top: 5px;
-      overflow: hidden;
-      width: 100%;
-   
-
-//       & >::before{
-// content: "";
-// position: absolute;
-// width: 100%;
-// right: 0;
-// left: -100%;
-// top: 0;
-// bottom: 0;
-
-
-// background-color: black;
-
-//       }
-//       & >:hover::before{
-//         left: 0;
-        
-      
-//       }
-        & > button{
-            width: 100%;
-            padding: 16px;
-            background-color: #000;
-     cursor: pointer;
-            border: none;
-            outline: none;
-            object-fit: none;
-         
-            & > span{
-                color: white;
-                z-index: 1000;
-            }
-           
-        }
-      
-        
-    }
- .size {
-       display: flex;
-     flex-direction: column;
-   
-       overflow: hidden;
-      
-      font-size: 15px;
-        // & > h2{
-        //     width: 20%;
-        // }
-        // & > button{
-        //     padding: 0.7rem;
-        //     margin-left: 10px;
-        //  }
-      //    & >.active{
-      // background-color: black;
-      // color: white;
-      //   }
-      & > div{
-        margin-bottom: 10px;
-        font-size: 16px;
-      }
-      &_sex,&_color,&_origin{
-                & > span:first-child{
-                  color: gray;
-                }
-      }
-      @include tablet{
-        padding: 0rem ;
-      }
-
-    }
-    &-quantity{
-    margin-bottom: 1rem;
-    }
-    &-information{
-margin-bottom: 25px;
-      & > h2{
-        margin-bottom: 3px;
-      }
-      & > ul > li{
-        font-size: 14px;
-        line-height: 21px;
-        margin-bottom: 7px;
-        font-family: 'Quicksand', sans-serif!important;
-        color: #252a2b;
-        text-align: justify;
       }
     }
-    .description{
+  }
+  &-name {
+    margin-bottom: 3rem;
+  }
+  .infomation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    &_origin {
+      & > span:first-child {
+        font-size: 15px;
+        color: rgb(176, 172, 172);
+      }
+      & > span:last-child {
+        font-size: 15px;
+      }
+    }
+    &_category {
+      & > span:first-child {
+        font-size: 15px;
+        color: rgb(204, 200, 200);
+      }
+      & > span:last-child {
+        font-size: 15px;
+      }
+    }
+  }
+  .info_glass-price {
+    display: block;
+    padding: 1.4rem 1.4rem 1rem 0rem;
+    @include tablet {
+      padding: 1rem 1.4rem 1rem 0rem;
+    }
+    &-prices {
+      color: #fe302e;
+
+      font-weight: 600;
+      font-family: Georgia, Sans-serifrif;
+      font-size: 31px;
+      font-style: italic;
+
+      margin-top: 3px;
+      line-height: 45px;
+    }
+
+    &-discount {
       display: flex;
-      justify-content: flex-start;
-    
-      @include tablets{
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      // flex-wrap: wrap-reverse;
+      // flex-wrap: wrap;
+      // flex-direction: column-reverse;
+      font-size: 15px;
+      & > span {
+        margin-left: 15px;
+        font-size: 20px;
+        font-family: Georgia, Sans-serifrif;
+        text-decoration: line-through;
+        color: #aaa;
+        margin-right: 17px;
       }
-      &_icon{
-        display: flex;
-        margin-left: 50px;
-        .description_facebook{
-          font-size: 30px;
-        
-        }
-        .description_twice{
-          font-size: 30px;
-          margin-left: 15px;
-        }
-        .description_instagram{
-          font-size: 30px;
-          margin-left: 15px;
-        }
-      }
-      & > h2{
-        font-size: 19px;
-        margin-bottom: 14px;
-        color: rgb(106, 106, 110);
-      }
-      & > p{
+      & > div {
+        color: #c20d0d;
+        text-transform: uppercase;
         font-size: 13px;
-        text-align: justify;
-        width:100%;// chiều rộng bằng khối bao nó
-    white-space: pre-wrap; 
-    overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
-    text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
-    -webkit-line-clamp: 5;// số dòng muốn hiển thị
-    -webkit-box-orient: vertical;
-     display: -webkit-box;
+        font-weight: 700;
+        font-family: Georgia, Sans-serifrif;
+        font-style: italic;
+        // margin: -10px 0 0 15px;
+        // top: -10px;
       }
     }
- 
-}
+  }
+  &-btn {
+    margin-bottom: 20px;
+    margin-top: 5px;
+    overflow: hidden;
+    width: 100%;
 
+    //       & >::before{
+    // content: "";
+    // position: absolute;
+    // width: 100%;
+    // right: 0;
+    // left: -100%;
+    // top: 0;
+    // bottom: 0;
+
+    // background-color: black;
+
+    //       }
+    //       & >:hover::before{
+    //         left: 0;
+
+    //       }
+    & > button {
+      width: 100%;
+      padding: 16px;
+      background-color: #000;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      object-fit: none;
+
+      & > span {
+        color: white;
+        z-index: 1000;
+      }
+    }
+  }
+  .size {
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    font-size: 15px;
+    // & > h2{
+    //     width: 20%;
+    // }
+    // & > button{
+    //     padding: 0.7rem;
+    //     margin-left: 10px;
+    //  }
+    //    & >.active{
+    // background-color: black;
+    // color: white;
+    //   }
+    & > div {
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+    &_sex,
+    &_color,
+    &_origin {
+      & > span:first-child {
+        color: gray;
+      }
+    }
+    @include tablet {
+      padding: 0rem;
+    }
+  }
+  &-quantity {
+    margin-bottom: 1rem;
+  }
+  &-information {
+    margin-bottom: 25px;
+    & > h2 {
+      margin-bottom: 3px;
+    }
+    & > ul > li {
+      font-size: 14px;
+      line-height: 21px;
+      margin-bottom: 7px;
+      font-family: 'Quicksand', sans-serif !important;
+      color: #252a2b;
+      text-align: justify;
+    }
+  }
+  .description {
+    display: flex;
+    justify-content: flex-start;
+
+    @include tablets {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    &_icon {
+      display: flex;
+      margin-left: 50px;
+      .description_facebook {
+        font-size: 30px;
+
+        cursor: pointer;
+      }
+      .description_twice {
+        font-size: 30px;
+        margin-left: 15px;
+
+        cursor: pointer;
+      }
+      .description_instagram {
+        font-size: 30px;
+        margin-left: 15px;
+
+        cursor: pointer;
+      }
+    }
+    & > h2 {
+      font-size: 19px;
+      margin-bottom: 14px;
+      color: rgb(106, 106, 110);
+    }
+    & > p {
+      font-size: 13px;
+      text-align: justify;
+      width: 100%; // chiều rộng bằng khối bao nó
+      white-space: pre-wrap;
+      overflow: hidden; // ẩn các nội dung khi kích thước lớn hơn chiều rộng khối bên ngoài
+      text-overflow: ellipsis; //thêm 3 dấu chấm ở cuối
+      -webkit-line-clamp: 5; // số dòng muốn hiển thị
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+    }
+  }
+}

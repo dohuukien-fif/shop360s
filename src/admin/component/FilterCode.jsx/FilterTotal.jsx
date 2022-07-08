@@ -19,7 +19,7 @@ function FilterTotal({ onSubmitTotal }) {
     <div className="filterTotal">
       <span>Lọc tổng tiền</span>
       <select name="total" id="" onChange={handleChangeSort}>
-        <option value="">Tất cả </option>
+        <option value="">Filter </option>
         <option value="asc">tăng dần</option>
         <option value="desc">giảm dần</option>
       </select>

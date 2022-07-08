@@ -6,19 +6,9 @@ import Inputfield from './../../../component/form-control/InputFeid/index';
 import Textfield from './../../../component/form-control/textFeild/index';
 import './infor.scss';
 
-FormInformation.propTypes = {};
+import PropTypes from 'prop-types';
 
-function FormInformation({ cartTotal, onSubmits = null }) {
-  // const handleClickOpen = () => {
-  //   setOpen(true);
-  // };
-
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
-
-  // const cartItem = useSelector(cartItemSelector);
-
+const FormInformation = React.memo(({ cartTotal, onSubmits = null }) => {
   const schema = yup.object().shape({
     fullName: yup
       .string()
@@ -52,7 +42,6 @@ function FormInformation({ cartTotal, onSubmits = null }) {
     //
     if (onSubmits) onSubmits(value);
   };
-
   return (
     <form onSubmit={form.handleSubmit(handleSubmit)}>
       <div className="fullName_phone">
@@ -76,7 +65,12 @@ function FormInformation({ cartTotal, onSubmits = null }) {
         </div>
         <div className="address_note-right">
           <span>Ghi chú</span>
-          <Textfield name="note" label="Note" form={form} />
+          <Textfield
+            name="note"
+            label="Note"
+            control={form.control}
+            placeholder="vui lòng nhập ghi chú..."
+          />
         </div>
       </div>
 
@@ -91,6 +85,8 @@ function FormInformation({ cartTotal, onSubmits = null }) {
       </button>
     </form>
   );
-}
+});
+
+FormInformation.propTypes = {};
 
 export default FormInformation;

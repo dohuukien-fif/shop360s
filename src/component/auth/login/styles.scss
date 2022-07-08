@@ -1,101 +1,106 @@
-@use  "./../../../sass/" as *;
+@use './../../../sass/' as *;
 // .filled-disabled{
 //    font-family:"Montserrat",sans-serif !important;
 //    font-size: 13px;
 //    font-weight: 600 !important ;
 //    color: black !important;
 // }
-.login{
-   background:linear-gradient(#141e30, #243b55);
-// background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(134,58,139,1) 0%, rgba(77,98,188,1) 70%, rgba(0,212,255,1) 100%);
-height: 100vh;
+.login {
+  background: linear-gradient(#141e30, #243b55);
+  // background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(134,58,139,1) 0%, rgba(77,98,188,1) 70%, rgba(0,212,255,1) 100%);
+  height: 100vh;
 
-   width: 100%;
-   top: 0;
-   position: fixed;
-   z-index: 3;
-  
-   &_container{
-   
-     position: absolute;
-     background: white;
-     border-radius: 5px;
-     top: 0;
-     left: 0;
-     right: 0;
-     bottom: 0;
-     height: auto;
-      @include mobile{
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+  width: 100%;
+  top: 0;
+  position: fixed;
+  z-index: 3;
 
-    padding: 2rem;
+  &_container {
+    position: absolute;
+    background: white;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: auto;
 
-         width: 50%;
-         margin: auto;
-         // box-shadow: $box-shadow;
-      }
-      @include tablet{
-         top: 50%;
-         left: 40%;
-         transform: translate(-50%,-50%);
+    padding: 20px;
+    @include mobile {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
-         width: 35%;
-         height: 70%;
+      padding: 2rem;
 
-           padding: 2rem;
-         margin: auto;
-         // box-shadow: $box-shadow;
-      }
-      &-title{
-         padding: 1.5rem;
-         text-align: center;
-         font-size: 18px;
-         font-weight: 600;
-      }
-      // .login_input{
-      //    margin-bottom: 2rem;
-      // }
-.login_avatar{
-   
-   /* border: coral; */
-   width: 45px;
-   height: 45px;
+      width: 50%;
+      margin: auto;
 
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex: 1;
+      bottom: auto;
+      // box-shadow: $box-shadow;
+    }
+    @include tablet {
+      top: 50%;
+      left: 40%;
+      transform: translate(-50%, -50%);
 
-   background-color: #ff6666;
+      width: 35%;
 
-   margin:2rem auto;
-   object-fit: cover;
-   border-radius: 50%;
+      padding: 2rem;
+      margin: auto;
+      // box-shadow: $box-shadow;
+    }
+    &-title {
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    // .login_input{
+    //    margin-bottom: 2rem;
+    // }
+    .login_avatar {
+      /* border: coral; */
+      width: 45px;
+      height: 45px;
 
-}
-.login_error{
-   color: red;
-   font-size: 12px;
-}
-      .submits{
-         width: 100%;
-         padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
 
-         border: none;
-         border-radius: 5px ;
-         margin-top: 1rem;
-         
-         color: white;
-         background: rgb(2,0,36) !important;
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(134,58,139,1) 48%, rgba(77,123,188,1) 70%, rgba(0,212,255,1) 100%) !important;
-      }
-      .login_btn{
-         display: block;
-    font-size: 12px;
-    text-align: right;
-      }
-   }
- 
+      background-color: #ff6666;
+
+      margin: 2rem auto;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .login_error {
+      color: red;
+      font-size: 12px;
+    }
+    .submits {
+      width: 100%;
+      padding: 1.5rem;
+
+      border: none;
+      border-radius: 5px;
+      margin-top: 1rem;
+
+      color: white;
+      background: rgb(2, 0, 36) !important;
+      background: linear-gradient(
+        90deg,
+        rgba(2, 0, 36, 1) 0%,
+        rgba(134, 58, 139, 1) 48%,
+        rgba(77, 123, 188, 1) 70%,
+        rgba(0, 212, 255, 1) 100%
+      ) !important;
+    }
+    .login_btn {
+      display: block;
+      font-size: 12px;
+      text-align: right;
+    }
+  }
 }

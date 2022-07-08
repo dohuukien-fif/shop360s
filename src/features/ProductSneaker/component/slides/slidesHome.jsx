@@ -19,15 +19,17 @@ function SlidesHome(props) {
     const fetchApiRandom = async () => {
       try {
         const res = await SneakerApi.getAll();
-        setImages(res);
+        setImages(res.slice(0, 10));
         console.log(res);
       } catch (error) {}
     };
     fetchApiRandom();
   }, []);
+  const randomMovie = Math.floor(Math.random() * Imagess.length);
   const handleClick = (newId) => {
     history.push(`${newId}`);
   };
+  console.log(Imagess, 'Imagess');
   return (
     <Swiper
       slidesPerView={3}
@@ -63,7 +65,10 @@ function SlidesHome(props) {
       className="mySwiper"
       // data-swiper-autoplay="2000"
     >
-      {Imagess.map((item, index) => (
+      {Imagess.slice(
+        randomMovie < 10 ? 0 : randomMovie - 10,
+        randomMovie < 10 ? Imagess.length : randomMovie
+      ).map((item, index) => (
         <SwiperSlide key={index} onClick={() => handleClick(item.id)}>
           {/* <div className="slides-image">
             <img src="https://360boutique.vn/wp-content/uploads/2021/12/Banner-WEb.jpg" alt="" />

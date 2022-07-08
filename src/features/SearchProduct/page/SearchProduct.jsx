@@ -7,7 +7,8 @@ import ProductFilter from './../component/product/ProductFilter/FilterAoAdidas/i
 import ProductAidas from './../component/product/productList/ProducAdidas/index';
 import { addFilterPrice } from './../Slic/searchSlice';
 import './stylesQuanJeans.scss';
-
+import './styles.scss';
+import { MdOutlineWarningAmber } from 'react-icons/md';
 ProductQuanJeans.propTypes = {};
 
 function ProductQuanJeans(props) {
@@ -70,15 +71,15 @@ function ProductQuanJeans(props) {
       return;
     }
   }, []);
-  useEffect(() => {
-  
-  }, []);
+  useEffect(() => {}, []);
   // const res = JSON.parse(localStorage.getItem('searchss'));
   // console.log('res', res);
   return (
     <div className="product_trouser">
       {dataSearch.length === 0 ? (
-        <div className="non_search"> không có sản phẩm bạn muốn tìm ! </div>
+        <div className="non_search">
+          <MdOutlineWarningAmber /> không có sản phẩm bạn muốn tìm !{' '}
+        </div>
       ) : (
         <>
           <div className="product_trouser_title-trouser">

@@ -14,7 +14,7 @@ import GiayFeature from './features/ProductSneaker/index';
 import CartFeature from './features/cart/index';
 import Login from './component/auth/login';
 import Register from './component/auth/register';
-import Thongtins from './component/order/page/orderCheckou';
+import Thongtins from './component/order/page/orderCheckout';
 import { useUserContext } from './component/contextApi/index';
 import NotFound from './component/notFound/index';
 import Fouter from './component/fouter/index';
@@ -25,6 +25,7 @@ import AdminFeatures from './admin/page/Admin';
 // import Order from './component/order/index';
 
 import { useSelector } from 'react-redux';
+import ProfilesFeaures from './component/auth/Profiles';
 function App() {
   const { user, registerUser, logoutUser, signInUser, loading } = useUserContext();
   const themeReducer = useSelector((state) => state.theme);
@@ -83,6 +84,7 @@ function App() {
         <Route path="/admin" component={AdminFeatures} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/profile" component={ProfilesFeaures} />
 
         <Route component={NotFound} />
         {/* {logoutUser && <Redirect to="/" />}

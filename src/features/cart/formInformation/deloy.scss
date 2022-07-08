@@ -16,6 +16,11 @@
 .information {
   font-family: 'Montserrat', sans-serif;
   font-size: 13px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &_title {
     font-weight: 600;
     margin-bottom: 2rem;

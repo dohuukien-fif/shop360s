@@ -19,12 +19,10 @@ function Dropdow({ handleclick, path, isopen, handleIsopen }) {
         }
         onClick={handleIsopen}
       >
-        <NavLink to="/admin">
-          {' '}
-          <BsEraserFill />
-          <span>Sản phẩm</span>
-          <AiFillCaretDown className={isopen && 'activeIcon'} />
-        </NavLink>
+        {' '}
+        <BsEraserFill />
+        <span>Sản phẩm</span>
+        <AiFillCaretDown className={isopen && 'activeIcon'} />
       </div>
       <div
         className={

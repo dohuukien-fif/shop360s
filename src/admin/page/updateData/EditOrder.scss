@@ -1,7 +1,10 @@
 @use './../../../sass/index.scss' as *;
 .editOrder {
   display: flex;
+  justify-content: center;
   flex-direction: column;
+
+  width: 95%;
   &_title {
     display: flex;
 
@@ -69,6 +72,8 @@
     font-size: 14px;
 
     margin-bottom: 30px;
+
+    border: 1px solid black;
 
     .editOrder_item {
       display: flex;

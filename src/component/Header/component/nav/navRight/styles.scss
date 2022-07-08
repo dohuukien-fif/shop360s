@@ -1,0 +1,80 @@
+@use './../../../../../sass/index.scss' as *;
+.header-right {
+  margin-right: 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > svg {
+    margin-left: 10px;
+    font-size: 25px;
+  }
+
+  .none {
+    & > span {
+      font-size: 14px;
+    }
+    & > img {
+      height: 35px;
+      width: 35px;
+
+      border-radius: 50%;
+
+      margin-right: 10px;
+
+      object-fit: cover;
+    }
+  }
+  .account {
+    position: relative;
+
+    cursor: pointer;
+    font-size: 15px;
+  }
+  .account_list {
+    position: absolute;
+
+    display: flex;
+    justify-content: flex-start;
+    /* background: black; */
+
+    background: black;
+
+    z-index: 3;
+    &::before {
+      content: '';
+
+      position: absolute;
+      left: 0;
+      width: 50px;
+      background-color: black;
+      -webkit-clip-path: polygon(50% 0%, 25% 42%, 69% 44%);
+      clip-path: polygon(44% 0, 28% 36%, 60% 36%);
+      height: 50px;
+      top: 0;
+      margin-top: -10px;
+      display: flex;
+      justify-content: center;
+    }
+    &:hover {
+      background: darkmagenta;
+    }
+    &:hover:before {
+      background: darkmagenta;
+    }
+    & > li {
+      font-size: 16px;
+      font-weight: 600;
+      margin-left: 10px;
+
+      color: white;
+
+      padding: 1rem 1rem 1rem 0rem;
+    }
+  }
+  .header-right_icon {
+    @include tablet {
+      display: none;
+    }
+  }
+}

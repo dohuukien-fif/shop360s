@@ -112,7 +112,7 @@ function Description() {
       </div>
       <div className="related">
         <h2>SẢN PHẨM LIÊN QUAN</h2>
-        {Loading ? <Skenlen length={4} /> : <SlidesHomes />}
+        {Loading ? <Skenlen length={4} /> : <SlidesHomes category={product.categoryName} />}
       </div>
     </div>
   );

@@ -107,7 +107,27 @@
 }
 .theme-mode-dark {
   background-color: #212022;
-
+  //NEWPRODUCT
+  .newProduct {
+    background-color: #2e2d2e;
+    color: white;
+  }
+  //UPDATE  EDIT
+  .update {
+    .update__top {
+      .update__top-left {
+        background-color: #2e2d2e;
+      }
+      .update__top-right {
+        background-color: #2e2d2e;
+        color: white;
+      }
+    }
+    .update__bottom {
+      background-color: #2e2d2e;
+      color: white;
+    }
+  }
   //THEME
   .admin_theme {
     display: flex;
@@ -189,7 +209,7 @@
         background: #2e2d2e;
         color: white;
 
-        &:hover {
+        f &:hover {
           color: black !important;
         }
         &::before {
@@ -309,8 +329,9 @@
   }
   //ORDER
 
-  .products {
+  .products_order-container {
     .products-order {
+      color: white;
       .products-order-top {
         .products-order-top_group {
           background: #2e2d2e;
@@ -327,10 +348,12 @@
 
     .product_order-tab {
       .product_order-swapper {
+        color: white;
         .product_title-order {
           background: #2e2d2e;
         }
         .products_list-order {
+          color: white;
           .products_item-order {
             background: #2e2d2e;
           }
@@ -341,6 +364,50 @@
           }
         }
       }
+    }
+  }
+  //NEW
+  .new {
+    .new_swapper {
+      color: white;
+      .new_body {
+        background: #2e2d2e;
+        color: white;
+        .new_group {
+          & > div {
+            & > label {
+              color: white;
+            }
+          }
+        }
+      }
+    }
+  }
+  //viewCustomer
+  .viewCustomers {
+    .viewCustomers__swapper {
+      .viewCustomers__top {
+        background: #2e2d2e;
+        color: white;
+      }
+      .viewCustomers__table {
+        background: #2e2d2e;
+        color: white;
+      }
+    }
+  }
+  //profile
+  .profile {
+    .profile_swapper {
+      background: #2e2d2e;
+      color: white;
+    }
+  }
+  //user
+  .user {
+    .user_block {
+      background: #2e2d2e;
+      color: white;
     }
   }
 }

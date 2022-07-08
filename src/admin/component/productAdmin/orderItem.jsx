@@ -23,12 +23,13 @@ function ProductItem({ items, handleDeleteData }) {
       }, 2000);
     });
   };
-  const handleIdDeleteApi = (id) => {
+  const handleIdDeleteApi = (item) => {
     if (handleDeleteData) {
-      handleDeleteData(id);
+      handleDeleteData(item);
     }
   };
 
+  console.log('items', items);
   return (
     <>
       {Loading ? (
@@ -43,8 +44,14 @@ function ProductItem({ items, handleDeleteData }) {
                 <img src={items?.Araray.length > 0 && items?.Araray[0]} alt="" />
               </div> */}
               <div className="products_name">
-                <FaRegUserCircle />
-                <span>{items.infor.fullName}</span>
+                <img
+                  src={
+                    items?.user?.image ||
+                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxsIVGXUz77jSd-Zgau2ZqRpL_STVm4gbxWQ&usqp=CAU'
+                  }
+                  alt=""
+                />
+                <span>{items.user.name}</span>
               </div>
               <div className="product_email">
                 <span>{items.infor.address}</span>
@@ -97,7 +104,7 @@ function ProductItem({ items, handleDeleteData }) {
 
               <div className="product_group-btn">
                 <button onClick={() => handleClickId(items.id)}>edit</button>
-                <MdOutlineDeleteOutline onClick={() => handleIdDeleteApi(items.id)} />
+                <MdOutlineDeleteOutline onClick={() => handleIdDeleteApi(items)} />
               </div>
             </div>
           </div>

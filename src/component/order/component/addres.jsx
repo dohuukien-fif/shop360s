@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import FormAddress from './formAddress/index';
 import './styles.scss';
-Address.propTypes = {};
 
-function Address(props) {
+const Address = memo((props) => {
   const [Datacoutry, setDatacoutry] = useState([]);
   const [isopen, setisopen] = useState(false);
   const handleOpen = () => {
@@ -77,15 +76,17 @@ function Address(props) {
           </div>
         ))}
         {/* {addresLisst > 0 &&(
-              <>
-              
-              </>
-           )} */}
+            <>
+            
+            </>
+         )} */}
       </div>
 
       {isopen && <FormAddress onSubmits={handleSubmit} />}
     </div>
   );
-}
+});
+
+Address.propTypes = {};
 
 export default Address;

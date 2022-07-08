@@ -1,0 +1,216 @@
+@use './../../../../sass/index.scss' as *;
+.viewCustomers {
+  width: 95%;
+
+  margin: 0 auto;
+
+  .viewCustomers__swapper {
+    display: flex;
+    flex-direction: column;
+
+    row-gap: 30px;
+
+    font-size: 14px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .viewCustomers__top {
+      box-shadow: 0 7px 24px rgb(0 0 0 / 9%);
+      border-radius: 10px;
+      background-color: #fff;
+
+      padding: 15px;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      flex-direction: column;
+
+      margin: 0 10px;
+
+      @include tablet {
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      .viewCustomers__figust {
+      }
+
+      .viewCustomers__information {
+        .viewCustomers__name,
+        .viewCustomers__email,
+        .viewCustomers__order,
+        .viewCustomers__spend {
+          margin-top: 10px;
+          & > span:first-child {
+            font-weight: 700;
+
+            margin-right: 10px;
+            & > strong {
+              color: red;
+            }
+          }
+        }
+      }
+    }
+    .viewCustomers__table {
+      box-shadow: 0 7px 24px rgb(0 0 0 / 9%);
+      border-radius: 10px;
+      background-color: #fff;
+
+      padding: 15px;
+
+      min-width: 700px;
+
+      overflow-x: scroll;
+
+      margin: 0 10px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .viewCustomers__title {
+        padding: 20px;
+
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      .viewCustomers__top--title {
+        display: flex;
+
+        border: 1px solid rgb(185, 182, 182);
+
+        padding: 10px;
+        .viewCustomers__top--left {
+          flex: 1;
+          display: flex;
+          & > span {
+            flex: 1;
+            font-weight: 700;
+
+            position: relative;
+            &::before {
+              position: absolute;
+              content: '';
+
+              width: 2px;
+              height: 100%;
+              left: 0;
+
+              background: rgb(188, 185, 185);
+
+              transform: translateX(-5px);
+            }
+          }
+        }
+        .viewCustomers__top--right {
+          flex: 2;
+          display: flex;
+          & > span {
+            flex: 1;
+            font-weight: 700;
+
+            position: relative;
+            &::before {
+              position: absolute;
+              content: '';
+
+              width: 2px;
+              height: 100%;
+              left: 0;
+
+              background: rgb(188, 185, 185);
+
+              transform: translateX(-5px);
+            }
+          }
+        }
+      }
+
+      .viewCustomers__list {
+        border: 1px solid rgb(185, 182, 182);
+        .viewCustomers__item {
+          display: flex;
+          align-items: center;
+
+          margin-top: 10px;
+
+          column-gap: 10px;
+
+          padding: 10px;
+
+          border-bottom: 1px solid rgb(185, 182, 182);
+          .viewCustomers__left {
+            flex: 1;
+            display: flex;
+            .viewCustomers__code {
+              flex: 1;
+
+              font-weight: 700;
+            }
+            .viewCustomers__product {
+              flex: 2;
+              display: flex;
+
+              column-gap: 10px;
+              .viewCustomers__name {
+                font-weight: 600;
+              }
+              .viewCustomers__adside {
+                & > img {
+                  width: 50px;
+                  height: 50px;
+
+                  border-radius: 50%;
+                }
+              }
+            }
+          }
+          .viewCustomers__right {
+            flex: 2;
+            display: flex;
+
+            column-gap: 10px;
+            .viewCustomers__provisional {
+              flex: 1;
+            }
+            .viewCustomers__total {
+              flex: 1;
+              font-weight: 600;
+              font-size: 16px;
+
+              color: rgb(217, 32, 32);
+            }
+            .viewCustomers__date {
+              flex: 1;
+            }
+            .viewCustomers__newSize {
+              flex: 1;
+              display: flex;
+              flex-direction: column;
+
+              row-gap: 5px;
+
+              .viewCustomers__sizeItem {
+                display: flex;
+                align-items: center;
+
+                column-gap: 5px;
+                .viewCustomers__sizeName {
+                  font-weight: 700;
+                }
+                .viewCustomers__sizequantity {
+                  font-weight: 700;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

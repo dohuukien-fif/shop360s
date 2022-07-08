@@ -1,3 +1,14 @@
+.non_search {
+  display: flex;
+  align-items: center;
+
+  column-gap: 10px;
+  & > svg {
+    color: rgb(160, 160, 38);
+    font-size: 25px;
+  }
+}
+
 // @use "./../../../sass/"as *;
 // .product{
 //     &_title{
@@ -6,7 +17,7 @@
 //          padding: 1rem;
 //         background-color: whitesmoke;
 //         & > span{
-           
+
 //         }
 //     }
 //     @include tablet{
@@ -16,13 +27,13 @@
 //     & > h2{
 //         text-align: center;
 //         padding: 3rem 0 1rem 0;
-   
+
 //         font-size: 25px;
 //    margin: auto;
 //     }
 //     .content{
 //         @include tablet{
-           
+
 //             display: flex;
 //         }
 //         &_left{

@@ -7,6 +7,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
+import { useUserContext } from '../../contextApi';
 import Inputfield from './../../form-control/InputFeid/index';
 import Passwordfield from './../../form-control/PasswordFiend';
 // import { LinearProgress } from '../../../../../node_modules/@mui/material/index';
@@ -42,6 +43,7 @@ LoginForm.propTypes = {
 function LoginForm(props) {
   const classes = useStyles();
   const { onSubmit, error } = props;
+  const { loading } = useUserContext();
   const schema = yup.object().shape({
     email: yup.string().required('please enter your Email').email('please enter Email'),
     password: yup.string().required('please enter your Password'),
@@ -62,7 +64,8 @@ function LoginForm(props) {
 
   return (
     <div className="login_container">
-      {isSubmitting && <LinearProgress className={classes.progress} />}
+      {loading && <LinearProgress className={classes.progress} />}
+
       <div className="login_avatar">
         <NoAccountsIcon />
       </div>

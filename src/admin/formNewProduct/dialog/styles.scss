@@ -1,0 +1,124 @@
+@use './../../../sass/index.scss' as *;
+.newProduct__dialog {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 7777;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 300ms linear;
+
+  .dialog__swapper {
+    position: absolute;
+    background: white;
+
+    width: 100%;
+
+    transition: all 500ms linear;
+
+    padding: 20px;
+
+    bottom: 0;
+    top: 0;
+
+    font-size: 14px;
+
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    @include tablets {
+      left: 50%;
+      top: 20%;
+      transform: translate(-50%, -20%);
+
+      width: 75%;
+    }
+
+    .dialog__title {
+      border-bottom: 4px solid gray;
+      font-size: 20px;
+      font-weight: 700;
+      /* margin: 0 auto; */
+      width: 100%;
+
+      display: flex;
+
+      padding-bottom: 20px;
+
+      & > p {
+        margin: 0 auto;
+      }
+    }
+
+    .dialog__content {
+      display: flex;
+      flex-direction: column;
+      .dialog__group {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+
+        column-gap: 10px;
+        & > p {
+          font-size: 17px;
+        }
+      }
+      .dialog__group--text {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+
+        column-gap: 10px;
+
+        .dialog__group--sizeList{
+           display: flex;
+        }
+        & > p {
+          font-size: 17px;
+        }
+      }
+      .dialog__group--btn {
+        display: flex;
+
+        margin-left: auto;
+
+        column-gap: 10px;
+
+        & > button {
+          padding: 10px;
+
+          color: white;
+
+          border: none;
+        }
+
+        & > button:first-child {
+          background: red;
+        }
+        & > button {
+          background: green;
+        }
+      }
+      .dialog__image {
+        display: flex;
+        flex-direction: column;
+
+        column-gap: 10px;
+
+        .dialog__image--list {
+          display: flex;
+          flex-direction: row;
+          & > img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -55,21 +55,51 @@
       padding-bottom: 5px;
       padding-top: 5px;
 
+      padding-left: 10px;
+
+      margin-left: 10px;
+
       font-size: 17px;
 
       cursor: pointer;
+
+      position: relative;
 
       transition: 300ms ease-in-out !important;
 
       margin-top: 5px;
 
       width: 100%;
+
+      &::before {
+        content: '';
+        position: absolute;
+
+        left: 0px;
+        width: 10px;
+        top: 0;
+        bottom: 0;
+
+        background: #bdd6ec;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+      }
+      &:hover::before {
+        background: #3d6990;
+
+        opacity: 1;
+        visibility: visible;
+      }
       &:hover {
         background: #f0f8ff;
 
         color: black;
 
         border-radius: 10px;
+
+        margin-left: 0px;
 
         @include tablet {
           transform: translateX(5px);
@@ -86,18 +116,12 @@
           width: 100%;
         }
         & > span {
-          visibility: hidden;
-
           padding: 10px 5px;
-
-          background: #1f5482;
 
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
 
           @include tablets {
-            visibility: visible;
-
             background: transparent;
           }
         }
@@ -133,6 +157,40 @@
 
     width: 100%;
 
+    padding-left: 10px;
+    margin-left: 10px;
+
+    position: relative;
+    & > span {
+      padding: 10px 5px;
+
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+
+      @include tablets {
+        background: transparent;
+
+        display: block;
+      }
+    }
+
+    & > svg {
+      font-size: 25px;
+    }
+    & > svg:last-child {
+      margin-left: auto;
+
+      display: none;
+      @include tablets {
+        display: block;
+      }
+    }
+    &:hover > span {
+      visibility: visible !important;
+
+      color: black;
+    }
+
     @include tablet {
       margin-left: 5px;
 
@@ -148,19 +206,12 @@
         width: 100%;
       }
       & > span {
-        visibility: hidden;
-
         padding: 10px 5px;
-
-        background: #1f5482;
 
         border-top-right-radius: 10px;
         border-bottom-right-radius: 10px;
 
-        display: none;
         @include tablets {
-          visibility: visible;
-
           background: transparent;
 
           display: block;
@@ -183,14 +234,36 @@
         color: black;
       }
     }
+    &::before {
+      content: '';
+      position: absolute;
 
+      left: 0px;
+      width: 10px;
+      top: 0;
+      bottom: 0;
+
+      background: #bdd6ec;
+
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s ease;
+    }
+    &:hover::before {
+      background: #3d6990;
+
+      opacity: 1;
+      visibility: visible;
+    }
     &:hover {
       background: #bdd6ec;
 
       color: black;
 
-      border-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
 
+      margin-left: 0px;
       @include tablet {
         transform: translateX(5px);
       }

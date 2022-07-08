@@ -1,0 +1,168 @@
+@use './../../../sass/index.scss' as *;
+.user {
+  margin: 0 auto;
+
+  .user_title {
+    font-size: 25px;
+    font-weight: 600;
+
+    margin-bottom: 30px;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  @include tablets {
+    margin: 0 30px;
+  }
+  .user__search {
+    position: relative;
+
+    border: 1px solid rgb(222, 220, 220);
+
+    max-width: 450px;
+
+    height: 60px;
+
+    margin-bottom: 30px;
+
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+
+    padding: 0 30px;
+
+    display: flex;
+    align-items: center;
+
+    column-gap: 15px;
+
+    font-size: 16px;
+
+    background: #f7faff;
+    & > input {
+      border: none;
+
+      width: 100%;
+
+      background: #f7faff;
+      &:focus {
+        border: none;
+
+        outline: none;
+      }
+    }
+    & > button {
+      background: #f7faff;
+
+      border: none;
+
+      cursor: pointer;
+      & > svg {
+        font-size: 20px;
+        color: rgb(76, 74, 74);
+      }
+    }
+  }
+  .user_block {
+    margin: 0 10px;
+
+    box-shadow: 1px 1px 3px 0 rgb(0 0 0 / 40%), inset 0 1px 0 0 hsl(0deg 0% 100% / 10%);
+
+    overflow: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    .user__swapper {
+      border-radius: 10px;
+      background: white;
+
+      padding: 10px;
+
+      min-width: 700px;
+      overflow-x: scroll;
+      overflow: auto;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .user__top {
+        padding: 10px;
+
+        background-color: #fbfafb;
+
+        display: flex;
+
+        & > span {
+          flex: 1;
+
+          font-size: 14px;
+          font-weight: 600;
+        }
+      }
+
+      .user__content {
+        .user__list {
+          padding: 10px;
+          .user__item {
+            display: flex;
+
+            font-size: 14px;
+
+            padding: 10px;
+            cursor: pointer;
+
+            color: #5a5b5d;
+
+            column-gap: 10px;
+
+            &:hover {
+              background: #2790f2;
+              color: white;
+            }
+
+            .user_index,
+            .user_spend {
+              font-weight: 600;
+              color: black;
+            }
+            .user_name {
+              display: flex;
+              align-items: center;
+
+              column-gap: 10px;
+              & > img {
+                height: 40px;
+                width: 40px;
+                max-width: 40px;
+
+                object-fit: cover;
+
+                border-radius: 50%;
+              }
+            }
+            .user_index,
+            .user_name,
+            .user_email,
+            .user_order,
+            .user_spend {
+              flex: 1;
+            }
+          }
+        }
+      }
+    }
+
+    .user_pagination {
+      margin-left: auto;
+
+      margin-bottom: 20px;
+
+      margin-right: 20px;
+    }
+  }
+}

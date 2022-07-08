@@ -13,6 +13,7 @@ function FilterTotal({ onSubmitTotal }) {
       _order: value,
     };
 
+    console.log(newSort);
     if (onSubmitTotal) onSubmitTotal(newSort);
   };
   return (

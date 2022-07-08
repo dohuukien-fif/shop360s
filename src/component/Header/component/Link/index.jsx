@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.scss';
 NakLink.propTypes = {};
@@ -7,10 +7,17 @@ function NakLink({ torget, scrow }) {
   return (
     <ul
       className={
-        (scrow && `menulist ${torget ? 'activeMenu active' : 'activeMenu'}`) ||
-        (torget ? ' menulist activeMenu  active ' : '  menulist')
+        (scrow && `menulist ${torget ? 'activeMenuScroll active' : 'activeMenuScroll'}`) ||
+        (torget ? ' menulist activeMenuScroll active ' : 'menulist')
       }
     >
+      <div className="menulist_figust">
+        <img
+          src="https://360boutique.vn/wp-content/uploads/2021/10/LOGO-360-DUNG-TAM-THOI-MAU-DEN-05.png"
+          alt=""
+        />
+      </div>
+
       <h3>Danh sách sản phẩm</h3>
       <li>
         {' '}

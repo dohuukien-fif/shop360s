@@ -4,6 +4,8 @@
   flex-direction: column;
 
   row-gap: 50px;
+
+  width: 100%;
   &__top {
     display: flex;
     flex-direction: column;
@@ -103,6 +105,18 @@
         display: flex;
         flex-direction: column;
 
+        .update__image--list {
+          display: flex;
+
+          column-gap: 10px;
+
+          .update__image {
+            flex-basis: 25%;
+            & > img {
+              height: 150px;
+            }
+          }
+        }
         & > textarea {
           height: 80px;
         }
@@ -113,9 +127,28 @@
 
           margin-bottom: 10px;
 
+          display: flex;
+          align-items: center;
+
+          & > span {
+            font-weight: 700;
+          }
+          .update__file {
+            padding: 10px;
+
+            background: blue;
+
+            color: white;
+          }
           & > strong {
             color: rgb(164, 20, 20);
           }
+        }
+        #file {
+          display: none;
+        }
+        #files {
+          display: none;
         }
         & > input {
           width: 100%;

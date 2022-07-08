@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiFillHome, AiOutlineShoppingCart } from 'react-icons/ai';
-import { BsNewspaper } from 'react-icons/bs';
-import { FaRegUser } from 'react-icons/fa';
+import { BsNewspaper, BsWallet } from 'react-icons/bs';
+import { FaRegUser, FaWallet } from 'react-icons/fa';
 import { ImPointRight } from 'react-icons/im';
 import { IoMdTrendingUp } from 'react-icons/io';
 import { MdManageAccounts } from 'react-icons/md';
@@ -44,14 +44,14 @@ function MenuSidePage({ setisopens }) {
         <div className="sidePage__dashboard-title">
           <p>Dashboard</p>
         </div>
-        <div className="sidePage__dashboard-group">
+        <div className="sidePage__dashboard-group" onClick={handleclick}>
           <NavLink to="/admin">
             <AiFillHome />
             <span>Dashboard</span>
           </NavLink>
         </div>
         <div className="sidePage__dashboard-group">
-          <NavLink to="/admin/Customers">
+          <NavLink to="/admin/Customers" onClick={handleclick}>
             <SiSimpleanalytics />
             <span>Customers</span>
           </NavLink>
@@ -61,7 +61,7 @@ function MenuSidePage({ setisopens }) {
         <div className="sidePage__QuickMenu-title">
           <span>Quick Menu</span>
         </div>
-        <div className="sidePage__QuickMenu-group">
+        <div className="sidePage__QuickMenu-group" onClick={handleclick}>
           <NavLink to="/admin/User">
             <FaRegUser />
             <span>User</span>
@@ -73,9 +73,9 @@ function MenuSidePage({ setisopens }) {
           isopen={isopen}
           handleIsopen={handleIsopen}
         />
-        <div className="sidePage__QuickMenu-group">
+        <div className="sidePage__QuickMenu-group" onClick={handleclick}>
           <NavLink to="/admin/Order">
-            <AiOutlineShoppingCart />
+            <BsWallet />
             <span>Order</span>
           </NavLink>
         </div>
@@ -84,20 +84,20 @@ function MenuSidePage({ setisopens }) {
         <div className="sidePage__notifications-title">
           <span>otifications</span>
         </div>
-        <div className="sidePage__notifications-group">
+        <div className="sidePage__notifications-group" onClick={handleclick}>
           <NavLink to="/admin">
             <ImPointRight />
             <span>FeedBack</span>
           </NavLink>
         </div>
-        <div className="sidePage__notifications-group">
+        {/* <div className="sidePage__notifications-group">
           <NavLink to="/admin">
             <ImPointRight />
             <span>introduce</span>
           </NavLink>
-        </div>
-        <div className="sidePage__notifications-group">
-          <NavLink to="/admin">
+        </div> */}
+        <div className="sidePage__notifications-group" onClick={handleclick}>
+          <NavLink to="/admin/News">
             <BsNewspaper />
             <span>news</span>
           </NavLink>
@@ -107,13 +107,13 @@ function MenuSidePage({ setisopens }) {
         <div className="sidePage__staff-title">
           <span>Staff</span>
         </div>
-        <div className="sidePage__staff-group">
-          <NavLink to="/admin">
+        <div className="sidePage__staff-group" onClick={handleclick}>
+          <NavLink to="/admin/manager">
             <MdManageAccounts />
             <span>Manage</span>
           </NavLink>
         </div>
-        <div className="sidePage__staff-group">
+        <div className="sidePage__staff-group" onClick={handleclick}>
           <NavLink to="/admin">
             <IoMdTrendingUp />
             <span>analytics</span>

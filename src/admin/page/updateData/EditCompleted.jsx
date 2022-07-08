@@ -73,13 +73,13 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              image: <strong>*</strong>{' '}
+              Image: <strong>*</strong>{' '}
             </label>
             <textarea type="text" name="Araray" placeholder="ảnh" id="" onChange={handleChange} />
           </div>
           <div className="update__bottom-group">
             <label>
-              category: <strong>*</strong>{' '}
+              Categories: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -91,7 +91,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              name: <strong>*</strong>{' '}
+              Name: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -103,7 +103,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              giá :<strong>*</strong>{' '}
+              Giá :<strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -127,7 +127,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              giới tính: <strong>*</strong>{' '}
+              Giới tính: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -175,7 +175,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              màu: <strong>*</strong>{' '}
+              Màu: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -187,7 +187,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              ảnh mô tả: <strong>*</strong>{' '}
+              Ảnh mô tả: <strong>*</strong>{' '}
             </label>
             <input
               type="text"

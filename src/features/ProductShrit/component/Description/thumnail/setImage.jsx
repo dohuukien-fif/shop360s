@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './styles.scss';
 setImage.propTypes = {};
 
-function setImage({ ids, Imagess, onChange }) {
+function setImage({ ids, Imagess, onChange, Index }) {
   // console.log(typeof Imagess);
   let imgs = new Array(Imagess);
   const handeleChan = (newvlue) => {
@@ -20,7 +20,11 @@ function setImage({ ids, Imagess, onChange }) {
           ) : (
             <Fragment>
               <div key={index}>
-                <img src={element} onClick={() => handeleChan(index)} />
+                <img
+                  src={element}
+                  className={Index === index ? 'acive__setImage' : ''}
+                  onClick={() => handeleChan(index)}
+                />
               </div>
               {/* <div>
                 {' '}

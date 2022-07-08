@@ -27,8 +27,6 @@
     }
 
     & > span {
-      display: none;
-
       font-size: 20px;
       font-weight: 600;
 
@@ -46,8 +44,7 @@
     margin-bottom: 15px;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+
     flex-direction: column;
 
     @include tablets {
@@ -58,7 +55,7 @@
     &-title {
       opacity: 0.5;
 
-      font-size: 9px;
+      font-size: 14px;
 
       font-weight: 700;
 
@@ -76,6 +73,9 @@
       align-items: center;
 
       margin-top: 5px;
+      margin-left: 10px;
+
+      padding-left: 12px;
 
       column-gap: 10px;
 
@@ -86,25 +86,24 @@
       transition: 300ms ease-in-out !important;
       width: 100%;
 
+      position: relative;
+
+      @include tablets {
+        padding-left: 15px;
+      }
+
       & > a {
         display: flex;
         align-items: center;
 
         column-gap: 5px;
         & > span {
-          visibility: hidden;
-
           padding: 10px 5px;
-
-          background: #1f5482;
 
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
 
-          display: none;
           @include tablets {
-            visibility: visible;
-
             display: block;
 
             background: transparent;
@@ -119,13 +118,36 @@
           color: black;
         }
       }
+      &::before {
+        content: '';
+        position: absolute;
 
+        left: 0px;
+        width: 10px;
+        top: 0;
+        bottom: 0;
+
+        background: #bdd6ec;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+      }
+      &:hover::before {
+        background: #3d6990;
+
+        opacity: 1;
+        visibility: visible;
+      }
       &:hover {
         background: #bdd6ec;
 
-        border-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
 
         color: black;
+
+        margin-left: 0px;
 
         @include tablet {
           transform: translateX(5px);
@@ -138,8 +160,7 @@
     margin-bottom: 10px;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+
     flex-direction: column;
 
     @include tablets {
@@ -149,7 +170,7 @@
     &-title {
       opacity: 0.5;
 
-      font-size: 9px;
+      font-size: 14px;
 
       font-weight: 700;
 
@@ -177,10 +198,15 @@
       transition: 300ms ease-in-out !important;
 
       width: 100%;
-      @include tablet {
-        margin-left: 5px;
 
-        padding-left: 5px;
+      margin-left: 10px;
+
+      padding-left: 12px;
+
+      position: relative;
+
+      @include tablet {
+        padding-left: 15px;
       }
       & > a {
         display: flex;
@@ -192,20 +218,12 @@
           width: 100%;
         }
         & > span {
-          visibility: hidden;
-
           padding: 10px 5px;
-
-          background: #1f5482;
 
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
 
-          display: none;
-
           @include tablets {
-            visibility: visible;
-
             background: transparent;
 
             display: block;
@@ -223,13 +241,36 @@
           color: black;
         }
       }
+      &::before {
+        content: '';
+        position: absolute;
 
+        left: 0px;
+        width: 10px;
+        top: 0;
+        bottom: 0;
+
+        background: #bdd6ec;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+      }
+      &:hover::before {
+        background: #3d6990;
+
+        opacity: 1;
+        visibility: visible;
+      }
       &:hover {
         background: #bdd6ec;
 
         color: black;
 
-        border-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        margin-left: 0px;
 
         @include tablet {
           transform: translateX(5px);
@@ -242,8 +283,7 @@
     margin-bottom: 15px;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+
     flex-direction: column;
 
     @include tablets {
@@ -253,7 +293,7 @@
     &-title {
       opacity: 0.5;
 
-      font-size: 9px;
+      font-size: 14px;
 
       font-weight: 700;
 
@@ -281,34 +321,32 @@
 
       cursor: pointer;
 
+      position: relative;
+
       transition: 300ms ease-in-out !important;
 
       width: 100%;
 
-      @include tablet {
-        margin-left: 5px;
+      margin-left: 10px;
+
+      padding-left: 12px;
+
+      @include tablets {
+        padding-left: 15px;
       }
+
       & > a {
         display: flex;
         align-items: center;
 
         column-gap: 5px;
         & > span {
-          visibility: hidden;
-
           padding: 10px 5px;
-
-          background: #1f5482;
 
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
 
-          display: none;
           @include tablets {
-            visibility: visible;
-
-            display: block;
-
             background: transparent;
           }
         }
@@ -321,13 +359,36 @@
           color: black;
         }
       }
+      &::before {
+        content: '';
+        position: absolute;
+
+        left: 0px;
+        width: 10px;
+        top: 0;
+        bottom: 0;
+
+        background: #bdd6ec;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+      }
+      &:hover::before {
+        background: #3d6990;
+
+        opacity: 1;
+        visibility: visible;
+      }
       &:hover {
         background: #bdd6ec;
 
         color: black;
 
-        border-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
 
+        margin-left: 0px;
         @include tablet {
           transform: translateX(5px);
         }
@@ -339,8 +400,7 @@
     margin-bottom: 15px;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+
     flex-direction: column;
 
     @include tablets {
@@ -350,7 +410,7 @@
     &-title {
       opacity: 0.5;
 
-      font-size: 9px;
+      font-size: 14px;
 
       font-weight: 700;
 
@@ -366,8 +426,6 @@
       padding: 5px 0;
       margin-top: 5px;
 
-      padding-left: 5px;
-
       display: flex;
       align-items: center;
 
@@ -381,8 +439,13 @@
 
       transition: 300ms ease-in-out !important;
 
-      @include tablet {
-        margin-left: 5px;
+      margin-left: 10px;
+
+      padding-left: 12px;
+
+      position: relative;
+      @include tablets {
+        padding-left: 15px;
       }
 
       & > a {
@@ -391,19 +454,12 @@
 
         column-gap: 5px;
         & > span {
-          visibility: hidden;
-
           padding: 10px 5px;
-
-          background: #1f5482;
 
           border-top-right-radius: 10px;
           border-bottom-right-radius: 10px;
 
-          display: none;
           @include tablets {
-            visibility: visible;
-
             display: block;
 
             background: transparent;
@@ -419,12 +475,36 @@
         }
       }
 
+      &::before {
+        content: '';
+        position: absolute;
+
+        left: 0px;
+        width: 10px;
+        top: 0;
+        bottom: 0;
+
+        background: #bdd6ec;
+
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.2s ease;
+      }
+      &:hover::before {
+        background: #3d6990;
+
+        opacity: 1;
+        visibility: visible;
+      }
       &:hover {
         background: #bdd6ec;
 
         color: black;
 
-        border-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+
+        margin-left: 0px;
 
         @include tablet {
           transform: translateX(5px);

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
+import useUpdateSearch from '../../hooks/useUpdateSearch';
 import useUpdateProduct from '../../hooks/useUpdateSearch';
 import './EditProduct.scss';
 EditSearch.propTypes = {};
@@ -15,7 +16,7 @@ function EditSearch(props) {
 
   console.log('searchId', searchId);
 
-  const { product, loading } = useUpdateProduct(searchId);
+  const { product, loading } = useUpdateSearch(searchId);
 
   console.log(product);
 

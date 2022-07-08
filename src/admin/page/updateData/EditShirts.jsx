@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
+import useUpdateShirt from '../../hooks/useUpdateShirts';
 import useUpdateProduct from '../../hooks/useUpdateShirts';
 import './EditProduct.scss';
 EditShirtsFeatures.propTypes = {};
@@ -15,7 +16,7 @@ function EditShirtsFeatures(props) {
 
   console.log('shirtsId', shirtsId);
 
-  const { product, loading } = useUpdateProduct(shirtsId);
+  const { product, loading } = useUpdateShirt(shirtsId);
 
   console.log(product);
 
@@ -202,7 +203,13 @@ function EditShirtsFeatures(props) {
           <div className="update__btn-block">
             <div className="update__adside">
               <img src={new Array(product.Araray)[0]} alt="" />
-              <FaDownload />
+              <div className="update__file">
+                <input type="file" id="file" />
+
+                <label htmlFor="file">
+                  <FaDownload />
+                </label>
+              </div>
             </div>
             <div className="btn__update">
               <button>Update</button>

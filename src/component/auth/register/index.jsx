@@ -1,5 +1,7 @@
+import { doc } from 'firebase/firestore';
 import PropTypes from 'prop-types';
 import React from 'react';
+import { db } from '../../../firebase';
 import { useUserContext } from '../../contextApi/index';
 import RegisterForm from './../registerForm';
 // import { register } from './../../userSlice/userSlice';
@@ -18,10 +20,6 @@ function Register(props) {
   const hanledoSubmit = async (values) => {
     console.log(values);
     try {
-      //set userName = email
-      //  values.username = values.email;
-      //  const action = register(values);
-      //  const user = await dispatch(action).unwrap();
       const email = values.email;
       const name = values.fullName;
       const password = values.password;
@@ -29,10 +27,13 @@ function Register(props) {
       if (email && password && name) await registerUser(email, password, name);
       //close Dialog
 
+      ////set data  user  up  database   firebase
+
       const { closeDialog } = props;
       if (closeDialog) {
         closeDialog();
       }
+
       // enqueueSnackbar('Register success', { variant: 'success' });
     } catch (error) {
       // enqueueSnackbar(error.message, { variant: 'error' });

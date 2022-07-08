@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
+import useUpdateTrouser from '../../hooks/useUpdateTrouser';
 import useUpdateProduct from '../../hooks/useUpdateTrouser';
 import './EditProduct.scss';
 EditTrouserFeatures.propTypes = {};
@@ -15,7 +16,7 @@ function EditTrouserFeatures(props) {
 
   console.log('trousertId', trousertId);
 
-  const { product, loading } = useUpdateProduct(trousertId);
+  const { product, loading } = useUpdateTrouser(trousertId);
 
   console.log(product);
 

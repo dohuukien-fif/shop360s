@@ -10,7 +10,11 @@ function EditProductFeatures(props) {
     params: { productId },
   } = useRouteMatch();
 
-  const [imagess, setimagess] = useState({});
+  const [imagessFile, setImagessFile] = useState();
+  const [Araray, setAraray] = useState([]);
+  const [informations, setInformaTion] = useState({});
+  const [sizes, setSize] = useState({});
+  const [thumbnailUrl, seThumbnailUrl] = useState('');
   const [input, setinput] = useState({
     id: productId,
   });
@@ -21,38 +25,93 @@ function EditProductFeatures(props) {
 
   console.log(product);
 
-  const handleChange = (e) => {
+  // const handleChange = (e) => {
+  // const { value, name } = e.target;
+
+  //  setimagess((prev) => ({ ...prev, [name]: value }));
+  //  };
+
+  const handleChangeInformatinon = (e) => {
     const { value, name } = e.target;
 
-    setimagess((prev) => ({ ...prev, [name]: value }));
+    setInformaTion((prev) => ({ ...prev, [name]: value }));
+  };
+  const handleChangeSize = (e) => {
+    const { value, name } = e.target;
+
+    setSize((prev) => ({ ...prev, [name]: value }));
+  };
+  const handleChangeThumnaiUrlFile = (e) => {
+    const file = e.target.files;
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file[0]);
+    reader.onload = (e) => {
+      seThumbnailUrl(e.target.result);
+
+      console.log('(e.target.result', e.target.result);
+    };
+  };
+  const handleChangeImageUrlFile = (e) => {
+    const file = e.target.files;
+
+    const reader = new FileReader();
+    reader.readAsDataURL(file[0]);
+    reader.onload = (e) => {
+      setImagessFile(e.target.result);
+
+      console.log('(e.target.result', e.target.result);
+    };
   };
 
+  const handleButtonImageArray = () => {
+    console.log('imagessFile', imagessFile);
+    setAraray((prev) => [...prev, imagessFile]);
+    setImagessFile();
+  };
   const handleChangeInput = (e) => {
     const { value, name } = e.target;
 
     setinput((prev) => ({ ...prev, [name]: value }));
   };
   // const setImage = imagess.length > 0 && imagess.split(',');
-  const newImage = Object.keys(imagess).length > 0 &&
-    imagess?.Araray !== '' && {
-      Araray: imagess.Araray !== undefined && imagess.Araray.split(','),
+  // const setImage = imagess.length > 0 && imagess.split(',');
+  // const newImage = Object.keys(imagess).length > 0 &&
+  //  imagess?.Araray !== '' && {
+  //    Araray: imagess.Araray !== undefined && imagess.Araray.split(','),
+  //  };
+  const newInformation = Object.keys(informations).length > 0 &&
+    informations?.information !== '' && {
+      information: informations.information !== undefined && informations.information.split(','),
+    };
+  const newSize = Object.keys(sizes).length > 0 &&
+    sizes?.size !== '' && {
+      size: sizes.size !== undefined && sizes.size.split(','),
     };
 
   const newinput = Object.values(input).filter((e) => e !== '') && input;
   // const newInput = Object.value(input).filter((e) => e !== '');
 
   console.log(Object.values(input).filter((e) => e !== ''));
-  console.log('input', {
-    ...newinput,
-    ...newImage,
-  });
 
-  console.log(
-    Object.keys(imagess).length > 0 && {
-      Araray: imagess.Araray !== undefined && imagess.Araray.split(','),
-    }
+  const handlebuttonData = () => {
+    console.log('first', {
+      ...newinput,
+      price: Number(newinput.price) || product.price,
+      originalPrice: Number(newinput.originalPrice) || product.originalPrice,
+
+      ...newInformation,
+      ...newSize,
+      thumbnailUrl,
+    });
+
+    seThumbnailUrl('');
+  };
+
+  console.log('Araray', Araray.length, imagessFile);
+  const promoTionTencent = Math.round(
+    (Number(newinput.price) / (Number(newinput.price) + Number(newinput.originalPrice))) * 100
   );
-
   return (
     <div className="update">
       <div className="update__top">
@@ -74,7 +133,7 @@ function EditProductFeatures(props) {
                 <span>{product.id}</span>
               </div>
               <div className="update__top-group">
-                <span>category:</span>
+                <span>Categories:</span>
                 <span>{product.categoryName}</span>
               </div>
             </div>
@@ -87,21 +146,15 @@ function EditProductFeatures(props) {
           <div className="update__form-title">
             <span>Update</span>
           </div>
+
           <div className="update__bottom-group">
             <label>
-              image: <strong>*</strong>{' '}
-            </label>
-            <textarea type="text" name="Araray" placeholder="ảnh" id="" onChange={handleChange} />
-          </div>
-          <div className="update__bottom-group">
-            <label>
-              category: <strong>*</strong>{' '}
+              Categories: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
               name="categoryName"
               placeholder={product.categoryName}
-              value={input?.categoryName}
               id=""
               onChange={handleChangeInput}
             />
@@ -124,10 +177,11 @@ function EditProductFeatures(props) {
               giá :<strong>*</strong>{' '}
             </label>
             <input
-              type="text"
+              type="number"
               name="price"
               placeholder={product.price}
               id=""
+              value={Number(newinput.price)}
               onChange={handleChangeInput}
             />
           </div>
@@ -135,13 +189,28 @@ function EditProductFeatures(props) {
             <label>
               Giá giảm :<strong>*</strong>{' '}
             </label>
+
             <input
-              type="text"
+              type="number"
               name="originalPrice"
               placeholder={product.originalPrice}
-              id=""
+              value={Number(newinput.originalPrice)}
               onChange={handleChangeInput}
             />
+          </div>
+          <div className="update__bottom-group">
+            <label>
+              Phần trăm giảm giá : <strong>*</strong>{' '}
+              <span>{`${promoTionTencent ? promoTionTencent : product.promotionpencent} %`}</span>
+            </label>
+
+            {/* <textarea
+              type="number"
+              name="promotionpencent"
+              placeholder={product.promotionpencent}
+              value={promoTionTencent}
+              onChange={handleChangeInput}
+            /> */}
           </div>
           <div className="update__bottom-group">
             <label>
@@ -205,15 +274,89 @@ function EditProductFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
+              Mô tả sản phẩm: <strong>*</strong>{' '}
+            </label>
+            <textarea
+              type="text"
+              name="description"
+              placeholder={product.desctiption}
+              onChange={handleChangeInput}
+            />
+          </div>
+          <div className="update__bottom-group">
+            <label>
+              Thông tin sản phẩm : <strong>*</strong>{' '}
+            </label>
+            <textarea
+              type="text"
+              name="information"
+              placeholder={product.information}
+              onChange={handleChangeInformatinon}
+            />
+          </div>
+
+          <div className="update__bottom-group">
+            <label>
+              Size : <strong>*</strong>{' '}
+            </label>
+            <textarea
+              type="text"
+              name="size"
+              placeholder={product.Size}
+              onChange={handleChangeSize}
+            />
+          </div>
+          <div className="update__bottom-group">
+            <label>
               ảnh mô tả: <strong>*</strong>{' '}
             </label>
             <input
-              type="text"
+              type="file"
               name="thumbnailUrl"
               placeholder={product.thumbnailUrl}
-              id=""
-              onChange={handleChangeInput}
+              id="file"
+              onChange={handleChangeThumnaiUrlFile}
             />
+            {thumbnailUrl && (
+              <>
+                <img src={thumbnailUrl} alt={product.name} />
+              </>
+            )}
+            {!thumbnailUrl && (
+              <>
+                <label htmlFor="file">
+                  <span className="update__file">Upload file</span>
+                </label>
+              </>
+            )}
+          </div>
+          <div className="update__bottom-group">
+            <label>
+              Ảnh sản phẩm: <strong>*</strong>{' '}
+            </label>
+            <input type="file" name="Araray" id="files" onChange={handleChangeImageUrlFile} />
+            {!imagessFile && (
+              <>
+                <label htmlFor="files">
+                  <span className="update__file">Upload file</span>
+                </label>
+              </>
+            )}
+            {imagessFile !== undefined && (
+              <div className="update__figust">
+                <img src={imagessFile} alt={product.name} />
+
+                <button onClick={handleButtonImageArray}>Submit</button>
+              </div>
+            )}
+            <div className="update__image--list">
+              {Araray.length > 0 &&
+                Araray.map((item, idx) => (
+                  <div className="update__image">
+                    <img src={item} alt={product.name} />
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
         <div className="update__btn">
@@ -223,7 +366,7 @@ function EditProductFeatures(props) {
               <FaDownload />
             </div>
             <div className="btn__update">
-              <button>Update</button>
+              <button onClick={handlebuttonData}>Update</button>
             </div>
           </div>
         </div>

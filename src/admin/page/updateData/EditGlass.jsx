@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
+import useUpdateGlass from '../../hooks/useUpdateGlass';
 import useUpdateProduct from '../../hooks/useUpdateGlass';
 import './EditProduct.scss';
 EditGlassFeatures.propTypes = {};
@@ -15,7 +16,7 @@ function EditGlassFeatures(props) {
 
   console.log('productId', glassId);
 
-  const { product, loading } = useUpdateProduct(glassId);
+  const { product, loading } = useUpdateGlass(glassId);
 
   console.log(product);
 
@@ -58,7 +59,7 @@ function EditGlassFeatures(props) {
                 <span>{product.id}</span>
               </div>
               <div className="update__top-group">
-                <span>category:</span>
+                <span>Categories:</span>
                 <span>{product.categoryName}</span>
               </div>
             </div>
@@ -73,13 +74,13 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              image: <strong>*</strong>{' '}
+              Image: <strong>*</strong>{' '}
             </label>
             <textarea type="text" name="Araray" placeholder="ảnh" id="" onChange={handleChange} />
           </div>
           <div className="update__bottom-group">
             <label>
-              category: <strong>*</strong>{' '}
+              Category: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -91,7 +92,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              name: <strong>*</strong>{' '}
+              Name: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -103,7 +104,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              giá :<strong>*</strong>{' '}
+              Giá :<strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -127,7 +128,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              giới tính: <strong>*</strong>{' '}
+              Giới tính: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -139,7 +140,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              search: <strong>*</strong>{' '}
+              Search: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -175,7 +176,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              màu: <strong>*</strong>{' '}
+              Màu: <strong>*</strong>{' '}
             </label>
             <input
               type="text"
@@ -187,7 +188,7 @@ function EditGlassFeatures(props) {
           </div>
           <div className="update__bottom-group">
             <label>
-              ảnh mô tả: <strong>*</strong>{' '}
+              Ảnh mô tả: <strong>*</strong>{' '}
             </label>
             <input
               type="text"

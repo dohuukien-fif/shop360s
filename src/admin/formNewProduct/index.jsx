@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineClose } from 'react-icons/ai';
 import * as yup from 'yup';
 import Inputfeild from '../../component/form-control/inputfiend';
+import Textfield from '../../component/form-control/textFeild';
 import './styles.scss';
-FormNewProduct.propTypes = {
-  onSubmits: PropTypes.func,
-};
-
-function FormNewProduct({ onSubmits }) {
+import axios from 'axios';
+import LoadingFileImage from '../../component/loading/loadingFileImage';
+import DialogNewProduct from './dialog';
+const FormNewProduct = React.memo(({ onSubmits }) => {
   const newDate = new Date();
+
   const [imagess, setimagess] = React.useState({});
   const [input, setinput] = React.useState({});
   const [error, seterror] = React.useState('');
@@ -18,13 +18,21 @@ function FormNewProduct({ onSubmits }) {
   const [dataDialog, setdataDialog] = React.useState({});
   const [issubmit, setisubmit] = React.useState(false);
   const Errrr = React.useRef(null);
+  const [fileImage, setFileImages] = React.useState('');
+  const [file, setFile] = React.useState();
+  const [LoadingfileImage, setLoadingfileImage] = React.useState(false);
   const uuid = Math.floor(
     newDate.getSeconds() +
       newDate.getFullYear() +
       newDate.getFullYear() +
       newDate.getMilliseconds() * 12365478
   ).toString();
-
+  const [imagessFile, setImagessFile] = React.useState();
+  const [Araray, setAraray] = React.useState([]);
+  const [informations, setInformaTion] = React.useState({});
+  const [sizes, setSize] = React.useState('');
+  const [thumbnailUrl, seThumbnailUrl] = React.useState('');
+  const [dataGrende, sedataGrende] = React.useState('');
   const schema = yup.object().shape({
     categoryName: yup
       .string()
@@ -32,24 +40,9 @@ function FormNewProduct({ onSubmits }) {
       .test('should has leasst two word', 'please enter at least two word', (value) => {
         return value.split(' ').length >= 2;
       }),
-    //     phone: yup.string().required('please enter your Email').email('please enter Email'),
-    //     city: yup.string().required('please enter your Email').email('please enter Email'),
-    //     coutry: yup.string().required('please enter your Email').email('please enter Email'),
-    //     commune: yup.string().required('please enter your Email').email('please enter Email'),
-    //     apartment: yup.string().required('please enter your Email').email('please enter Email'),
-    //     Street: yup.string().required('please enter your Password').min(6, 'please enter at least 6 '),
-    //     now: yup
-    //       .string()
-    //       .required('please enter retyPassword')
-    //       .oneOf([yup.ref('password')], 'please does not match'),
-    //     time: yup
-    //       .string()
-    //       .required('please enter retyPassword')
-    //       .oneOf([yup.ref('password')], 'please does not match'),
   });
 
-  //   console.log('uuid', uuid);
-  const { register, handleSubmit, control } = useForm({
+  const { register, handleSubmit, control, reset } = useForm({
     defaultValues: {
       id: uuid,
       categoryName: '',
@@ -61,48 +54,15 @@ function FormNewProduct({ onSubmits }) {
       Designs: '',
       origin: '',
       color: '',
-      thumbnailUrl: '',
 
-      // shipper: '' || 'giao ngay',
+      description: '',
     },
   });
 
-  const handleChange = (e) => {
-    const { value, name } = e.target;
-
-    setimagess((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleChangeInput = (e) => {
-    const { value, name } = e.target;
-
-    setinput((prev) => ({ ...prev, [name]: value }));
-  };
-
-  console.log('input', input);
   const newImage = Object.keys(imagess).length > 0 &&
     imagess?.Araray !== '' && {
       Araray: imagess.Araray !== undefined && imagess.Araray.split(','),
     };
-  const handleFormSubmit = async (formValues) => {
-    const isInncludes = Object.values(formValues).includes('');
-    //check value feffirent rổng không
-    if (isInncludes) {
-      return seterror('kiểm  tra lại thông tin còn thiếu');
-    }
-    // isInncludes dont empty
-    if (isInncludes === false) {
-      setdataDialog({ ...formValues, id: uuid, ...newImage });
-      setisdialog(true);
-    }
-
-    //check value == isInncludes empty === issumbit true
-    if (formValues && isInncludes === false && issubmit) {
-      await onSubmits({ ...formValues, id: uuid, ...newImage });
-    }
-
-    // one submit index + 1 để check address old =>dialog
-  };
 
   const handleClickSetisDialog = () => {
     setisubmit(true);
@@ -118,6 +78,104 @@ function FormNewProduct({ onSubmits }) {
     }
     return () => clearTimeout(Errrr.current);
   }, [error]);
+  //set sSIZE
+  const handleChangeSize = (e) => {
+    const { value, name } = e.target;
+
+    setSize(value);
+  };
+
+  console.log('[size]ư', sizes.split(','));
+  //SET INFORMATION
+  const handleChangeInformatinon = (e) => {
+    const { value, name } = e.target;
+
+    setInformaTion((prev) => ({ ...prev, [name]: value }));
+  };
+  //SET THUMNAIR
+
+  //SET IMAGE ARRAY
+  const handleChangeImageUrlFile = async (e) => {
+    setLoadingfileImage(true);
+    const file = e.target.files[0];
+
+    const data = new FormData();
+
+    data.append('file', file);
+    data.append('upload_preset', 'upload');
+
+    try {
+      const uploadRe = await axios.post(
+        'https://api.cloudinary.com/v1_1/huukien/image/upload',
+        data
+      );
+      console.log(data);
+      console.log(uploadRe.data);
+
+      const { url } = uploadRe.data;
+
+      console.log('url', url);
+      setFileImages(url);
+      setLoadingfileImage(false);
+    } catch (error) {}
+  };
+  const handleButtonImageArray = () => {
+    console.log('imagessFile', imagessFile);
+    setAraray((prev) => [...prev, fileImage]);
+    setFileImages('');
+  };
+
+  //get  value radio   grende
+  const handleGetValueradio = (e) => {
+    const { name, value } = e.target;
+
+    sedataGrende(value);
+    console.log(name, value);
+  };
+  console.log('[Araray]', Araray);
+  const handleFormSubmit = async (formValues) => {
+    const isInncludes = Object.values(formValues).includes('');
+    //check value feffirent rổng không
+    if (isInncludes) {
+      return seterror('kiểm  tra lại thông tin còn thiếu');
+    }
+    // isInncludes dont empty
+    if (isInncludes === false) {
+      setdataDialog({
+        ...formValues,
+        price: Number(formValues.price),
+        originalPrice: Number(formValues.originalPrice),
+        promotionpencent: Math.round(
+          (Number(formValues.price) /
+            (Number(formValues.price) + Number(formValues.originalPrice))) *
+            100
+        ),
+        sex: dataGrende,
+        size: sizes?.split(','),
+        id: uuid,
+        Araray,
+      });
+      setisdialog(true);
+    }
+
+    //check value == isInncludes empty === issumbit true
+    console.log('{ ...formValues, id: uuid, ...newImage }', {
+      ...formValues,
+      id: uuid,
+
+      ...newImage,
+    });
+
+    // one submit index + 1 để check address old =>dialog
+  };
+
+  console.log('[dataGrende]', dataGrende);
+  const handleSubmitBroveMovie = async () => {
+    console.log('dataDialog', dataDialog);
+    setisdialog(false);
+    reset();
+  };
+
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)}>
       {error !== '' && (
@@ -131,264 +189,163 @@ function FormNewProduct({ onSubmits }) {
           id : <strong>{uuid}</strong>
         </span>
       </div>
-      <div className="newProduct-group">
-        <label>
-          image: <strong>*</strong>{' '}
-        </label>
-        <textarea type="text" name="Araray" placeholder="ảnh" id="" onChange={handleChange} />
+
+      <div></div>
+      <div className="newProduct-group--image">
+        <div className="newProduct__group--image--left">
+          <label>
+            ảnh mô tả: <strong>*</strong>{' '}
+          </label>
+          <input
+            type="file"
+            id="file"
+            onChange={handleChangeImageUrlFile}
+            style={{ display: 'none' }}
+          />
+          {fileImage === '' && (
+            <label htmlFor="file">
+              <span>Upload file</span>
+            </label>
+          )}
+          {LoadingfileImage ? (
+            <LoadingFileImage />
+          ) : (
+            <>
+              {' '}
+              {fileImage !== '' && (
+                <>
+                  <img src={fileImage} alt="" />{' '}
+                  <button type="button" onClick={handleButtonImageArray}>
+                    creater
+                  </button>
+                </>
+              )}
+            </>
+          )}
+        </div>
+        <div className="newProduct-group--image--right">
+          {Araray?.map((item, idx) => (
+            <Fragment key={idx}>
+              <img src={item} />
+            </Fragment>
+          ))}
+        </div>
       </div>
       <div className="newProduct-group">
         <label>
-          category: <strong>*</strong>{' '}
+          categories: <strong>*</strong>{' '}
         </label>
-        <Inputfeild name="categoryName" control={control} />
-        {/* <input
-    type="text"
-    name="categoryName"
-    placeholder="Nhập categoryName"
-    id=""
-    onChange={handleChangeInput}
-  /> */}
+        <Inputfeild
+          name="categoryName"
+          control={control}
+          placeholder="Vui lòng nhập CategoryName..."
+        />
       </div>
       <div className="newProduct-group">
         <label>
           name: <strong>*</strong>{' '}
         </label>
-        <Inputfeild name="name" control={control} />
-        {/* <input
-    type="text"
-    name="name"
-    placeholder="Nhập name"
-    id=""
-    onChange={handleChangeInput}
-  /> */}
+        <Inputfeild name="name" control={control} placeholder="Vui lòng nhập Tên sản phầm..." />
       </div>
       <div className="newProduct-group">
         <label>
           giá :<strong>*</strong>{' '}
         </label>
-        <Inputfeild name="price" control={control} />
-        {/* <input
-    type="text"
-    name="price"
-    placeholder="Nhập giá"
-    id=""
-    onChange={handleChangeInput}
-  /> */}
+        <Inputfeild name="price" control={control} placeholder="Vui lòng nhập giá sản phẩm..." />
       </div>
       <div className="newProduct-group">
         <label>
           Giá giảm :<strong>*</strong>{' '}
         </label>
-        <Inputfeild name="originalPrice" control={control} />
-        {/* <input
-    type="text"
-    name="originalPrice"
-    placeholder="Giá giảm"
-    id=""
-    onChange={handleChangeInput}
-  /> */}
+        <Inputfeild
+          name="originalPrice"
+          control={control}
+          placeholder="Vui lòng nhập giá giảm..."
+        />
       </div>
+
       <div className="newProduct-group">
         <label>
           giới tính: <strong>*</strong>{' '}
         </label>
-        <Inputfeild name="sex" control={control} />
-        {/* <input
-    type="text"
-    name="sex"
-    placeholder="Giới tính"
-    id=""
-    onChange={handleChangeInput}
-  /> */}
+        <div className="newProduct-group--second">
+          <label>Nam</label>
+          <input type="radio" name="sex" value="nam" onChange={handleGetValueradio} />
+        </div>
+        <div className="newProduct-group--second">
+          <label>Nữ</label>
+          <input type="radio" name="sex" value="nữ" onChange={handleGetValueradio} />
+        </div>
       </div>
       <div className="newProduct-group">
         <label>
           search: <strong>*</strong>{' '}
         </label>
-        <Inputfeild name="SearchTerm" control={control} />
-        {/* <input
-    type="text"
-    name="SearchTerm"
-    placeholder="Tìm kiếm"
-    id=""
-    onChange={handleChangeInput}
-  /> */}
+        <Inputfeild
+          name="SearchTerm"
+          control={control}
+          placeholder="Vui lòng nhập Tên tìm kiếm..."
+        />
       </div>
       <div className="newProduct-group">
         <label>
           Phân loại: <strong>*</strong>{' '}
         </label>
-        <Inputfeild name="Designs" control={control} />
-        {/* <input
-    type="text"
-    name="Designs"
-    placeholder="Đánh giá"
-    id=""
-    onChange={handleChangeInput}
-  /> */}
+        <Inputfeild name="Designs" control={control} placeholder="Vui lòng nhập phân loại..." />
       </div>
       <div className="newProduct-group">
         <label>
           Xuất xứ: <strong>*</strong>{' '}
         </label>
-        <Inputfeild name="origin" control={control} />
-        {/* <input
-    type="text"
-    name="origin"
-    placeholder="Xuất xứ"
-    id=""
-    onChange={handleChangeInput}
-  /> */}
+        <Inputfeild name="origin" control={control} placeholder="Vui lòng nhập xuất xứ..." />
       </div>
       <div className="newProduct-group">
         <label>
           màu: <strong>*</strong>{' '}
         </label>
-        <Inputfeild name="color" control={control} />
-        {/* <input type="text" name="color" placeholder="Màu" id="" onChange={handleChangeInput} /> */}
+        <Inputfeild name="color" control={control} placeholder="Vui lòng nhập màu..." />
+      </div>
+
+      <div className="newProduct-group">
+        <label>
+          Mô tả sản phẩm: <strong>*</strong>{' '}
+        </label>
+        <Textfield
+          name="description"
+          control={control}
+          placeholder="Vui lòng nhập nội dung mô tả..."
+        />
       </div>
       <div className="newProduct-group">
         <label>
-          ảnh mô tả: <strong>*</strong>{' '}
+          Thông tin sản phẩm: <strong>*</strong>{' '}
         </label>
-        <Inputfeild name="thumbnailUrl" control={control} />
-        {/* <input
-    type="text"
-    name="thumbnailUrl"
-    placeholder="Ảnh mô tả"
-    id=""
-    onChange={handleChangeInput}
-    <div className="newProduct__dialog">
-<div className="dialog__title">
-  <p>Xác nhận sản phẩm gửi lênn</p>
-</div>
-<div className="dialog__content">
-  <div className="dialog__id">
-    <span>id: <strong></strong></span>
-  </div>
-  <div className="dialog__image">
-     
-  </div>
-</div>
-</div>
-  /> */}
+        <Textfield
+          name="information"
+          control={control}
+          placeholder="Vui lòng nhập thông sản phẩm..."
+        />
+      </div>
+      <div className="newProduct-group">
+        <label>
+          size: <strong>*</strong>{' '}
+        </label>
+        <textarea name="size" onChange={handleChangeSize} placeholder="Vui lòng nhập size..." />
       </div>
       <div className="newProduct_btn">
         <button type="submit">Creater</button>
       </div>
 
-      <div className={isdialog ? 'newProduct__dialog activeDialog' : 'newProduct__dialog'}>
-        <div className="dialog__swapper">
-          <div className="dialog__title">
-            <p>Xác nhận sản phẩm gửi lên</p>
-          </div>
-          <div className="dialog__content">
-            <div className="dialog__id">
-              <p>
-                id: <strong>{dataDialog.id}</strong>
-              </p>
-            </div>
-            <div className="dialog__image">
-              <p>
-                <strong>image</strong>
-              </p>
-              <img
-                src={
-                  dataDialog?.Araray !== undefined
-                    ? dataDialog?.Araray[0]
-                    : 'https://via.placeholder.com/100x100 '
-                }
-                alt=""
-              />
-              {dataDialog?.Araray === undefined && <span>vui lòng chọn link ảnh</span>}
-            </div>
-            <div className="dialog__category">
-              <p>
-                <strong>categoryName:</strong>
-              </p>
-              <span>{`- ${dataDialog.categoryName}`}</span>
-            </div>
-
-            <div className="dialog__name">
-              <p>
-                <strong>name:</strong>
-              </p>
-              <span>{`- ${dataDialog.name}`}</span>
-            </div>
-
-            <div className="dialog__price">
-              <p>
-                <strong>giá:</strong>
-              </p>
-              <span>{`- ${dataDialog.price}`}</span>
-            </div>
-
-            <div className="dialog__originnaPrice">
-              <p>
-                <strong>Giá giảm: </strong>
-              </p>
-              <span>{`- ${dataDialog.originalPrice}`}</span>
-            </div>
-
-            <div className="dialog__sex">
-              <p>
-                <strong> giới tính:</strong>
-              </p>
-              <span>{`- ${dataDialog.sex}`}</span>
-            </div>
-
-            <div className="dialog__search">
-              <p>
-                <strong>search:</strong>
-              </p>
-              <span>{`- ${dataDialog.SearchTerm}`}</span>
-            </div>
-
-            <div className="dialog__designs">
-              <p>
-                <strong> Phân loại:</strong>
-              </p>
-              <span>{`- ${dataDialog.Designs}`}</span>
-            </div>
-
-            <div className="dialog__sex">
-              <p>
-                <strong>Xuất xứ:</strong>
-              </p>
-              <span>{`-  ${dataDialog.sex}`}</span>
-            </div>
-
-            <div className="dialog__origin">
-              <p>
-                <strong> giới tính:</strong>
-              </p>
-              <span>{`- ${dataDialog.origin}`}</span>
-            </div>
-
-            <div className="dialog__color">
-              <p>
-                <strong>màu:</strong>
-              </p>
-              <span>{`- ${dataDialog.color}`}</span>
-            </div>
-
-            <div className="dialog__thumbnailUrl">
-              <p>
-                <strong> ảnh mô tả:</strong>
-              </p>
-              <span>{`- ${dataDialog.thumbnailUrl}`}</span>
-            </div>
-          </div>
-
-          <button type="button">cace</button>
-          <button type="submit" onClick={handleClickSetisDialog}>
-            dialog
-          </button>
-        </div>
-      </div>
+      <DialogNewProduct
+        isdialog={isdialog}
+        dataDialog={dataDialog}
+        handleClickSetisDialog={handleClickSetisDialog}
+        handleSubmitBroveMovie={handleSubmitBroveMovie}
+      />
     </form>
   );
-}
+});
+
+FormNewProduct.propTypes = {};
 
 export default FormNewProduct;

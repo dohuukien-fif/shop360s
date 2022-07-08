@@ -1,34 +1,30 @@
-import { ShoppingCart } from '@mui/icons-material';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import CloseIcon from '@mui/icons-material/Close';
-import DehazeIcon from '@mui/icons-material/Dehaze';
-import HomeIcon from '@mui/icons-material/Home';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
-import { Badge, IconButton } from '@mui/material';
-import CircularProgress from '@mui/material/CircularProgress';
+import { collection, onSnapshot } from 'firebase/firestore';
 import React, { useEffect, useRef, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 import { addSearchs, Searchss } from '../../features/SearchProduct/Slic/searchSlice';
 import SearchApi from './../../api/Searchapi';
 import { cartCheckout, cartItemCount } from './../../features/cart/cartSelector';
 // import {Searchss} from "./"
 import { LoadingSearch } from './../../features/SearchProduct/Slic/searchSelec';
+import { db } from './../../firebase';
 import { useUserContext } from './../contextApi/index';
 import DialogCart from './component/dialogCarrt/dialogCart';
 import DialogSearch from './component/dialogSearch/index';
 import ProductLink from './component/Link';
+import Nav from './component/nav';
 import './styles.scss';
 
 const Header = (props) => {
   const [torget, settorget] = useState(false);
   const history = useHistory();
+
   const loadingSearchs = useSelector(LoadingSearch);
 
+  console.log('[[loadingSearchs]]', loadingSearchs);
   const { pathname } = useLocation();
   const cartCheckouts = useSelector(cartCheckout);
-  const { user, logoutUser } = useUserContext();
+  const { user, logoutUser, dataImage } = useUserContext();
 
   console.log('user', user);
   const cartItemCounts = useSelector(cartItemCount);
@@ -37,6 +33,7 @@ const Header = (props) => {
   const [openSearch, setopenSearch] = useState(false);
   const [openCart, setopenCart] = useState(false);
   const [SearchItem, setSearchItem] = useState('');
+  const [screen, setscreen] = useState(0);
   const clickAccount = () => {
     setaccounts((x) => !x);
   };
@@ -74,6 +71,7 @@ const Header = (props) => {
 
   const handleClose = () => {
     setOpen(false);
+    setAnchorEl(false);
   };
   // const hanleLooutClick = () => {
   //   const action = logout();
@@ -92,6 +90,7 @@ const Header = (props) => {
       } else {
         setscrow(false);
       }
+      console.log('scrool700');
     };
     window.addEventListener('scroll', chanscrowu);
     return () => {
@@ -164,17 +163,32 @@ const Header = (props) => {
     }
   };
 
-  const setTrueToget = () => {
-    if (window.innerWidth > 768) {
+  useEffect(() => {
+    const setTrueToget = () => {
+      setscreen(window.innerWidth);
+    };
+    window.addEventListener('resize', setTrueToget);
+    setTrueToget();
+    return () => window.removeEventListener('resize', setTrueToget);
+  }, []);
+  useEffect(() => {
+    if (screen > 600) {
       settorget(false);
+      setscrow(false);
+      setAnchorEl(false);
+    } else {
+      setscrow(true);
     }
-  };
-  window.addEventListener('scroll', setTrueToget);
+  }, [screen]);
+  console.log(screen);
   //location loading set => false => dialog
-
+  //link close tab
   useEffect(() => {
     setopenSearch(false);
     setopenCart(false);
+    settorget(false);
+    setscrow(false);
+    setAnchorEl(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -206,171 +220,44 @@ const Header = (props) => {
     window.addEventListener('click', handleWindowClose);
     return () => window.removeEventListener('click', handleWindowClose);
   }, []);
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, 'color'), (snapshot) =>
+        console.log(
+          '[snapshot]',
+          snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id }))
+        )
+      ),
+    []
+  );
+
   return (
-    <div className={scrow ? 'home activeNav' : 'home'}>
-      <div className={scrow ? 'header actives_header' : 'header'}>
-        <div className={scrow ? 'header-left active_image' : 'header-left'}>
-          <Link to="/Trang-chu">
-            <img
-              src="https://360boutique.vn/wp-content/uploads/2021/10/LOGO-360-DUNG-TAM-THOI-MAU-DEN-05.png"
-              alt=""
-            />
-          </Link>
-        </div>
-        <div className={scrow ? 'header-mid activeHeader' : 'header-mid'}>
-          {!scrow && (
-            <form onSubmit={handleSubmit}>
-              <input
-                // className={scrow && 'activeHeader'}
-                value={SearchItem}
-                type="text"
-                placeholder="Tìm kiến sản phẩm..."
-                onChange={(e) => setSearchItem(e.target.value)}
-              />
-              <button>
-                {' '}
-                {loadingSearchs === true ? (
-                  <CircularProgress
-                    // sx={{ fontSize: '10px' }}
-                    style={{ width: '18px', height: '18px', marginRight: '10px' }}
-                    color="inherit"
-                  />
-                ) : (
-                  <FiSearch />
-                )}
-              </button>
-            </form>
-          )}
-        </div>
-        <div className="header-right">
-          <div className="none">
-            {user && (
-              <>
-                <AccountCircleIcon onClick={handleClickmenu} style={{ fontSize: '25px' }} />
-
-                <span>{user?.displayName}</span>
-              </>
-            )}
-            {anchorEl && (
-              <ul
-                ref={CloseDiaLogAccout}
-                className="menu"
-                // anchorEl={anchorEl}
-
-                onClose={handleClosemenu}
-              >
-                <li onClick={handleClose}>Profiles</li>
-                <li onClick={handleClose}>
-                  {' '}
-                  <Link to="/Thongtin">
-                    Thông tin{' '}
-                    {cartCheckouts.length > 0 && (
-                      <div className="icon_quantity">{cartCheckouts.length}</div>
-                    )}
-                  </Link>
-                </li>
-                <li onClick={handleLogout}>Logout</li>
-              </ul>
-            )}
-
-            {user === null && (
-              <>
-                <div className="account">
-                  <span onClick={clickAccount}>tài khoản</span>
-                  {accounts && (
-                    <ul className="account_list">
-                      <li>
-                        <Link to="/login">
-                          {' '}
-                          <span style={{ fontSize: '13px' }}>Login</span>
-                        </Link>
-                      </li>
-                      <li>
-                        <Link to="/register">
-                          {' '}
-                          <span style={{ fontSize: '13px' }}>register</span>
-                        </Link>
-                      </li>
-                    </ul>
-                  )}
-                </div>
-              </>
-            )}
-          </div>
-
-          <FiSearch onClick={() => setopenSearch(true)} style={{ cursor: 'pointer' }} />
-          <div className="none">
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-              onClick={handleLinkCart}
-            >
-              <Badge badgeContent={user ? cartItemCounts : '0'} color="error">
-                <ShoppingCart style={{ fontSize: '25px' }} />
-              </Badge>
-            </IconButton>
-          </div>
-
-          {torget ? (
-            <CloseIcon onClick={() => settorget(false)} />
-          ) : (
-            <DehazeIcon className="header-right_icon" onClick={handleClickToget} />
-          )}
-        </div>
-
-        <div className="mobile">
-          <div className="mobile_tab">
-            <Link to="/">
-              <HomeIcon style={{ fontSize: '25px' }} />
-            </Link>
-          </div>
-          <div className="mobile_tab">
-            <IconButton
-              size="large"
-              aria-label="show 4 new mails"
-              color="inherit"
-              onClick={handleLinkCart}
-            >
-              <Badge badgeContent={user ? cartItemCounts : '0'} color="error">
-                <ShoppingCart style={{ fontSize: '25px' }} />
-              </Badge>
-            </IconButton>
-          </div>
-          <div className="mobile_tab">
-            <NotificationsNoneIcon style={{ fontSize: '25px' }} />
-          </div>
-          <div className="mobile_tab">
-            <>
-              <AccountCircleIcon style={{ fontSize: '25px' }} onClick={handleClickmenu} />
-              {anchorEl && (
-                <ul
-                  className="menu"
-                  // anchorEl={anchorEl}
-
-                  onClose={handleClosemenu}
-                >
-                  <li onClick={handleClose}>Profile</li>
-                  <li onClick={handleClose}>
-                    <Link to="/Thongtin">Thông tin</Link>
-                  </li>
-                  {user && <li onClick={handleLogout}>Logout</li>}
-                  {user === null && (
-                    <li>
-                      <Link to="/login">
-                        <span style={{ fontSize: '13px' }} onClick={handleLogout}>
-                          Login
-                        </span>
-                      </Link>
-                    </li>
-                  )}
-                </ul>
-              )}
-            </>
-          </div>
-        </div>
-      </div>
-
+    <div className={scrow ? 'home activeNav' : 'home'} ref={CloseDiaLogAccout}>
+      <Nav
+        scrow={scrow}
+        handleSubmit={handleSubmit}
+        SearchItem={SearchItem}
+        setSearchItem={setSearchItem}
+        loadingSearchs={loadingSearchs}
+        user={user}
+        dataImage={dataImage}
+        handleClickmenu={handleClickmenu}
+        anchorEl={anchorEl}
+        handleClosemenu={handleClosemenu}
+        handleClose={handleClose}
+        cartCheckouts={cartCheckouts}
+        handleLogout={handleLogout}
+        clickAccount={clickAccount}
+        accounts={accounts}
+        setopenSearch={setopenSearch}
+        handleLinkCart={handleLinkCart}
+        cartItemCounts={cartItemCounts}
+        torget={torget}
+        settorget={settorget}
+        handleClickToget={handleClickToget}
+        setAnchorEl={setAnchorEl}
+      />
       <ProductLink torget={torget} scrow={scrow} />
 
       <DialogSearch

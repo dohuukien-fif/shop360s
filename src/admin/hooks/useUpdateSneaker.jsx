@@ -1,6 +1,6 @@
-import SneakerApi from './../../api/productapi';
+import SneakerApi from './../../api/ProductSneakerApi';
 import { useState, useEffect } from 'react';
-export default function useUpdateProduct(productId) {
+export default function useUpdateSneaker(productId) {
   const [product, setproduct] = useState([]);
   const [Loading, setLoading] = useState(true);
 

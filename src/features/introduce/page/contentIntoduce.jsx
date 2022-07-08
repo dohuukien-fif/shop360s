@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
+import useIntroduce from '../component/hooks/useIntroduce';
 ContentIntroduceFeatures.propTypes = {};
 
 function ContentIntroduceFeatures(props) {
@@ -140,30 +141,30 @@ function ContentIntroduceFeatures(props) {
      `,
     },
   ]);
+  const { product, Loading } = useIntroduce(IntroductionId);
 
-  useEffect(() => {
-    if (IntroductionId) {
-      const newData = DataIntroduce.find((e) => e.id === Number(IntroductionId));
-      setDataDescription(newData);
-    }
-  }, [DataIntroduce, IntroductionId]);
-
-  console.log('DataDescription?.description ', DataDescription);
+  console.log('DataDescription?.description ', product);
 
   return (
     <>
       <div className="content_introduce">
-        <div className="content_introduce-title">
-          <p>{DataDescription.name}</p>
-        </div>
-
-        <div className="content_introduce-time">
-          <p>{DataDescription.time}</p>
-        </div>
-        <div
-          className="content_introduce-body"
-          dangerouslySetInnerHTML={{ __html: DataDescription?.description }}
-        ></div>
+        {Loading ? (
+          <h2>Loading...</h2>
+        ) : (
+          <>
+            {' '}
+            <div className="content_introduce-title">
+              <p>{product.name}</p>
+            </div>
+            <div className="content_introduce-time">
+              <p>{product.time}</p>
+            </div>
+            <div
+              className="content_introduce-body"
+              dangerouslySetInnerHTML={{ __html: product?.description }}
+            ></div>
+          </>
+        )}
       </div>
     </>
   );

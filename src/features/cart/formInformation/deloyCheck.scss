@@ -1,6 +1,14 @@
 .succes {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
+
+  overflow: auto;
+  max-height: 300px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &_title {
     text-align: center;
     margin-bottom: 1rem;
@@ -124,4 +132,26 @@
       }
     }
   }
+}
+.succes__information--btn--succes {
+  padding: 10px;
+
+  cursor: pointer;
+
+  background-color: red;
+
+  color: white;
+
+  border: none;
+}
+.succes__information--btn--close {
+  padding: 10px;
+
+  cursor: pointer;
+
+  background-color: green;
+
+  color: white;
+
+  border: none;
 }

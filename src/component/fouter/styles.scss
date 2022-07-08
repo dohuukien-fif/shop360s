@@ -1,211 +1,210 @@
-@use  "./../../sass/" as *;
-.footer{
-   transform: translateY(40px);
-    margin-top: auto;
-   .footer_top{
-      background: #f3f3f3;
-      .newsletter{
-         padding: 1rem;
-         
-         font-size: 15px;
-         @include tablets{
-            display: flex;
-         }
-         @include tablet{
-          width: 79%;
-          margin: auto;
-         }
-       &_form{
-          @include tablets{
-             display: flex;
-             justify-content: space-between;
-             align-items: center;
-             flex: 2;
-          }
-          .newsletter_title{
-             padding: 0.5rem 0.5rem 1rem 0;
-   
-                  display: flex; 
-                      align-items: center;
-                      @include tablets{
-                         flex: 1;
-                      }
-                      & > span{
-                         margin-left: 10px;
-                      }
-          }
-     .newsletter_input{
-      @include tablets{
-         flex: 3;
-      }
-      & > form{
+@use './../../sass/' as *;
+.footer {
+  transform: translateY(40px);
+  margin-top: auto;
+  .footer_top {
+    background: #f3f3f3;
+    .newsletter {
+      padding: 1rem;
+
+      font-size: 15px;
+      @include tablets {
         display: flex;
-        & > input{
-           width: 75%;
-           border: none;
-           @include mobile{
-            width: 85%;
-           }
-        }
-        & > button{
-           padding: 1.5rem;
-           background: black;
-           color: white;
-           border: none;
-           cursor: pointer;
-           @include mobile{
-            padding: 1rem;
-           }
-           @include tablets{
-            padding: 0.7rem;
-           }
-           @include tablet{
-            padding: 0.8rem;
-           }
-        }
       }
-   }
-         }
-         .newsletter_phone{
+      @include tablet {
+        width: 79%;
+        margin: auto;
+      }
+      &_form {
+        @include tablets {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          flex: 2;
+        }
+        .newsletter_title {
+          padding: 0.5rem 0.5rem 1rem 0;
+
+          display: flex;
+          align-items: center;
+          @include tablets {
             flex: 1;
-            padding: 1rem 1rem 0.5rem 0;
-            display: flex; 
-            align-items: center;
-            @include tablets{
-               justify-content: center;
+          }
+          & > span {
+            margin-left: 10px;
+          }
+        }
+        .newsletter_input {
+          @include tablets {
+            flex: 3;
+          }
+          & > form {
+            display: flex;
+            flex-direction: row;
+            & > input {
+              width: 75%;
+              height: 40px;
+
+              border: none;
+
+              padding-left: 15px;
+
+              @include mobile {
+                width: 85%;
+              }
             }
-          
-            & > span{
-               margin-left: 10px;
+            & > button {
+              padding: 1.5rem;
+              background: black;
+              color: white;
+              border: none;
+              cursor: pointer;
+              @include mobile {
+                padding: 1rem;
+              }
+              @include tablets {
+                padding: 0.7rem;
+              }
+              @include tablet {
+                padding: 0.8rem;
+              }
             }
-         }
+          }
+        }
       }
-   }
-   
- 
-   .footer_mid{
-      width: 90%;
+      .newsletter_phone {
+        flex: 1;
+        padding: 1rem 1rem 0.5rem 0;
+        display: flex;
+        align-items: center;
+        @include tablets {
+          justify-content: center;
+        }
+
+        & > span {
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+
+  .footer_mid {
+    width: 90%;
+    margin: auto;
+    // margin-top: 100px;
+    // transform: translateY(100px);
+
+    padding-top: 40px;
+
+    font-size: 13px;
+    @include mobile {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    @include tablets {
+      align-items: flex-start;
+      width: 100%;
+      padding-left: 10px;
+    }
+    @include tablet {
+      width: 80%;
       margin: auto;
-      // margin-top: 100px;
-      // transform: translateY(100px);
-     
-   padding-top: 40px;
-    
-      font-size: 13px;
-      @include mobile{
-         display: flex;
-         flex-wrap: wrap;
-         justify-content: space-between;
-         align-items: center;
-        
+      margin-top: 50px;
+      padding-top: 0;
+    }
+    .fouter_store,
+    .fouter_contract {
+      flex-basis: 50%;
+      margin-bottom: 2rem;
+      @include tablets {
+        flex-basis: 24%;
       }
-      @include tablets{
-         align-items: flex-start;
-         width: 100%;
-         padding-left: 10px;
-     
-        
+      .fouter_name {
+        font-size: 18px;
+        margin-bottom: 18px;
+        @include tablet {
+          font-size: 20px;
+        }
       }
-      @include tablet{
-      
-         width: 80%;
-         margin: auto;
-         margin-top: 50px ;
-         padding-top: 0;
+      & > ul {
+        & > li {
+          line-height: 3rem;
+        }
       }
-      .fouter_store,.fouter_contract{
-         flex-basis: 50%;
-         margin-bottom: 2rem;
-         @include tablets{
-            flex-basis: 24%;
-           
-         }
-         .fouter_name{
-            font-size: 18px;
-            margin-bottom: 18px;
-            @include tablet{
-               font-size: 20px;
-            }
-         }
-         & > ul {
-            & > li{
-               line-height: 3rem
-            }
-         }
-         
+    }
+    // .fouter_contract{
+    //    flex-basis: 50%;
+    //    margin-bottom: 2rem;
+    //    @include tablets{
+    //       flex-basis: 24%;
+    //       margin-left:12px ;
+
+    //    }
+    //    .fouter_name{
+    //       font-size: 18px;
+    //       margin-bottom: 18px;
+    //    }
+    //    & > ul {
+    //       & > li{
+    //          line-height: 3rem
+    //       }
+    //    }
+    // }
+    .fouter_addres {
+      flex-basis: 50%;
+      @include tablets {
+        flex-basis: 24%;
+        margin-left: 12px;
       }
-      // .fouter_contract{
-      //    flex-basis: 50%;
-      //    margin-bottom: 2rem;
-      //    @include tablets{
-      //       flex-basis: 24%;
-      //       margin-left:12px ;
-            
-      //    }
-      //    .fouter_name{
-      //       font-size: 18px;
-      //       margin-bottom: 18px;
-      //    }
-      //    & > ul {
-      //       & > li{
-      //          line-height: 3rem
-      //       }
-      //    }
-      // }
-      .fouter_addres{
-         flex-basis: 50%;
-         @include tablets{
-            flex-basis: 24%;
-            margin-left:12px ;
-         }
-         .fouter_name{
-            font-size: 18px;
-            margin-bottom: 18px;
-         }
-         .fouter_image{
-         
-               width: 50%;
-            position: relative;
-         }
-         .fouter_images{
-            position: absolute;
-            width: 50px;
-            height: 50px;
-         }
-         & > ul {
-            & > li{
-               line-height: 3rem
-            }
-         }
+      .fouter_name {
+        font-size: 18px;
+        margin-bottom: 18px;
       }
-      .fouter_Fanpage{
-         flex-basis: 50%;
-         @include tablets{
-            flex-basis: 24%;
-            margin-left:12px ;
-         }
-         .fouter_name{
-            font-size: 18px;
-            margin-bottom: 18px;
-         }
-         .img{
-            position: relative;
-         }
-         .fanpage_images{
-            position: absolute;
-            top: 5px;
-            left: 5px;
-            width: 50px;
-            height: 50px;
-            border: 2PX solid white;
-         }
+      .fouter_image {
+        width: 50%;
+        position: relative;
       }
-   }
-   .footer_bottom{
-      & > p{
-         padding: 1.5rem;
-         text-align: center;
-         border-top: 0.3px solid #d1cbcb;
+      .fouter_images {
+        position: absolute;
+        width: 50px;
+        height: 50px;
       }
-   }
+      & > ul {
+        & > li {
+          line-height: 3rem;
+        }
+      }
+    }
+    .fouter_Fanpage {
+      flex-basis: 50%;
+      @include tablets {
+        flex-basis: 24%;
+        margin-left: 12px;
+      }
+      .fouter_name {
+        font-size: 18px;
+        margin-bottom: 18px;
+      }
+      .img {
+        position: relative;
+      }
+      .fanpage_images {
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        width: 50px;
+        height: 50px;
+        border: 2px solid white;
+      }
+    }
+  }
+  .footer_bottom {
+    & > p {
+      padding: 1.5rem;
+      text-align: center;
+      border-top: 0.3px solid #d1cbcb;
+    }
+  }
 }

@@ -63,6 +63,11 @@
     width: 95%;
     margin: auto;
 
+    .acive__setImage {
+      opacity: 0.6;
+      border: 1px solid black;
+    }
+
     & > div {
       width: calc(25% - 10px);
       margin-left: 10px;

@@ -3,10 +3,12 @@ import NoAccountsIcon from '@mui/icons-material/NoAccounts';
 import { LinearProgress } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { BsCamera } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
 import * as yup from 'yup';
+import { useUserContext } from '../../contextApi';
 import Inputfield from './../../form-control/InputFeid';
 import PasswordField from './../../form-control/PasswordFiend';
 // import { LinearProgress } from '../../../../../node_modules/@mui/material/index';
@@ -44,6 +46,7 @@ RegisterForm.propTypes = {
 };
 
 function RegisterForm(props) {
+  const { user, PhotoUser, data, loading } = useUserContext();
   const classes = useStyles();
   const { onSubmit, error } = props;
   const schema = yup.object().shape({
@@ -72,19 +75,21 @@ function RegisterForm(props) {
     },
     resolver: yupResolver(schema),
   });
-  const handleSubmit = (value) => {
+
+  const handleSubmit = async (value) => {
     if (onSubmit) {
-      onSubmit(value);
+      await onSubmit(value);
     }
   };
   const { isSubmitting } = form.formState;
 
   return (
     <div className="register_container">
-      {isSubmitting && <LinearProgress className={classes.progress} />}
+      {loading && <LinearProgress className={classes.progress} />}
       <div className="register_avatar">
         <NoAccountsIcon />
       </div>
+
       <div className="register_container-title"> Sign Up</div>
 
       <form onSubmit={form.handleSubmit(handleSubmit)}>

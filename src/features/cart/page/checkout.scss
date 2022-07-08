@@ -55,6 +55,7 @@
   }
   .address_note {
     display: flex;
+    flex-direction: column;
     column-gap: 10px;
 
     margin-bottom: 20px;
@@ -80,6 +81,12 @@
 
         color: brown;
         font-size: 20px;
+      }
+      & > textarea {
+        height: 150px;
+        width: 100%;
+
+        padding: 15px;
       }
     }
   }

@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 SwiperCore.use([FreeMode, Pagination, Navigation]);
 SlidesHome.propTypes = {};
 
-function SlidesHome(props) {
+function SlidesHome({ category }) {
   const [Imagess, setImages] = useState([]);
   const history = useHistory();
 
@@ -20,12 +20,12 @@ function SlidesHome(props) {
     const fetchApiRandom = async () => {
       try {
         const res = await SearchApi.getAll();
-        setImages(res);
+        setImages(res.filter((e) => e.categoryName === category));
         console.log(res);
       } catch (error) {}
     };
     fetchApiRandom();
-  }, []);
+  }, [category]);
   const handleClick = (newId) => {
     history.push(`${newId}`);
   };
@@ -65,7 +65,7 @@ function SlidesHome(props) {
       // data-swiper-autoplay="2000"
     >
       {Imagess.map((item, index) => (
-        <SwiperSlide onClick={() => handleClick(item.id)}>
+        <SwiperSlide onClick={() => handleClick(item.id)} key={index}>
           {/* <div className="slides-image">
         <img src="https://360boutique.vn/wp-content/uploads/2021/12/Banner-WEb.jpg" alt="" />
       </div> */}

@@ -49,7 +49,7 @@ function QuantityField(props) {
             </IconButton>
 
             <OutlinedInput
-              sx={{ width: '50%' }}
+              sx={{ width: '30%' }}
               id={name}
               type="number"
               disabled={disabled}

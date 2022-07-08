@@ -21,7 +21,7 @@ const OrderApi = {
     const url = `/order/${data.id}`;
     return axiosClient.patch(url, data);
   },
-  detele(id) {
+  delete(id) {
     const url = `/order/${id}`;
     return axiosClient.delete(url);
   },
