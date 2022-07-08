@@ -1,25 +1,25 @@
+import axios from 'axios';
 import React, { Fragment } from 'react';
 import { useForm } from 'react-hook-form';
 import { AiOutlineClose } from 'react-icons/ai';
 import * as yup from 'yup';
 import Inputfeild from '../../component/form-control/inputfiend';
 import Textfield from '../../component/form-control/textFeild';
-import './styles.scss';
-import axios from 'axios';
 import LoadingFileImage from '../../component/loading/loadingFileImage';
 import DialogNewProduct from './dialog';
+import './styles.scss';
 const FormNewProduct = React.memo(({ onSubmits }) => {
   const newDate = new Date();
 
   const [imagess, setimagess] = React.useState({});
-  const [input, setinput] = React.useState({});
+
   const [error, seterror] = React.useState('');
   const [isdialog, setisdialog] = React.useState(false);
   const [dataDialog, setdataDialog] = React.useState({});
   const [issubmit, setisubmit] = React.useState(false);
   const Errrr = React.useRef(null);
   const [fileImage, setFileImages] = React.useState('');
-  const [file, setFile] = React.useState();
+
   const [LoadingfileImage, setLoadingfileImage] = React.useState(false);
   const uuid = Math.floor(
     newDate.getSeconds() +
@@ -31,7 +31,7 @@ const FormNewProduct = React.memo(({ onSubmits }) => {
   const [Araray, setAraray] = React.useState([]);
   const [informations, setInformaTion] = React.useState({});
   const [sizes, setSize] = React.useState('');
-  const [thumbnailUrl, seThumbnailUrl] = React.useState('');
+
   const [dataGrende, sedataGrende] = React.useState('');
   const schema = yup.object().shape({
     categoryName: yup

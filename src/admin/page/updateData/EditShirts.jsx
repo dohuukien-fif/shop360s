@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
 import useUpdateShirt from '../../hooks/useUpdateShirts';
-import useUpdateProduct from '../../hooks/useUpdateShirts';
 import './EditProduct.scss';
 EditShirtsFeatures.propTypes = {};
 
@@ -16,7 +15,7 @@ function EditShirtsFeatures(props) {
 
   console.log('shirtsId', shirtsId);
 
-  const { product, loading } = useUpdateShirt(shirtsId);
+  const { product } = useUpdateShirt(shirtsId);
 
   console.log(product);
 

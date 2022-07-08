@@ -18,7 +18,6 @@ function Description() {
   const [DiaLogProduct, setDiaLogProduct] = useState({});
   const {
     params: { SearchId },
-    url,
   } = useRouteMatch();
 
   const { product, Loading } = useDetailProduct(SearchId);

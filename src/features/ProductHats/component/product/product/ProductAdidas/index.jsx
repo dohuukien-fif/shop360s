@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { useHistory } from 'react-router';
-import { formatPrice } from './../../../../../../utils/index';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { formatPrice } from './../../../../../../utils/index';
 Product.propTypes = {
   product: PropTypes.object,
 };

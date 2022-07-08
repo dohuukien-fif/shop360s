@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
-
 import './styles.scss';
+
 setImage.propTypes = {};
 
 function setImage({ Imagess, onChange, ids, Index }) {

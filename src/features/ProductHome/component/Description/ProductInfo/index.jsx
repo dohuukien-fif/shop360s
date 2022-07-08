@@ -9,10 +9,10 @@ function ProductInfo({ product, onChange }) {
   const {
     price,
     originalPrice,
-    origin,
+
     Size,
     information,
-    color,
+
     name,
     promotionpencent,
     description,

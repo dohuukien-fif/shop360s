@@ -12,7 +12,6 @@ function SortPrice({ onChanges }) {
     if (onChanges) {
       onChanges(newSort);
     }
-    console.log(value, name);
   };
   return (
     <select id="sort_price" name="price" onChange={handleChange}>

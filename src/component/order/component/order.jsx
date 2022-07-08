@@ -1,12 +1,12 @@
-import PropTypes, { number } from 'prop-types';
+import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 import { BsChatSquareText } from 'react-icons/bs';
 import { FaShuttleVan } from 'react-icons/fa';
 import { MdCardMembership } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { cartCheckout } from './../../../features/cart/cartSelector';
 import OrderApi from './../../../api/OrderApi';
+import { cartCheckout } from './../../../features/cart/cartSelector';
 // import { Link } from 'react-router-dom';
 Order.propTypes = {
   handleClick: PropTypes.func,

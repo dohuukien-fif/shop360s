@@ -6,8 +6,6 @@ import Inputfield from './../../../component/form-control/InputFeid/index';
 import Textfield from './../../../component/form-control/textFeild/index';
 import './infor.scss';
 
-import PropTypes from 'prop-types';
-
 const FormInformation = React.memo(({ cartTotal, onSubmits = null }) => {
   const schema = yup.object().shape({
     fullName: yup

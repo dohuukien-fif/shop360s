@@ -1,10 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { CircularProgress } from '@mui/material';
+import React from 'react';
 import { FiSearch } from 'react-icons/fi';
-import './styles.scss';
-import { LoadingSearch } from '../../../../../features/SearchProduct/Slic/searchSelec';
 import { useSelector } from 'react-redux';
+import { LoadingSearch } from '../../../../../features/SearchProduct/Slic/searchSelec';
+import './styles.scss';
 NavMid.propTypes = {};
 
 function NavMid({ scrow, handleSubmit, SearchItem, setSearchItem }) {

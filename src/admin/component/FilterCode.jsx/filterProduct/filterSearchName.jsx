@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './SearchProduct.scss';
 import { AiOutlineSearch } from 'react-icons/ai';
+import './SearchProduct.scss';
 SearchNameFeatures.propTypes = {};
 
 function SearchNameFeatures({ Onsubmit }) {

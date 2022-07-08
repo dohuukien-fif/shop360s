@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Fragment } from 'react';
-import { FaRegUserCircle } from 'react-icons/fa';
 import { MdOutlineDeleteOutline } from 'react-icons/md';
 import { RiCheckboxBlankCircleFill } from 'react-icons/ri';
 import { useHistory } from 'react-router-dom';

@@ -1,31 +1,27 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Route, Switch, useRouteMatch, useHistory, useLocation } from 'react-router-dom';
-import useDetailProduct from './../component/hooks/useDetailproduct';
-import ProductThumnail from './../component/Description/ProducTumnail/index';
+import React, { useState } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import ProductInfo from '../component/Description/ProductInfo';
-import './detai.scss';
-import ProductApi from '../../../api/productapi';
+import SlidesHomes from '../component/slides/slidesHome';
+import { useUserContext } from './../../../component/contextApi/index';
+import { addTocart } from './../../cart/cartSlice';
+import ProductThumnail from './../component/Description/ProducTumnail/index';
+import useDetailProduct from './../component/hooks/useDetailproduct';
 import Sken from './../component/ProductSelekent/index';
 import Skenlen from './../component/ProductSelekent/seleken';
-import SlidesHomes from '../component/slides/slidesHome';
-import { useDispatch } from 'react-redux';
-import { addTocart, setSize } from './../../cart/cartSlice';
-import { useUserContext } from './../../../component/contextApi/index';
+import './detai.scss';
 function Description() {
   const dispatch = useDispatch();
   const history = useHistory();
   const location = useLocation();
-  const [isAddToCart, setisAddToCart] = useState(true);
+
   const [DiaLogProduct, setDiaLogProduct] = useState({});
   const { user } = useUserContext();
   const {
     params: { productId },
-    url,
   } = useRouteMatch();
 
-  console.log('location', location.pathname);
   const { product, Loading } = useDetailProduct(productId);
   console.log(product);
   const title =

@@ -15,7 +15,7 @@ function EditGlassFeatures(props) {
 
   console.log('productId', glassId);
 
-  const { product, loading } = useUpdateProduct(glassId);
+  const { product } = useUpdateProduct(glassId);
 
   console.log(product);
 
@@ -31,11 +31,6 @@ function EditGlassFeatures(props) {
     setinput((prev) => ({ ...prev, [name]: value }));
   };
   // const setImage = imagess.length > 0 && imagess.split(',');
-
-  console.log('input', {
-    ...input,
-    Araray: imagess.Araray !== undefined && imagess.Araray.split(','),
-  });
 
   return (
     <div className="update">

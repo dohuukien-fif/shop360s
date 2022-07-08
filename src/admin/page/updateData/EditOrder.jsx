@@ -32,11 +32,6 @@ function EditOrderFeatures(props) {
   };
   // const setImage = imagess.length > 0 && imagess.split(',');
 
-  console.log('input', {
-    ...input,
-    Araray: imagess.Araray !== undefined && imagess.Araray.split(','),
-  });
-
   return (
     <div className="editOrder">
       <div className="editOrder_title">

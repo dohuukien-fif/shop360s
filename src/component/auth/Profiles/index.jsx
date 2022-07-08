@@ -1,21 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import InputField from '../../../component/form-control/InputFeid';
 import { yupResolver } from '@hookform/resolvers/yup';
-import NoAccountsIcon from '@mui/icons-material/NoAccounts';
-import { LinearProgress } from '@mui/material';
-import { makeStyles } from '@mui/styles';
-import { useUserContext } from './../../../component/contextApi/index';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useHistory } from 'react-router-dom';
-import * as yup from 'yup';
+import { useHistory } from 'react-router-dom';
 import swal from 'sweetalert';
-
+import * as yup from 'yup';
+import InputField from '../../../component/form-control/InputFeid';
+import { useUserContext } from './../../../component/contextApi/index';
 import './styles.scss';
+
 ProfilesFeaures.propTypes = {};
 
 function ProfilesFeaures(props) {
-  const { user, forgotPassword } = useUserContext();
+  const { forgotPassword } = useUserContext();
   const history = useHistory();
   const schema = yup.object().shape({
     email: yup.string().required('please enter your Email').email('please enter Email'),

@@ -1,7 +1,5 @@
-import { doc } from 'firebase/firestore';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { db } from '../../../firebase';
 import { useUserContext } from '../../contextApi/index';
 import RegisterForm from './../registerForm';
 // import { register } from './../../userSlice/userSlice';

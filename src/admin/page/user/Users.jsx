@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { formatPrice } from '../../../utils';
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Pagination from '@mui/material/Pagination';
 import PaginationItem from '@mui/material/PaginationItem';
 import Stack from '@mui/material/Stack';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { collection, onSnapshot } from 'firebase/firestore';
+import React, { useEffect } from 'react';
+import { FiSearch } from 'react-icons/fi';
 import { db } from '../../../firebase';
 import './user.scss';
-import { FiSearch } from 'react-icons/fi';
+
 UsersFeatures.propTypes = {};
 
 function UsersFeatures(props) {

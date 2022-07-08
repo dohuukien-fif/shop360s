@@ -21,7 +21,7 @@ function EditProductFeatures(props) {
 
   console.log('productId', productId);
 
-  const { product, loading } = useUpdateProduct(productId);
+  const { product } = useUpdateProduct(productId);
 
   console.log(product);
 

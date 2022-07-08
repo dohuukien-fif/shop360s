@@ -46,7 +46,7 @@ RegisterForm.propTypes = {
 };
 
 function RegisterForm(props) {
-  const { user, PhotoUser, data, loading } = useUserContext();
+  const { loading } = useUserContext();
   const classes = useStyles();
   const { onSubmit, error } = props;
   const schema = yup.object().shape({

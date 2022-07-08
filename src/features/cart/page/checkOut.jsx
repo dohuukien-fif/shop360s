@@ -8,7 +8,7 @@ import LoadingFeatues from '../../../component/loading';
 import { AddOrder } from '../cartSlice/checkOuts';
 import Deloy from '../formInformation/deloy';
 import DeloyCheck from '../formInformation/deloyCheck';
-import { cartInformationSelector, cartItemTotal, cartTotalSelector } from './../cartSelector';
+import { cartInformationSelector, cartTotalSelector } from './../cartSelector';
 import { removeCart } from './../cartSlice';
 import { addCheckout } from './../cartSlice/checkout';
 import { addInformation } from './../cartSlice/Information';
@@ -29,8 +29,6 @@ function CartCheckout(props) {
   const cartTotals = useSelector(cartTotalSelector);
   const cartInformation = useSelector(cartInformationSelector);
 
-  console.log(cartInformation);
-  const cartItemTotals = useSelector(cartItemTotal);
   const handleClickOpens = () => {
     setOpens(true);
     setOpen(false);

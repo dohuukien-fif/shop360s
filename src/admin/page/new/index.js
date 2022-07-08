@@ -1,23 +1,20 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import axios from 'axios';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { useForm } from 'react-hook-form';
+import * as yup from 'yup';
+import LoadingFileImage from '../../../component/loading/loadingFileImage';
+import { uid } from '../../../utils';
 import InputFied from './../../../component/form-control/InputFeid/index';
 import TextField from './../../../component/form-control/textFeild/index';
-import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
-import * as yup from 'yup';
-import { yupResolver } from '@hookform/resolvers/yup';
 import './styles.scss';
-import { async } from '@firebase/util';
-import { uid } from '../../../utils';
-import axios from 'axios';
-import LoadingFileImage from '../../../component/loading/loadingFileImage';
 NewFeatures.propTypes = {};
 
 function NewFeatures(props) {
   const [fileImage, setFileImages] = React.useState('');
-  const [file, setFile] = React.useState();
+
   const [LoadingfileImage, setLoadingfileImage] = React.useState(false);
-  const { onSubmit, error } = props;
+
   const [image, setfile] = React.useState('');
 
   const id = uid();
@@ -36,16 +33,7 @@ function NewFeatures(props) {
     },
     resolver: yupResolver(schema),
   });
-  const handleChangeFiles = (e) => {
-    const file = e.target.files;
 
-    const reader = new FileReader();
-    reader.readAsDataURL(file[0]);
-    reader.onload = (e) => {
-      setfile(e.target.result);
-      localStorage.setItem('fileImage', JSON.stringify(e.target.result));
-    };
-  };
   const date = new Date();
 
   const DateAbove = `${date.getDate()}/${date.getMonth() + 1}/${date.getFullYear()}`;

@@ -1,8 +1,8 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import Product from './../../product/Productkinhdior/index';
-
 import './styles.scss';
+
 ProductList.propTypes = {
   products: PropTypes.array,
 };

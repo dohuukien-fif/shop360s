@@ -1,7 +1,7 @@
 import * as React from 'react';
 import FormManager from '../formManager';
-
 import './styles.scss';
+
 export interface ModalManagerProps {
   modal: boolean;
   handleCloseModal: () => void;

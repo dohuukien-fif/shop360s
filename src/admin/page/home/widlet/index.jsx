@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { formatPrice } from '../../../../utils';
 import { AiOutlineArrowDown, AiOutlineArrowUp } from 'react-icons/ai';
+import { formatPrice } from '../../../../utils';
 
 const WiddletMain = ({ title, price, percent, name, checkPrice, classs }) => {
   return (

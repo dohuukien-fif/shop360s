@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
 import { formatPrice } from '../../../utils';
+import './styles.scss';
 const DialogNewProduct = ({
   isdialog,
   dataDialog,

@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 import { AiOutlineDown } from 'react-icons/ai';
-import { Route, Switch, useHistory, useRouteMatch } from 'react-router-dom';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import NewApi from '../../../api/NewApi';
 import Newcontent from '../component/new';
 import Description from './contentIntoduce';
 import SideBage from './SidePageNew';
 import './styles.scss';
 function NewFeatures(props) {
-  const history = useHistory();
-
   const [DataIntroduce, setDataIntroduce] = React.useState([]);
   const [DataDescriptionn, setDataDescriptionn] = React.useState({});
   const [isAccotiton, setisAccotiton] = React.useState(false);

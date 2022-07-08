@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
-
+import React, { useRef, useState } from 'react';
 import './styles.scss';
+
 Sizes.propTypes = {};
 
 function Sizes({ item, onChange, index }) {

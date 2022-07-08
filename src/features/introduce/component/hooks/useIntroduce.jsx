@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import NewApi from '../../../../api/NewApi';
 export default function useIntroduce(productId) {
   const [product, setproduct] = useState([]);

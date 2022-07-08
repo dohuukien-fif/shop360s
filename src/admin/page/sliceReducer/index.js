@@ -1,6 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-import SalesApi from '../../../api/ProductSales';
+import { createSlice } from '@reduxjs/toolkit';
 
 const couterSlice = createSlice({
   name: 'sales',

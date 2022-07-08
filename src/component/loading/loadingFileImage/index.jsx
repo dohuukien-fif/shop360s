@@ -1,6 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
-import "./styles.scss";
+import React from 'react';
+import './styles.scss';
 const LoadingFileImage = (props) => {
   return (
     <div className="loading__file">

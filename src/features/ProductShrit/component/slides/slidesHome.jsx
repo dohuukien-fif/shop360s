@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-
 import SwiperCore, { FreeMode, Navigation, Pagination } from 'swiper';
 // import 'swiper/components/navigation/navigation.scss';
 import 'swiper/modules/navigation/navigation.scss'; // Navigation module
@@ -10,6 +9,7 @@ import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.scss'; // core Swiper
 import ShirtApi from './../../../../api/ProductShritApi';
 import { formatPrice } from './../../../../utils';
+
 SwiperCore.use([FreeMode, Pagination, Navigation]);
 SlidesHome.propTypes = {};
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { AiFillHome, AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiFillHome } from 'react-icons/ai';
 import { BsNewspaper, BsWallet } from 'react-icons/bs';
-import { FaRegUser, FaWallet } from 'react-icons/fa';
+import { FaRegUser } from 'react-icons/fa';
 import { ImPointRight } from 'react-icons/im';
 import { IoMdTrendingUp } from 'react-icons/io';
 import { MdManageAccounts } from 'react-icons/md';

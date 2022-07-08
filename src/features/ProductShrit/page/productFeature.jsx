@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
-import ProductLisst from './../component/product/productList/index';
-import ShirtApi from './../../../api/ProductShritApi';
 import { Pagination } from '@mui/material';
-import ProductFilter from './../component/product/ProductFilter/index';
-import Selekent from './../../ProductHome/component/ProductSelekent/seleken';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ShirtApi from './../../../api/ProductShritApi';
+import Selekent from './../../ProductHome/component/ProductSelekent/seleken';
+import ProductFilter from './../component/product/ProductFilter/index';
+import ProductLisst from './../component/product/productList/index';
+import './styles.scss';
 ProductFeature.propTypes = {};
 
 function ProductFeature(props) {

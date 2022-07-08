@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
 import useUpdateGlass from '../../hooks/useUpdateGlass';
-import useUpdateProduct from '../../hooks/useUpdateGlass';
 import './EditProduct.scss';
 EditGlassFeatures.propTypes = {};
 
@@ -16,7 +15,7 @@ function EditGlassFeatures(props) {
 
   console.log('productId', glassId);
 
-  const { product, loading } = useUpdateGlass(glassId);
+  const { product } = useUpdateGlass(glassId);
 
   console.log(product);
 
@@ -32,11 +31,6 @@ function EditGlassFeatures(props) {
     setinput((prev) => ({ ...prev, [name]: value }));
   };
   // const setImage = imagess.length > 0 && imagess.split(',');
-
-  console.log('input', {
-    ...input,
-    Araray: imagess.Araray !== undefined && imagess.Araray.split(','),
-  });
 
   return (
     <div className="update">

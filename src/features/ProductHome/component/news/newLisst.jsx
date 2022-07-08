@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-
-import './styles.scss';
 import NewItem from './newItem';
+import './styles.scss';
 
 NewsProduct.propTypes = {};
 

@@ -11,8 +11,7 @@ CartItem.propTypes = {};
 
 function CartItem({ items, onSubmit, removes }) {
   const { id, product, quantity, size, newSize } = items;
-  const [Sizessss, setSizessss] = useState('');
-  console.log(items);
+
   const schema = yup.object().shape({
     quantity: yup
       .number()

@@ -1,13 +1,13 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { Fragment, useState } from 'react';
 import { BsCheckCircle } from 'react-icons/bs';
 import { MdOutlineLocalShipping, MdOutlinePayment, MdOutlinePlace } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
+import OrderApi from './../../../api/OrderApi';
 import { cartCheckout } from './../../../features/cart/cartSelector';
 import { addRemoCheckout, removeCheckout } from './../../../features/cart/cartSlice/checkout';
 import { formatPrice } from './../../../utils/index';
 import LodingComponent from './../../loading/index';
 import './productOrder.scss';
-import OrderApi from './../../../api/OrderApi';
 ProductOrder.propTypes = {};
 
 function ProductOrder(props) {

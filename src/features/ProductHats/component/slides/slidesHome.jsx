@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import Slider from 'react-slick';
 import SwiperCore, { FreeMode, Navigation, Pagination } from 'swiper';
 // import 'swiper/components/navigation/navigation.scss';
 import 'swiper/modules/navigation/navigation.scss'; // Navigation module
 import 'swiper/modules/pagination/pagination.scss'; // Pagination module
+import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 import 'swiper/swiper.scss'; // core Swiper
 import HatApi from './../../../../api/ProductHatApi';
 import { formatPrice } from './../../../../utils';
-import { Swiper, SwiperSlide } from 'swiper/react/swiper-react.js';
 SwiperCore.use([FreeMode, Pagination, Navigation]);
 SlidesHome.propTypes = {};
 

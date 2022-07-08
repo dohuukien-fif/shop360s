@@ -1,11 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, useHistory } from 'react-router-dom';
-import { FiSearch } from 'react-icons/fi';
-import { Badge, IconButton } from '@mui/material';
 import { ShoppingCart } from '@mui/icons-material';
 import CloseIcon from '@mui/icons-material/Close';
 import DehazeIcon from '@mui/icons-material/Dehaze';
+import { Badge, IconButton } from '@mui/material';
+import React from 'react';
+import { FiSearch } from 'react-icons/fi';
+import { Link, useHistory } from 'react-router-dom';
 import './styles.scss';
 
 NavRight.propTypes = {};

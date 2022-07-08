@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 SortPrice.propTypes = {};
 
@@ -18,7 +17,9 @@ function SortPrice({ onChanges }) {
   return (
     <select id="sort_price" name="price" onChange={handleChange}>
       <option>Mới nhất</option>
-      <option value="asc">Giá thấp đến cáo</option>
+      <option v alue="asc">
+        Giá thấp đến cáo
+      </option>
       <option value="desc">Giá cao đến thấp</option>
     </select>
   );

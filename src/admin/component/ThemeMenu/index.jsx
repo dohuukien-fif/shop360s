@@ -1,15 +1,13 @@
 import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
-import { addModal } from '../../../app/theme';
-import { MdOutlineDarkMode, MdDarkMode } from 'react-icons/md';
 import { AiOutlineClose } from 'react-icons/ai';
+import { MdOutlineDarkMode } from 'react-icons/md';
+import { useDispatch } from 'react-redux';
 
 ThemeMenu.propTypes = {};
 
 function ThemeMenu({ onSubmit }) {
   const [isTheme, setisTheme] = React.useState(false);
-  const dispatch = useDispatch();
+
   const mode_settings = [
     {
       id: 'light',

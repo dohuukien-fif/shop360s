@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { formatPrice } from '../../../../utils';
 import './range.scss';
 RangePrice.propTypes = {};

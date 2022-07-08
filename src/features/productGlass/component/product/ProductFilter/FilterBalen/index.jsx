@@ -1,6 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-
+import React from 'react';
 import SortPrice from './SortQuanAu';
 
 ProductFilter.propTypes = {
@@ -13,14 +12,7 @@ function ProductFilter({ onChanges, filter }) {
       onChanges(newvalue);
     }
   };
-  const handleCategory = (newvalue) => {
-    if (onChanges) {
-      const newCategory = {
-        categoryName: newvalue,
-      };
-      onChanges(newCategory);
-    }
-  };
+
   return (
     <div className="content_left-trousersJeans">
       <div className="content_left-trousersJeans-right">

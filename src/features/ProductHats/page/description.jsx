@@ -23,7 +23,6 @@ function Description() {
   const [DiaLogProduct, setDiaLogProduct] = useState({});
   const {
     params: { muId },
-    url,
   } = useRouteMatch();
   const dispatch = useDispatch();
   const { product, Loading } = useDetailProduct(muId);

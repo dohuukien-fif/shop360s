@@ -1,10 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './newProduct.scss';
-import { useForm } from 'react-hook-form';
-import * as yup from 'yup';
-import Inputfeild from '../../../component/form-control/inputfiend';
 import FormNewProduct from '../../formNewProduct';
+import './newProduct.scss';
 NewproductFeatures.propTypes = {};
 
 function NewproductFeatures(props) {

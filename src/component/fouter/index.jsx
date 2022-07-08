@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import { doc, setDoc } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { BsTelephoneForward } from 'react-icons/bs';

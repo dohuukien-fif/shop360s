@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import { FormControl, NativeSelect } from '@mui/material';
 import { Box } from '@mui/system';
-import { FormControl, InputLabel, NativeSelect } from '@mui/material';
+import React from 'react';
 import './styles.scss';
 SortPrice.propTypes = {};
 

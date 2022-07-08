@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import CategoryApi from './../../../../../api/categoryShrit';
 import { FormControl, NativeSelect } from '@mui/material';
-import { Box } from '@mui/system';
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import CategoryApi from './../../../../../api/categoryShrit';
 import './styles.scss';
 FilterCategory.propTypes = {
   onChanges: PropTypes.func,

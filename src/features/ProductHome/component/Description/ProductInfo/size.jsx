@@ -16,7 +16,7 @@ function Sizes({ item, onChange, index }) {
     }));
     if (onChange) await onChange(newIndex ? item[newIndex] : '');
     console.log(newValue);
-    console.log('sizwwwwwwwwwwww', item[newIndex]);
+
     // if (curentInput.current) {
     //   clearTimeout(curentInput.current);
     // }

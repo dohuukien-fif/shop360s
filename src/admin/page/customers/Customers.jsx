@@ -1,11 +1,11 @@
 import { collection, onSnapshot } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
+import { FiSearch } from 'react-icons/fi';
+import { useHistory } from 'react-router-dom';
 import { db } from '../../../firebase';
 import { formatPrice } from '../../../utils';
-import './customers.scss';
-import { FiSearch } from 'react-icons/fi';
 import LoadingSpinner from './../../../component/loading/loadingSpinip';
-import { useHistory } from 'react-router-dom';
+import './customers.scss';
 CustomersFeatures.propTypes = {};
 
 function CustomersFeatures(props) {
@@ -16,10 +16,6 @@ function CustomersFeatures(props) {
   const [filterCustomers, setfilterCustomers] = React.useState([...customes]);
   console.log(customes, filterCustomers);
   const [data, setData] = React.useState([]);
-  const [filter, setfilter] = React.useState({
-    page: 1,
-    limit: 12,
-  });
 
   const [SearhTerm, setSearchTerm] = useState('');
   useEffect(
@@ -57,7 +53,7 @@ function CustomersFeatures(props) {
   //     page: page,
   //   }));
   // };
-  const [dataSearchs, setDataSearch] = React.useState(customes);
+
   // useEffect(() => {
   //   const fetchSearch = () => {
   //     setDataSearch(

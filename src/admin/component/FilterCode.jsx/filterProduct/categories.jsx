@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-
 import './categories.scss';
+
 Categories.propTypes = {};
 
 function Categories({ productCategories, onSubmitsCategorie }) {

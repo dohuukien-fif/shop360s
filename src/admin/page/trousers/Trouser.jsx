@@ -2,24 +2,23 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Pagination, PaginationItem, Stack } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { FaRegHandPointRight } from 'react-icons/fa';
 import { AiOutlineDoubleRight, AiOutlineHome } from 'react-icons/ai';
+import { FaRegHandPointRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import SearchNameFeatures from '../../component/FilterCode.jsx/filterProduct/filterSearchName';
 import FilterProductFeatures from '../../component/FilterCode.jsx/filterProduct/index.jsx';
 import FilterTotal from '../../component/FilterCode.jsx/filterProduct/sortPrice';
-import ProductItem from '../../component/productAdmin/productItem';
+import ProductItemTrouser from '../../component/productAdmin/ProductItemTrouser';
+import useMaxPrice from '../../hooks/useMaxPrice';
 import OrderApi from './../../../api/OrderApi';
 import TrouserApi from './../../../api/ProductTrousersApi';
-
 import useCategories from './../../hooks/useCategories';
-import useMaxPrice from '../../hooks/useMaxPrice';
-import ProductItemTrouser from '../../component/productAdmin/ProductItemTrouser';
+
 ProductFeatures.propTypes = {};
 
 function ProductFeatures(props) {
   const [dataProduct, setdataProduct] = useState([]);
-  const [Index, setIndex] = useState(0);
+
   const [filters, setfilters] = useState({
     _page: 1,
     _limit: 12,

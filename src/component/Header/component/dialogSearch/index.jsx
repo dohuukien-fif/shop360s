@@ -12,7 +12,7 @@ function DialogSearch(props) {
     SearchItem,
     setSearchItem,
     setopenSearch,
-    ref,
+
     loadingSearchs,
     CloseMiniSearch,
   } = props;

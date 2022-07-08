@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
 import useUpdateHats from '../../hooks/useUpdateHats';
-import useUpdateProduct from '../../hooks/useUpdateHats';
 import './EditProduct.scss';
 EditHatsFeatures.propTypes = {};
 
@@ -16,7 +15,7 @@ function EditHatsFeatures(props) {
 
   console.log('hatId', hatId);
 
-  const { product, loading } = useUpdateHats(hatId);
+  const { product } = useUpdateHats(hatId);
 
   console.log(product);
 
@@ -32,11 +31,6 @@ function EditHatsFeatures(props) {
     setinput((prev) => ({ ...prev, [name]: value }));
   };
   // const setImage = imagess.length > 0 && imagess.split(',');
-
-  console.log('input', {
-    ...input,
-    Araray: imagess.Araray !== undefined && imagess.Araray.split(','),
-  });
 
   return (
     <div className="update">

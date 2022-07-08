@@ -1,7 +1,7 @@
 import * as React from 'react';
-import useSales from '../hooks/useSales';
 import { useRouteMatch } from 'react-router-dom';
 import { formatPrice } from '../../../../utils';
+import useSales from '../hooks/useSales';
 import LoadingFeatures from './../../../../component/loading/index';
 import './styles.scss';
 export default function ViewCustomers(props) {

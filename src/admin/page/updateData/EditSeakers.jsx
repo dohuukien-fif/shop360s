@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
 import useUpdateSneaker from '../../hooks/useUpdateSneaker';
-import useUpdateProduct from '../../hooks/useUpdateSneaker';
 import './EditProduct.scss';
 EditSneakersFeatures.propTypes = {};
 

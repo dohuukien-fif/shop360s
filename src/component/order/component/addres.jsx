@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { memo, useState } from 'react';
 import FormAddress from './formAddress/index';
 import './styles.scss';
 

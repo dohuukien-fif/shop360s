@@ -18,7 +18,6 @@ function Description() {
   const dispatch = useDispatch();
   const {
     params: { aoId },
-    url,
   } = useRouteMatch();
 
   const { product, Loading } = useDetailProduct(aoId);

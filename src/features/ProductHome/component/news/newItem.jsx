@@ -14,6 +14,7 @@ function newItem({ items }) {
           <a href={link}>
             <img src={images} alt="" />
           </a>
+          
         </div>
       </div>
       <header className="post_header">

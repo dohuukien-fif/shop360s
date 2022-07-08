@@ -1,5 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import SearchCode from './filterCode';
 import FilterTotal from './FilterTotal';
 import './styles.scss';
@@ -9,17 +9,15 @@ FilterFeatures.propTypes = {
 
 function FilterFeatures({ onSubmits }) {
   const handleSearchCode = (value) => {
-
-    if(value ===""){
-     return window.location.reload()
-    }else{
-
-     const newValue = {
-     code: Number(value),
-    };
-    onSubmits(value !== '' ? newValue : '');
+    if (value === '') {
+      return window.location.reload();
+    } else {
+      const newValue = {
+        code: Number(value),
+      };
+      onSubmits(value !== '' ? newValue : '');
     }
-   
+
     console.log('code', value);
   };
 

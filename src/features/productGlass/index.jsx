@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Route, Switch, useRouteMatch, useLocation } from 'react-router-dom';
-import Product from './page/productFeature';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import Description from './page/description';
 import ProductBalen from './page/ProductBalenciaga';
 import ProductChannel from './page/ProductChanel';
 import ProductDior from './page/ProductDior';
 import ProductDolce from './page/ProductDolce';
+import Product from './page/productFeature';
 import ProductFendi from './page/ProductFendi';
 ProductFeatures.propTypes = {};
 

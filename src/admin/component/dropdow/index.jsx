@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiFillCaretDown, AiOutlineFileSearch, AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiFillCaretDown, AiOutlineFileSearch } from 'react-icons/ai';
 import { BiGlassesAlt } from 'react-icons/bi';
 import { BsEraserFill } from 'react-icons/bs';
 import { FaRedhat } from 'react-icons/fa';

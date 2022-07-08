@@ -1,10 +1,10 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-
+import React from 'react';
+import Categories from './categories';
 import RangePrice from './rangePrice';
 import SliderPrice from './SliderPrice';
-import Categories from './categories';
 import './styles.scss';
+
 FilterProductFeatures.propTypes = {
   onSubmits: PropTypes.func,
   SearchData: PropTypes.func,

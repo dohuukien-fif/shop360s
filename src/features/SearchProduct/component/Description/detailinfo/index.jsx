@@ -1,10 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './styles.scss';
 import { formatPrice } from './../../../../../utils';
-import Sizes from './size';
 import QuantityForm from './../../quantityForm/index';
-import Description from './description';
+import './styles.scss';
 //   product: PropTypes.array,
 // };
 
@@ -12,13 +9,13 @@ function ProductInfo({ product, onChange }) {
   const {
     price,
     originalPrice,
-    origin,
+
     Size,
     information,
-    color,
+
     name,
     promotionpencent,
-    description,
+
     instruct,
   } = product;
   const onChangeQuantity = (newvalue, value) => {

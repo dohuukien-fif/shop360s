@@ -1,10 +1,12 @@
+
+
 import axios from 'axios';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import Inputfeild from '../../../../../component/form-control/inputfiend';
 import LoadingFileImage from '../../../../../component/loading/loadingFileImage';
-
 import './styles.scss';
+
 
 export default function FormManager({ onSubmitValue, handleCloseModal }) {
   const [values, setValue] = React.useState({
@@ -12,7 +14,7 @@ export default function FormManager({ onSubmitValue, handleCloseModal }) {
     date: '',
   });
   const [fileImage, setFileImages] = React.useState('');
-  const [file, setFile] = React.useState();
+
   const [LoadingfileImage, setLoadingfileImage] = React.useState(false);
   const [isOpen, setIsOpen] = React.useState(false);
   const { register, handleSubmit, control, reset } = useForm({

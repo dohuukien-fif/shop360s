@@ -1,16 +1,14 @@
-import { async } from '@firebase/util';
 import {
   createUserWithEmailAndPassword,
-  getAuth,
   onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signOut,
   updateProfile,
 } from 'firebase/auth';
-import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage';
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { auth, db, storage } from './../../firebase';
 
@@ -26,7 +24,7 @@ export const UserContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   console.log('auth', auth);
-  const history = useHistory();
+
   useState(() => {
     setLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (res) => {

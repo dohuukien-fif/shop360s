@@ -1,6 +1,5 @@
-import ShirtApi from './../../../../api/ProductShritApi';
-import { useState, useEffect } from 'react';
 import { collection, onSnapshot } from 'firebase/firestore';
+import { useEffect, useState } from 'react';
 import { db } from '../../../../firebase';
 export default function useSales(productId) {
   const [products, setproduct] = useState([]);

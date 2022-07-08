@@ -1,14 +1,13 @@
-import { async } from '@firebase/util';
 import React, { useState } from 'react';
 import { BsCamera } from 'react-icons/bs';
-import { UserContextProvider, useUserContext } from './../../../contextApi/index';
+import { useUserContext } from './../../../contextApi/index';
 import './styles.scss';
 Account.propTypes = {};
 
 function Account(props) {
   const { user, PhotoUser, data } = useUserContext();
   const [files, setfiles] = useState('');
-  const [Loading, setLoading] = useState(false);
+
   const handleChangeFiles = (e) => {
     const file = e.target.files[0];
     if (file) {

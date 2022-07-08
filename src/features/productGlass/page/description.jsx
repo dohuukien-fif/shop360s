@@ -2,7 +2,7 @@ import Paper from '@mui/material/Paper';
 import React, { useState } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
-import { useHistory, useRouteMatch, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 import ProductInfo from '../component/Description/detailinfo/index';
 import { useUserContext } from './../../../component/contextApi/index';
 import { addTocart } from './../../cart/cartSlice';
@@ -21,7 +21,6 @@ function Description() {
   const [DiaLogProduct, setDiaLogProduct] = useState({});
   const {
     params: { kinhId },
-    url,
   } = useRouteMatch();
   const dispatch = useDispatch();
   const { user } = useUserContext();

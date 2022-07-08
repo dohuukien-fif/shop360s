@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import HatApi from './../../../../api/ProductHatApi';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import HatApi from './../../../../api/ProductHatApi';
 ChosingDiffrentProduct.propTypes = {
   product: PropTypes.object,
 };

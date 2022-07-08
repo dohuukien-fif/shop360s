@@ -13,7 +13,7 @@ LoginFeatures.propTypes = {
 
 function LoginFeatures(props) {
   const { signInUser, error } = useUserContext();
-  const history = useHistory();
+
   //   const [error, seterror] = useState();
   const handleSubmit = async (values) => {
     console.log(values);

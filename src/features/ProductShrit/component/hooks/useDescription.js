@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react';
 import ShirtApi from './../../../../api/ProductShritApi';
-import { useState, useEffect } from 'react';
 export default function useDetailProduct(productId) {
   const [product, setproduct] = useState([]);
   const [Loading, setLoading] = useState(true);

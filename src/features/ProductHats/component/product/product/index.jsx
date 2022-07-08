@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
-
-import './styles.scss';
-import { formatPrice } from './../../../../../utils/index';
-import { useHistory } from 'react-router';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
+import { formatPrice } from './../../../../../utils/index';
+import './styles.scss';
+
 Product.propTypes = {};
 
 function Product({ product }) {

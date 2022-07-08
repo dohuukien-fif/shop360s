@@ -1,7 +1,7 @@
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Pagination, PaginationItem, Stack } from '@mui/material';
-import { addDoc, collection, doc, onSnapshot, setDoc } from 'firebase/firestore';
+import { collection, doc, onSnapshot, setDoc } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { BsCalendar3 } from 'react-icons/bs';
 import { MdOutlineManageAccounts, MdOutlinePriceChange } from 'react-icons/md';
@@ -9,22 +9,17 @@ import { SiSaltstack } from 'react-icons/si';
 import { useDispatch } from 'react-redux';
 import SalesApi from '../../../api/ProductSales';
 import { db } from '../../../firebase';
-import { formatPrice } from './../../../utils';
 import FilterFeatures from '../../component/FilterCode.jsx';
 import CompletedItem from '../../component/productAdmin/CompletedItem';
 import OrderApi from './../../../api/OrderApi';
+import { formatPrice } from './../../../utils';
 import OrderItem from './../../component/productAdmin/orderItem';
 import './order.scss';
-import { addSales, Sales } from './../sliceReducer';
-import axios from 'axios';
 function OrderFeatures(props) {
-  const dispatch = useDispatch();
   const [dataProduct, setdataProduct] = useState([]);
   const [dataSales, setdataSales] = useState([]);
   const [tab, settab] = useState(1);
-  const [value, setValue] = React.useState(new Date());
-  const [Index, setIndex] = useState(0);
-  const [activeTab, setactiveTab] = useState(true);
+
   const [filters, setfilters] = useState({
     _page: 1,
     _limit: 12,

@@ -1,35 +1,29 @@
-import logo from './logo.svg';
 import { useEffect } from 'react';
-
+// import Order from './component/order/index';
+import { useSelector } from 'react-redux';
+import { Redirect, Route, Switch, useHistory, useLocation } from 'react-router-dom';
+import AdminFeatures from './admin/page/Admin';
 import './app.scss';
-import Home from './features/ProductHome/index';
-import Headers from './component/Header';
-
-import { Route, Switch, Redirect, useHistory, useLocation } from 'react-router-dom';
-import QuanFeature from './features/ProductTrousers/index';
-import AoFeature from './features/ProductShrit/index';
-import KinhFeature from './features/ProductGlass/index';
-import muFeature from './features/ProductHats/index';
-import GiayFeature from './features/ProductSneaker/index';
-import CartFeature from './features/cart/index';
 import Login from './component/auth/login';
+import ProfilesFeaures from './component/auth/Profiles';
 import Register from './component/auth/register';
-import Thongtins from './component/order/page/orderCheckout';
 import { useUserContext } from './component/contextApi/index';
-import NotFound from './component/notFound/index';
 import Fouter from './component/fouter/index';
-import SearchProduct from './features/SearchProduct/index';
+import Headers from './component/Header';
+import NotFound from './component/notFound/index';
+import Thongtins from './component/order/page/orderCheckout';
+import CartFeature from './features/cart/index';
 import IntroduceFeartures from './features/introduce/page/index';
 import NewFeatures from './features/introduce/page/new';
-import AdminFeatures from './admin/page/Admin';
-// import Order from './component/order/index';
+import KinhFeature from './features/ProductGlass/index';
+import muFeature from './features/ProductHats/index';
+import Home from './features/ProductHome/index';
+import AoFeature from './features/ProductShrit/index';
+import GiayFeature from './features/ProductSneaker/index';
+import QuanFeature from './features/ProductTrousers/index';
+import SearchProduct from './features/SearchProduct/index';
 
-import { useSelector } from 'react-redux';
-import ProfilesFeaures from './component/auth/Profiles';
 function App() {
-  const { user, registerUser, logoutUser, signInUser, loading } = useUserContext();
-  const themeReducer = useSelector((state) => state.theme);
-  const history = useHistory();
   const { pathname } = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);

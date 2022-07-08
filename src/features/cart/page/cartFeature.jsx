@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { BsCartPlus } from 'react-icons/bs';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
@@ -15,15 +15,14 @@ CartFeture.propTypes = {};
 
 function CartFeture(props) {
   const cartTotal = useSelector(cartItemTotal);
-  const cartItemsizes = useSelector((state) => state.carts.newsizes);
 
   const dispatch = useDispatch();
-  const refDebound = useRef(null);
+
   const history = useHistory();
   const cartItem = useSelector(cartItemSelector);
 
-  const { id, originalPrice, promotionPercent, shortDescription } = cartItem;
-  console.log(cartItem);
+  //const { id, originalPrice, promotionPercent, shortDescription } = cartItem;
+  // console.log(cartItem);
   //dispatch id up reduxSlice remove item
   console.log('cartItemsize', cartItem);
   const handleRemoveItem = (id) => {
@@ -45,7 +44,7 @@ function CartFeture(props) {
   //dispatch checkOut product {total , discount , product}
   const hadleSubmitCheckout = (newvalue) => {
     // const addItem = cartItem[cartItem.length - 1];
-    let arr = [];
+
     const TotalInformation = {
       sexx: cartItem,
       total: newvalue.Checout,

@@ -1,7 +1,7 @@
-import React, { useState, useEffect, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import GlassApi from './../../../../api/ProductGlassApi';
+import React, { Fragment, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import GlassApi from './../../../../api/ProductGlassApi';
 ChosingDiffrentProduct.propTypes = {
   product: PropTypes.object,
 };

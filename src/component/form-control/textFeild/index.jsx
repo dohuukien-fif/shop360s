@@ -1,6 +1,5 @@
 import * as React from 'react';
-
-import { useController, Control } from 'react-hook-form';
+import { useController } from 'react-hook-form';
 
 // export interface InputFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
 //   name: string;

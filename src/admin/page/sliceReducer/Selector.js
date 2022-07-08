@@ -1,4 +1,3 @@
-import { createSelector } from '@reduxjs/toolkit';
 export const SalesItemSelector = (state) => state.sales.dataSales;
 
 //count Number of product

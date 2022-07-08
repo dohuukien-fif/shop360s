@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import CategoryApi from './../../../../../api/categorymu';
 import { FormControl, NativeSelect } from '@mui/material';
-
+import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
+import CategoryApi from './../../../../../api/categorymu';
 import './styles.scss';
+
 FilterCategory.propTypes = {
   onChanges: PropTypes.func,
 };

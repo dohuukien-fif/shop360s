@@ -11,12 +11,11 @@ function ProductInfo({ product, onChange }) {
     price,
     originalPrice,
     origin,
-    Size,
+
     information,
     color,
     name,
     promotionpencent,
-    description,
 
     sex,
     Designs,

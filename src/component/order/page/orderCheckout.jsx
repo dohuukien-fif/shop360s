@@ -13,13 +13,12 @@ import FormAccount from './../component/formAccout';
 import Bell from './../component/notification';
 import Order from './../component/order';
 import Check from './../component/productOrder';
+import ShippingOrder from './../component/shippig';
 import ProductOrrder from './order';
 import './styles.scss';
-import ShippingOrder from './../component/shippig';
 OrderCheckou.propTypes = {};
 
 function OrderCheckou(props) {
-  const cartCheckouts = useSelector(cartCheckout);
   const [isModal, setMobal] = useState(false);
   const { user } = useUserContext();
   const history = useHistory();

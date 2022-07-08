@@ -12,8 +12,8 @@ Login.propTypes = {
 };
 
 function Login(props) {
-  const { signInUser, error, user, loading } = useUserContext();
-  const history = useHistory();
+  const { signInUser, error } = useUserContext();
+
   //   const [error, seterror] = useState();
   const handleSubmit = async (values) => {
     console.log(values);

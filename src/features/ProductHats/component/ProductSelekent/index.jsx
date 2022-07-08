@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import { Grid, Box } from '@mui/material';
+import { Box, Grid } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
+import PropTypes from 'prop-types';
+import React from 'react';
+
 selekeList.propTypes = {
   length: PropTypes.number,
 };

@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import ShirtApi from './../../../api/ProductShritApi';
 import { Pagination } from '@mui/material';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import ShirtApi from './../../../api/ProductShritApi';
+import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
+import ProductFilter from './../component/product/ProductFilter/FilterAoLacoste/index';
 import ProductLacoste from './../component/product/productList/ProductLacoste/index';
 import './stylesQuanJeans.scss';
-import ProductFilter from './../component/product/ProductFilter/FilterAoLacoste/index';
-import Seleken from './../../ProductHome/component/ProductSelekent/seleken';
 
 ProductQuanJeans.propTypes = {};
 

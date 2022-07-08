@@ -13,11 +13,15 @@ import RegisterFeatures from '../component/auth/register';
 import ProfilesFeaures from '../component/Profiles';
 import ThemeMenu from '../component/ThemeMenu';
 import { useUserContext } from './../../component/contextApi/index';
+import './../component/ThemeMenu/styles.scss';
 import './Admin.scss';
 import CustomersFeatures from './customers/Customers';
+import ViewCustomers from './customers/view';
 import GlassApiFeatures from './glass/Glass';
 import HatApiFeatures from './hats/Hats';
 import HomeFeatures from './home/Home';
+import ManagerFeatures from './manager/page/index';
+import NewFeatures from './new/index';
 import NewGlassFeatures from './newProduct/newGlass';
 import NewHatFeatues from './newProduct/newHats';
 import NewproductFeatures from './newProduct/newProduct';
@@ -39,10 +43,6 @@ import EditSearch from './updateData/EditSearch';
 import EditShirt from './updateData/EditShirts';
 import EditTrouser from './updateData/EditTrouser';
 import UsersFeatures from './user/Users';
-import './../component/ThemeMenu/styles.scss';
-import NewFeatures from './new/index';
-import ViewCustomers from './customers/view';
-import ManagerFeatures from './manager/page/index';
 AdminFeatures.propTypes = {};
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -79,9 +79,9 @@ function AdminFeatures(props) {
     } catch {}
   }
   const dates = new Date();
-  const LENGTHTODAY = lengthOrder?.filter(
-    (e) => e.day.split('/')[0] === dates.getDate().toString()
-  );
+  // const LENGTHTODAY = lengthOrder?.filter(
+  //   (e) => e.day.split('/')[0] === dates.getDate().toString()
+  // );
   const TOTALORDER = lengthOrder.reduce((total, item) => total + item.total, 0);
 
   const hadleThemeAdmin = (value) => {

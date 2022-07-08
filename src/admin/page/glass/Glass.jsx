@@ -2,19 +2,18 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { Pagination, PaginationItem, Stack } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { FaRegHandPointRight } from 'react-icons/fa';
 import { AiOutlineDoubleRight, AiOutlineHome } from 'react-icons/ai';
+import { FaRegHandPointRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import SearchNameFeatures from '../../component/FilterCode.jsx/filterProduct/filterSearchName';
 import FilterProductFeatures from '../../component/FilterCode.jsx/filterProduct/index.jsx';
 import FilterTotal from '../../component/FilterCode.jsx/filterProduct/sortPrice';
-
+import ProductItemGlass from '../../component/productAdmin/productItemGlass';
+import useMaxPrice from '../../hooks/useMaxPrice';
 import OrderApi from './../../../api/OrderApi';
 import GlassApi from './../../../api/ProductGlassApi';
-
 import useCategories from './../../hooks/useCategories';
-import useMaxPrice from '../../hooks/useMaxPrice';
-import ProductItemGlass from '../../component/productAdmin/productItemGlass';
+
 ProductFeatures.propTypes = {};
 
 function ProductFeatures(props) {
