@@ -1,72 +1,72 @@
-@use  "./../../../../../sass/" as *;
-.thumnail{
-  
-   
-    .thumnai-image{
-        width:95%;
-       margin: auto;
-     
-        & > img{
-            width: 100%;
-            height: 560px;
-            @include tablet {
-                box-shadow: $box-shadow;
-                width: 520px;
-                height: 600px;
-               
-                display: flex;
-                flex-shrink: 0;
-            }
-        }
-      
-    }
-    .thumnai-images {
-        width: 100%;
+@use './../../../../../sass/' as *;
+.thumnail {
+  .thumnai-image {
+    width: 95%;
+    margin: auto;
+
+    & > img {
+      width: 100%;
+      height: 560px;
+
+      object-fit: cover;
+      @include tablet {
+        box-shadow: $box-shadow;
+        width: 520px;
+        height: 600px;
+
         display: flex;
-     justify-content: center;
-     cursor: pointer;
-        @include tablet{
-            width: 150px;
-        }
-      & > img{
-   
-          margin-bottom: 10px;
-          width: 50px;
-          height: 76px;
-          @include tablet{
-            width: 100px;
-            height: 100px;
-          }
+        flex-shrink: 0;
       }
-    
     }
-    .selce-img{
-        display:flex;
-        justify-content: start;
-        align-items: flex-start;
-        flex-wrap: wrap;
-        width: calc(93% - 10px);
-        margin-left: -10px;
- margin-bottom: 2rem;
-      
-        & > div  {
-            width: calc(25% - 10px);
-            margin-left: 10px;
-            margin-bottom: 1rem;
-            @include tablet {
-                width: calc(60% - 10px);
-            margin-left: 10px;
-            
-            }
-        }
-        @include tablet {
-            display:flex;
-          flex-direction: column;
-        
-        }
-     }
-    @include tablet{
-        display: flex;
-        flex-direction: row-reverse;
+  }
+  .thumnai-images {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    @include tablet {
+      width: 150px;
     }
+    & > img {
+      margin-bottom: 10px;
+      width: 50px;
+      height: 76px;
+
+      object-fit: cover;
+      @include tablet {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  .selce-img {
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    width: calc(93% - 10px);
+    margin-left: -10px;
+    margin-bottom: 2rem;
+
+    & > div {
+      width: calc(25% - 10px);
+      margin-left: 10px;
+      margin-bottom: 1rem;
+      @include tablet {
+        width: calc(60% - 10px);
+        margin-left: 10px;
+      }
+      & > img {
+        object-fit: cover;
+      }
+    }
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  @include tablet {
+    display: flex;
+    flex-direction: row-reverse;
+  }
 }

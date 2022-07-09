@@ -2,20 +2,15 @@ import * as React from 'react';
 import FormManager from '../formManager';
 import './styles.scss';
 
-export interface ModalManagerProps {
-  modal: boolean;
-  handleCloseModal: () => void;
-  onSubmit: (value: any) => void;
-  closeRef: any;
-}
+// export interface ModalManagerProps {
+//   modal: boolean;
+//   handleCloseModal: () => void;
+//   onSubmit: (value: any) => void;
+//   closeRef: any;
+// }
 
-export default function ModalManager({
-  closeRef,
-  modal,
-  onSubmit,
-  handleCloseModal,
-}: ModalManagerProps) {
-  const handleSubmitForm = (value: any) => {
+export default function ModalManager({ closeRef, modal, onSubmit, handleCloseModal }) {
+  const handleSubmitForm = (value) => {
     if (onSubmit) onSubmit(value);
   };
   return (

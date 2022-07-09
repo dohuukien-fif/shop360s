@@ -25,6 +25,7 @@ import SearchProduct from './features/SearchProduct/index';
 
 function App() {
   const { pathname } = useLocation();
+  const { user } = useUserContext();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -59,8 +60,10 @@ function App() {
 
         <Route path="/Trang-chu" component={Home} />
         {/* {user === null && <Redirect to="/Trang-chu" />} */}
-        {haslogin && <Redirect from="/login" to={ISLINKREDIRECT ? LINKREDIRECT : '/Trang-chu'} />}
-        {haslogin && (
+        {user !== null && (
+          <Redirect from="/login" to={ISLINKREDIRECT ? LINKREDIRECT : '/Trang-chu'} />
+        )}
+        {user !== null && (
           <Redirect from="/register" to={ISLINKREDIRECT ? LINKREDIRECT : '/Trang-chu'} />
         )}
         <Route path="/Quan" component={QuanFeature} />

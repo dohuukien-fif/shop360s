@@ -20,7 +20,7 @@ import ViewCustomers from './customers/view';
 import GlassApiFeatures from './glass/Glass';
 import HatApiFeatures from './hats/Hats';
 import HomeFeatures from './home/Home';
-import ManagerFeatures from './manager/page/index';
+import ManagerFeatures from './managers/page/index';
 import NewFeatures from './new/index';
 import NewGlassFeatures from './newProduct/newGlass';
 import NewHatFeatues from './newProduct/newHats';

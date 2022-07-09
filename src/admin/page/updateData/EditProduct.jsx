@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import axios from 'axios';
+import React, { Fragment, useState } from 'react';
 import { FaDownload } from 'react-icons/fa';
 import { useRouteMatch } from 'react-router-dom';
+import LoadingFileImage from '../../../component/loading/loadingFileImage';
 import useUpdateProduct from '../../hooks/useUpdateProduct';
 import './EditProduct.scss';
 EditProductFeatures.propTypes = {};
@@ -9,15 +11,18 @@ function EditProductFeatures(props) {
   const {
     params: { productId },
   } = useRouteMatch();
-
-  const [imagessFile, setImagessFile] = useState();
-  const [Araray, setAraray] = useState([]);
-  const [informations, setInformaTion] = useState({});
+  const [fileImage, setFileImages] = React.useState('');
+  const [LoadingfileImage, setLoadingfileImage] = React.useState(false);
+  const [LoadingfileImageThumbnailUrl, setLoadingfileImageThumbnailUrl] = React.useState(false);
+  const [imagessFile, setImagessFile] = React.useState();
+  const [Araray, setAraray] = React.useState([]);
+  const [informations, setInformaTion] = React.useState({});
   const [sizes, setSize] = useState({});
   const [thumbnailUrl, seThumbnailUrl] = useState('');
   const [input, setinput] = useState({
     id: productId,
   });
+  
 
   console.log('productId', productId);
 
@@ -94,7 +99,79 @@ function EditProductFeatures(props) {
 
   console.log(Object.values(input).filter((e) => e !== ''));
 
+  //SET IMAGE ARRAY
+  const handleChangeImageUrlFiles = async (e) => {
+    setLoadingfileImage(true);
+    const file = e.target.files[0];
+
+    const data = new FormData();
+
+    data.append('file', file);
+    data.append('upload_preset', 'upload');
+
+    try {
+      const uploadRe = await axios.post(
+        'https://api.cloudinary.com/v1_1/huukien/image/upload',
+        data
+      );
+      console.log(data);
+      console.log(uploadRe.data);
+
+      const { url } = uploadRe.data;
+
+      console.log('url', url);
+      setFileImages(url);
+      setLoadingfileImage(false);
+    } catch (error) {}
+  };
+  //set sSIZE
+  const handleChangeSizes = (e) => {
+    const { value, name } = e.target;
+
+    setSize(value);
+  };
+  //SET IMAGE thumnairl
+  const handleChangeImageUrlFilesThumnairl = async (e) => {
+    setLoadingfileImageThumbnailUrl(true);
+    const file = e.target.files[0];
+
+    const data = new FormData();
+
+    data.append('file', file);
+    data.append('upload_preset', 'upload');
+
+    try {
+      const uploadRe = await axios.post(
+        'https://api.cloudinary.com/v1_1/huukien/image/upload',
+        data
+      );
+      console.log(data);
+      console.log(uploadRe.data);
+
+      const { url } = uploadRe.data;
+
+      console.log('url', url);
+      seThumbnailUrl(url);
+      setLoadingfileImageThumbnailUrl(false);
+    } catch (error) {}
+  };
+  const handleButtonImageArrays = () => {
+    console.log('imagessFile', imagessFile);
+    setAraray((prev) => [...prev, fileImage]);
+    setFileImages('');
+  };
   const handlebuttonData = () => {
+    const newValue  = {
+      ...newinput,
+      price: Number(newinput.price) || product.price,
+      originalPrice: Number(newinput.originalPrice) || product.originalPrice,
+
+      ...newInformation,
+    
+      size:sizes!==""?sizes.split(","):product.size,
+Araray:Araray.length >0? Araray:product.Araray,
+      thumbnailUrl:thumbnailUrl!==""?thumbnailUrl:product.thumbnailUrl,
+    }
     console.log('first', {
       ...newinput,
       price: Number(newinput.price) || product.price,
@@ -102,6 +179,7 @@ function EditProductFeatures(props) {
 
       ...newInformation,
       ...newSize,
+
       thumbnailUrl,
     });
 
@@ -307,56 +385,76 @@ function EditProductFeatures(props) {
             />
           </div>
           <div className="update__bottom-group">
-            <label>
-              ảnh mô tả: <strong>*</strong>{' '}
-            </label>
-            <input
-              type="file"
-              name="thumbnailUrl"
-              placeholder={product.thumbnailUrl}
-              id="file"
-              onChange={handleChangeThumnaiUrlFile}
-            />
-            {thumbnailUrl && (
-              <>
-                <img src={thumbnailUrl} alt={product.name} />
-              </>
-            )}
-            {!thumbnailUrl && (
-              <>
+            <div className="update__bottom-group--image--left">
+              <label>
+                Ảnh sản phẩm: <strong>*</strong>{' '}
+              </label>
+              <input
+                type="file"
+                id="file"
+                onChange={handleChangeImageUrlFiles}
+                style={{ display: 'none' }}
+              />
+              {fileImage === '' && (
                 <label htmlFor="file">
                   <span className="update__file">Upload file</span>
                 </label>
-              </>
-            )}
+              )}
+              {LoadingfileImage ? (
+                <LoadingFileImage />
+              ) : (
+                <>
+                  {' '}
+                  {fileImage !== '' && (
+                    <>
+                      <img src={fileImage} alt="" />{' '}
+                      <button type="button" onClick={handleButtonImageArrays}>
+                        creater
+                      </button>
+                    </>
+                  )}
+                </>
+              )}
+            </div>
+            <div className=" update__image--list ">
+              {Araray?.map((item, idx) => (
+                <Fragment key={idx}>
+                  <img src={item} />
+                </Fragment>
+              ))}
+            </div>
           </div>
           <div className="update__bottom-group">
             <label>
-              Ảnh sản phẩm: <strong>*</strong>{' '}
+              Ảnh Mô tả: <strong>*</strong>{' '}
             </label>
-            <input type="file" name="Araray" id="files" onChange={handleChangeImageUrlFile} />
-            {!imagessFile && (
+            <input
+              type="file"
+              name="Araray"
+              id="files"
+              onChange={handleChangeImageUrlFilesThumnairl}
+            />
+            {thumbnailUrl === '' && (
               <>
                 <label htmlFor="files">
                   <span className="update__file">Upload file</span>
                 </label>
               </>
             )}
-            {imagessFile !== undefined && (
-              <div className="update__figust">
-                <img src={imagessFile} alt={product.name} />
+            {LoadingfileImageThumbnailUrl ? (
+              <LoadingfileImage />
+            ) : (
+              <>
+                {' '}
+                {thumbnailUrl !== '' && (
+                  <div className="update__figust">
+                    <img src={imagessFile} alt={product.name} />
 
-                <button onClick={handleButtonImageArray}>Submit</button>
-              </div>
-            )}
-            <div className="update__image--list">
-              {Araray.length > 0 &&
-                Araray.map((item, idx) => (
-                  <div className="update__image">
-                    <img src={item} alt={product.name} />
+                    <button onClick={handleButtonImageArray}>Submit</button>
                   </div>
-                ))}
-            </div>
+                )}
+              </>
+            )}
           </div>
         </div>
         <div className="update__btn">

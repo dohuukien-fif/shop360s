@@ -5,12 +5,11 @@ import ManagerList from '../component/managerList';
 import ModalManager from '../component/modal';
 
 import './styles.scss';
-export interface IManagerFeaturesProps {}
 
-export default function ManagerFeatures(props: IManagerFeaturesProps) {
-  const [modal, setModal] = React.useState<boolean>(false);
+export default function ManagerFeatures(props) {
+  const [modal, setModal] = React.useState(false);
   const closeRef = React.useRef(null);
-  const data: any = [
+  const data = [
     {
       id: 1,
       userName: 'huukien',
@@ -50,13 +49,13 @@ export default function ManagerFeatures(props: IManagerFeaturesProps) {
     setModal(false);
   };
 
-  const handleSubmitValueForm = async (value: any) => {
+  const handleSubmitValueForm = async (value) => {
     await ProductApi.get(value);
 
     setModal(false);
   };
   React.useEffect(() => {
-    const hanndleWindowClose = (e: any) => {
+    const hanndleWindowClose = (e) => {
       if (e.target === closeRef.current) {
         setModal(false);
       }

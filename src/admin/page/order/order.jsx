@@ -9,7 +9,7 @@ import { SiSaltstack } from 'react-icons/si';
 import { useDispatch } from 'react-redux';
 import SalesApi from '../../../api/ProductSales';
 import { db } from '../../../firebase';
-import FilterFeatures from '../../component/FilterCode.jsx';
+import FilterFeatures from '../../component/filterCode/index';
 import CompletedItem from '../../component/productAdmin/CompletedItem';
 import OrderApi from './../../../api/OrderApi';
 import { formatPrice } from './../../../utils';

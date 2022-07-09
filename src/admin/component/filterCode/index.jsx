@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import SearchCode from './filterCode';
+import SearchCode from '../filterCode/filterCode';
 import FilterTotal from './FilterTotal';
 import './styles.scss';
 FilterFeatures.propTypes = {

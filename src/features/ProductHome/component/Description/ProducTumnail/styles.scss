@@ -45,6 +45,7 @@
       width: 50px;
       height: 76px;
 
+      object-fit: cover;
       @include tablet {
         width: 100px;
         height: 60px;
@@ -88,6 +89,8 @@
       & > img {
         height: 100px;
         cursor: pointer;
+
+        object-fit: cover;
         // object-fit: co;
         &:hover {
           opacity: 0.7;

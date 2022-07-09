@@ -5,9 +5,10 @@ import React, { useEffect, useState } from 'react';
 import { AiOutlineDoubleRight, AiOutlineHome } from 'react-icons/ai';
 import { FaRegHandPointRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import SearchNameFeatures from '../../component/FilterCode.jsx/filterProduct/filterSearchName';
-import FilterProductFeatures from '../../component/FilterCode.jsx/filterProduct/index.jsx';
-import FilterTotal from '../../component/FilterCode.jsx/filterProduct/sortPrice';
+import FilterProductFeatures from '../../component/filterCode/filterProduct';
+import SearchNameFeatures from '../../component/filterCode/filterProduct/filterSearchName';
+import FilterTotal from '../../component/filterCode/FilterTotal';
+
 import ProductItemGlass from '../../component/productAdmin/productItemGlass';
 import useMaxPrice from '../../hooks/useMaxPrice';
 import OrderApi from './../../../api/OrderApi';
