@@ -33,24 +33,26 @@ function DialogSearch(props) {
             />
           </div>
           <form onSubmit={handleSubmit}>
-            <input
-              // className={scrow && 'activeHeader'}
-              value={SearchItem}
-              type="text"
-              placeholder="Tìm kiến sản phẩm..."
-              onChange={(e) => setSearchItem(e.target.value)}
-            />
-            <button>
-              {loadingSearchs === true ? (
-                <CircularProgress
-                  // sx={{ fontSize: '10px' }}
-                  style={{ width: '18px', height: '18px', marginRight: '10px' }}
-                  color="inherit"
-                />
-              ) : (
-                <FiSearch />
-              )}
-            </button>
+            <div className="Search2__group">
+              <input
+                // className={scrow && 'activeHeader'}
+                value={SearchItem}
+                type="text"
+                placeholder="Tìm kiến sản phẩm..."
+                onChange={(e) => setSearchItem(e.target.value)}
+              />
+              <button>
+                {loadingSearchs === true ? (
+                  <CircularProgress
+                    // sx={{ fontSize: '10px' }}
+                    style={{ width: '18px', height: '18px', marginRight: '10px' }}
+                    color="inherit"
+                  />
+                ) : (
+                  <FiSearch />
+                )}
+              </button>
+            </div>
           </form>
         </div>
       </div>

@@ -81,7 +81,7 @@ function App() {
         <Route path="/admin" component={AdminFeatures} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/profile" component={ProfilesFeaures} />
+        <Route path="/Profile" component={ProfilesFeaures} />
 
         <Route component={NotFound} />
         {/* {logoutUser && <Redirect to="/" />}

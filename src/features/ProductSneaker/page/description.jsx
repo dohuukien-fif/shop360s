@@ -22,7 +22,6 @@ function Description() {
   const history = useHistory();
   const {
     params: { giayId },
-    url,
   } = useRouteMatch();
   const dispatch = useDispatch();
 

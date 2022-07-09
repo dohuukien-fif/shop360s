@@ -7,7 +7,7 @@ function Sizes({ item, onChange, index }) {
   const [isActive, setActive] = useState({
     active: undefined,
   });
-  const curentInput = useRef();
+
   const handleToggle = async (newIndex, newValue) => {
     console.log(newIndex);
     setActive((prev) => ({

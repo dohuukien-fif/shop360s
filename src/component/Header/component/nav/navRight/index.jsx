@@ -30,7 +30,16 @@ function NavRight({
 }) {
   const history = useHistory();
   const handleNavigateProfile = () => {
-    history.push('/profile');
+    history.push('/Profile');
+    setAnchorEl(false);
+  };
+  const handleNavigateInformation = () => {
+    history.push('/Thongtin');
+    setAnchorEl(false);
+  };
+  const handleNavigateLogout = () => {
+    handleLogout();
+
     setAnchorEl(false);
   };
   const handleNavigateAdmin = () => {
@@ -65,16 +74,14 @@ function NavRight({
             onClose={handleClosemenu}
           >
             <li onClick={handleNavigateProfile}>Profiles</li>
-            <li>
+            <li onClick={handleNavigateInformation}>
               {' '}
-              <Link to="/Thongtin" onClick={handleClose}>
-                Thông tin{' '}
-                {cartCheckouts.length > 0 && (
-                  <div className="icon_quantity">{cartCheckouts.length}</div>
-                )}
-              </Link>
+              Thông tin{' '}
+              {cartCheckouts.length > 0 && (
+                <div className="icon_quantity">{cartCheckouts.length}</div>
+              )}
             </li>
-            <li onClick={handleLogout}>Logout</li>
+            <li onClick={handleNavigateLogout}>Logout</li>
             <li onClick={handleNavigateAdmin}>Admin</li>
           </ul>
         )}

@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import CloseIcon from '@mui/icons-material/Close';
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 import { BsFillTrashFill } from 'react-icons/bs';
 import * as yup from 'yup';
@@ -10,7 +10,7 @@ import { formatPrice } from './../../../utils/index';
 CartItem.propTypes = {};
 
 function CartItem({ items, onSubmit, removes }) {
-  const { id, product, quantity, size, newSize } = items;
+  const { id, product, quantity, newSize } = items;
 
   const schema = yup.object().shape({
     quantity: yup

@@ -12,7 +12,7 @@ AddTocartForm.propTypes = {};
 function AddTocartForm({ item, onSubmits = null }) {
   const [values, setvalues] = useState({});
   const [eror, seteror] = useState();
-  const [Loading, setLoading] = useState(false);
+
   const schema = yup.object().shape({
     quantity: yup
       .number()

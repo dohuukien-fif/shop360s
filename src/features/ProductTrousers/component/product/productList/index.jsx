@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import React from 'react';
 import Product from './../product/index';
-import trousersApi from './../../../../../api/ProductTrousersApi';
 import './styles.scss';
 ProductList.propTypes = {
   products: PropTypes.array,

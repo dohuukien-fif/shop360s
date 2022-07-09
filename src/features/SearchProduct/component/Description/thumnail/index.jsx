@@ -6,8 +6,6 @@ ProductImage.propTypes = {
 };
 
 function ProductImage({ products }) {
-  const [state, setstate] = useState([]);
-
   // console.log(products.Araray[0]);
   // const newArray = new Array(products.Araray);
 
@@ -24,7 +22,7 @@ function ProductImage({ products }) {
   //   imgs4:
   //     'https://bizweb.dktcdn.net/thumb/small/100/347/092/products/fy0362-s4.jpg?v=1631990666777',
 
-  const { id, name, thumbnailUrl, Size, Araray, images, information } = products;
+  const { id, thumbnailUrl, Araray } = products;
   // const Images = Araray.find((item) => <>{console.log(item)}</>);
   // console.log(Images);
   const [Index, setIndex] = useState(0);

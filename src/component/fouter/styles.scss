@@ -43,7 +43,7 @@
             flex-direction: row;
             & > input {
               width: 75%;
-              height: 40px;
+              height: auto;
 
               border: none;
 
@@ -54,20 +54,11 @@
               }
             }
             & > button {
-              padding: 1.5rem;
+              padding: 10px 3px;
               background: black;
               color: white;
               border: none;
               cursor: pointer;
-              @include mobile {
-                padding: 1rem;
-              }
-              @include tablets {
-                padding: 0.7rem;
-              }
-              @include tablet {
-                padding: 0.8rem;
-              }
             }
           }
         }

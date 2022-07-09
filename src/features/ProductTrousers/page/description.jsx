@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import { Route, Switch, useRouteMatch, useHistory, useLocation } from 'react-router-dom';
-import useDetailProduct from './../component/hooks/useDescription';
-import ProductThumnail from './../component/Description/thumnail/index';
-import ProductInfo from '../component/Description/detailinfo/index';
-import './detail.scss';
-import ProductApi from '../../../api/productapi';
-import Sken from './../../ProductHome/component/ProductSelekent/index';
-import SlidesHomes from './../component/slides/slidesHome';
-import { useDispatch } from 'react-redux';
-import { addTocart } from './../../cart/cartSlice';
-import { useUserContext } from './../../../component/contextApi/index';
+import React, { useState } from 'react';
 import { AiOutlineCheckCircle } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import ProductInfo from '../component/Description/detailinfo/index';
+import { useUserContext } from './../../../component/contextApi/index';
+import { addTocart } from './../../cart/cartSlice';
+import Sken from './../../ProductHome/component/ProductSelekent/index';
+import ProductThumnail from './../component/Description/thumnail/index';
+import useDetailProduct from './../component/hooks/useDescription';
+import SlidesHomes from './../component/slides/slidesHome';
+import './detail.scss';
 function Description() {
   const { user } = useUserContext();
   const dispatch = useDispatch();
@@ -20,7 +18,6 @@ function Description() {
   const location = useLocation();
   const {
     params: { quanId },
-    url,
   } = useRouteMatch();
 
   const { product, Loading } = useDetailProduct(quanId);
